@@ -33,10 +33,8 @@ import java.util.stream.Collectors;
 @RestController
 @Log4j2
 @RequestMapping(value = "/api/v1/masterdata/taxmaster")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class TaxMasterController {
     @Autowired
-
     TaxMasterService taxMasterService;
 
     @Autowired

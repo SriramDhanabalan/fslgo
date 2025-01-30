@@ -12,11 +12,11 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class BookingResponseDTO {
-    private int statuscode;
+    private String statuscode;
     private String statusmessage;
     private List<CustomerCodeDTO> customercode;
-    private List<MilestoneDTO>  milestones;
-    private String booking_link="http://fslgo.com";
+    private List<MilestoneDTO> milestones;
+    private String booking_link;
     private List<DocumentDTO> documents;
     private List<MilestoneOriginDTO> milestone_origin;
     private List<MilestoneTransitDTO> milestone_transit;

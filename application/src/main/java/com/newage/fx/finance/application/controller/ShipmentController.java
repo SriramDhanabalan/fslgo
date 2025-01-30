@@ -1,7 +1,6 @@
 package com.newage.fx.finance.application.controller;
 
 import com.newage.fx.finance.application.dto.mapper.ShipmentPostgresMapper;
-import com.newage.fx.finance.application.dto.response.BookingResponseDTO;
 import com.newage.fx.finance.application.dto.response.ShipmentResponseDTO;
 import com.newage.fx.finance.application.dto.response.ShipmentsHeaderResponseDTO;
 import com.newage.fx.finance.domain.entity.ShipmentHeader;
@@ -35,7 +34,6 @@ import java.util.stream.Collectors;
 @RestController
 @Log4j2
 @RequestMapping(value = "/api")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class ShipmentController {
 
     @Autowired
@@ -67,7 +65,6 @@ public class ShipmentController {
         UserMaster user = userRepository.findByUserId(principal.getName());
         //    String customerCode = user.getWebUserDetails().get(0).getCustomerCode();
         long nxtCustomerId=user.getWebUserDetails().get(0).getNxtCustomerId();
-        System.out.println("nxtCustomerId "+nxtCustomerId);
 
         Page<ShipmentHeader> shipmentPage = shipmentNewPostgresService.getAllShipments(predicate, pageRequest,fromDate,toDate,filter_days,
                 //   branchId,
@@ -110,16 +107,6 @@ public class ShipmentController {
 
         ShipmentResponseDTO response = new ShipmentResponseDTO(HttpStatus.OK.value(), "Success", String.valueOf(result.getContent().size()), List.of(formattedCounts), result.getContent(),null);
         log.info("/api/v1/sales/new-shipments method getAllShipments completed successfully");
-        return ResponseEntity.ok(response);
-    }
-
-    @GetMapping(value = "/View_booking",produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getShipmentById(@RequestParam("booking_id") long id, Principal principal) {
-        log.info("Called /api/v1/sales/new-shipments method getShipmentById");
-        BookingResponseDTO response = shipmentPostgresMapper.convertEntityToDTO(shipmentNewPostgresService.getShipmentById(id));
-        response.setStatuscode(HttpStatus.OK.value());
-        response.setStatusmessage("Success");
-        log.info("/api/v1/sales/new-shipments method getShipmentById completed successfully");
         return ResponseEntity.ok(response);
     }
 

@@ -49,6 +49,8 @@ public class QSailingScheduleDetails extends EntityPathBase<SailingScheduleDetai
     //inherited
     public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
 
+    public final StringPath destinationCode = createString("destinationCode");
+
     public final NumberPath<Long> destinationId = createNumber("destinationId", Long.class);
 
     public final StringPath destinationName = createString("destinationName");
@@ -76,6 +78,8 @@ public class QSailingScheduleDetails extends EntityPathBase<SailingScheduleDetai
 
     public final StringPath note = createString("note");
 
+    public final StringPath originCode = createString("originCode");
+
     public final DateTimePath<java.util.Date> originCutOffDate = createDateTime("originCutOffDate", java.util.Date.class);
 
     public final StringPath originCutOffTime = createString("originCutOffTime");
@@ -83,6 +87,8 @@ public class QSailingScheduleDetails extends EntityPathBase<SailingScheduleDetai
     public final NumberPath<Long> originId = createNumber("originId", Long.class);
 
     public final StringPath originName = createString("originName");
+
+    public final StringPath portName = createString("portName");
 
     public final StringPath portOfdischarge = createString("portOfdischarge");
 

@@ -54,6 +54,8 @@ public class QSailingScheduleRoutings extends EntityPathBase<SailingScheduleRout
     //inherited
     public final DateTimePath<java.util.Date> lastModifiedDate = _super.lastModifiedDate;
 
+    public final EnumPath<com.newage.fx.finance.domain.enums.SailingScheduleRoutingMode> Mode = createEnum("Mode", com.newage.fx.finance.domain.enums.SailingScheduleRoutingMode.class);
+
     public final NumberPath<Long> originId = createNumber("originId", Long.class);
 
     public final StringPath originName = createString("originName");

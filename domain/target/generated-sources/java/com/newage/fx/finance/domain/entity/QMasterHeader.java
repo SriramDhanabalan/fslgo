@@ -86,7 +86,7 @@ public class QMasterHeader extends EntityPathBase<MasterHeader> {
 
     public final QMasterCarrier masterCarrierInfo;
 
-    public final QMasterContainerDetail masterContainerDetail;
+    public final ListPath<MasterContainerDetail, QMasterContainerDetail> masterContainerDetail = this.<MasterContainerDetail, QMasterContainerDetail>createList("masterContainerDetail", MasterContainerDetail.class, QMasterContainerDetail.class, PathInits.DIRECT2);
 
     public final ListPath<MasterDimensionDetail, QMasterDimensionDetail> masterDimensionDetails = this.<MasterDimensionDetail, QMasterDimensionDetail>createList("masterDimensionDetails", MasterDimensionDetail.class, QMasterDimensionDetail.class, PathInits.DIRECT2);
 
@@ -161,7 +161,6 @@ public class QMasterHeader extends EntityPathBase<MasterHeader> {
         this.customEdiDetails = inits.isInitialized("customEdiDetails") ? new QCustomEdiDetails(forProperty("customEdiDetails"), inits.get("customEdiDetails")) : null;
         this.masterAddlDetail = inits.isInitialized("masterAddlDetail") ? new QMasterAddlDetail(forProperty("masterAddlDetail"), inits.get("masterAddlDetail")) : null;
         this.masterCarrierInfo = inits.isInitialized("masterCarrierInfo") ? new QMasterCarrier(forProperty("masterCarrierInfo"), inits.get("masterCarrierInfo")) : null;
-        this.masterContainerDetail = inits.isInitialized("masterContainerDetail") ? new QMasterContainerDetail(forProperty("masterContainerDetail"), inits.get("masterContainerDetail")) : null;
         this.masterPartyDetail = inits.isInitialized("masterPartyDetail") ? new QMasterPartyDetail(forProperty("masterPartyDetail"), inits.get("masterPartyDetail")) : null;
         this.masterServiceCustomsDetail = inits.isInitialized("masterServiceCustomsDetail") ? new QMasterServiceCustomsDetail(forProperty("masterServiceCustomsDetail"), inits.get("masterServiceCustomsDetail")) : null;
         this.masterTransportDocumentAir = inits.isInitialized("masterTransportDocumentAir") ? new QMasterTransportDocumentAir(forProperty("masterTransportDocumentAir"), inits.get("masterTransportDocumentAir")) : null;

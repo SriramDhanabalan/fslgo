@@ -1,5 +1,6 @@
 package com.newage.fx.finance.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.YesNo;
 import lombok.Getter;
@@ -82,12 +83,14 @@ public class EnquiryCargoDetail extends Auditable<String> {
     private Integer noOfPackages;
 
     @Column(name = "gross_weight_kgs", nullable = false, length = 20)
+    @JsonProperty("weight")
     private Double grossWeightKg;
 
     @Column(name = "gross_weight_lbs", nullable = false, length = 20)
     private Double grossWeightLbs;
 
     @Column(name = "volume_in_cbm", nullable = false, length = 20)
+    @JsonProperty("volume")
     private Double volumeInCbm;
 
     @Column(name = "volume_in_cft", nullable = true, length = 20)
