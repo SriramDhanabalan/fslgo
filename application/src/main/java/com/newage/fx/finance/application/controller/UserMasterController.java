@@ -1,13 +1,15 @@
 package com.newage.fx.finance.application.controller;
 
-import com.newage.fx.finance.application.configuration.JwtTokenUtil;
-import com.newage.fx.finance.application.configuration.PasswordUtil;
+import java.security.Principal;
+import java.util.HashMap;
+import java.util.Map;
+
 import com.newage.fx.finance.application.dto.mapper.UserMasterMapper;
-import com.newage.fx.finance.application.dto.response.LoginResponse;
-import com.newage.fx.finance.application.dto.response.ResponseError;
-import com.newage.fx.finance.application.dto.response.UserMasterResponseDTO;
+import com.newage.fx.finance.application.dto.response.*;
 import com.newage.fx.finance.domain.entity.UserMaster;
 import com.newage.fx.finance.domain.repository.UserMasterRepository;
+import com.newage.fx.finance.domain.util.JwtTokenUtil;
+import com.newage.fx.finance.domain.util.PasswordUtil;
 import com.newage.fx.finance.service.impl.UserMasterServiceImpl;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,16 +20,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.lang.NonNull;
 import org.springframework.web.bind.annotation.*;
 
-import java.security.Principal;
-import java.util.HashMap;
-import java.util.Map;
+import lombok.AllArgsConstructor;
 
 
 
 @RestController
 @Log4j2
 @RequestMapping("/api")
-@CrossOrigin(origins = "*", maxAge = 3600)
 
 public class UserMasterController {
 	@Autowired

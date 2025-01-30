@@ -1,15 +1,19 @@
 package com.newage.fx.finance.service.client;
 
 import com.newage.fx.finance.service.client.dto.response.*;
+import com.querydsl.core.types.Predicate;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.cloud.openfeign.FeignClient;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.Date;
 import java.util.List;
@@ -74,11 +78,19 @@ public interface MasterDataServiceClient {
     @GetMapping("/api/v1/masterdata/taxmaster/{id}")
     ClientResponseDTO<TaxMasterResponse> getTaxMasterById(@PathVariable("id") Long id);
 
-    @GetMapping("/api/v1/masterdata/port/{id}")
-    ClientResponseDTO<PortResponseDTO> getPortById(@PathVariable("id") Long id);
+//    ClientResponseDTO<PortResponseDTO> getPortById(Long connectionPortId);
 
-    @GetMapping("/api/v1/masterdata/workflow/screen/filter/{screen}")
-    ClientResponseDTO<WorkFlowScreenResponseDTO> getFilteredScreenWorkFlow(@PathVariable("screen") String screen,
-                                                                           @RequestParam(value = "productName", required = false) String productName,
-                                                                           @RequestParam(value = "tosId", required = false) Long tosId);
+    //ClientResponseDTO<CFSResponseDTO> getCFSById(Long cfsId);
+
+    //  com.newage.fx.finance.application.dto.response.ClientResponseDTO<com.newage.fx.finance.application.dto.response.CFSResponseDTO> getCFSById(Long cfsId);
+
+//    @GetMapping("/api/v1/masterdata/port/{id}")
+//    ClientResponseDTO<PortResponseDTO> getPortById(@PathVariable("id") Long id);
+//
+//    ClientResponseDTO<CFSResponseDTO> getCFSById(Long cfsId);
+//
+//
+//    ClientResponseDTO<VesselResponseDTO> getVesselById(Long vesselId);
+
+
 }

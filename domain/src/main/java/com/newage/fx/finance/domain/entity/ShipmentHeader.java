@@ -221,8 +221,6 @@ public class ShipmentHeader extends Auditable<String> {
     @JoinColumn(name = "customer_code",referencedColumnName = "customer_code", foreignKey = @ForeignKey(name = "FK_WEB_USER_DETAILS_ID"))
     public WebUserDetail webUserDetail;
 
-
-
     @Version
     @Column(name = "version")
     private Long version;

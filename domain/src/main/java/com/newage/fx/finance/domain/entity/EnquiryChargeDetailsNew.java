@@ -1,6 +1,7 @@
 package com.newage.fx.finance.domain.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.ChargeType;
 import com.newage.fx.finance.domain.enums.Freight;
@@ -89,13 +90,14 @@ public class EnquiryChargeDetailsNew extends Auditable<String> {
     private Double minAmount;
 
     @Column(name = "amount_per_unit", length = 20)
-    Double amountPerUnit;
+    private  Double amountPerUnit;
 
     @Column(name = "amount")
-    Double amount;
+    private  Double amount;
 
     @Column(name = "currency_amount")
-    Double currencyAmount;
+    @JsonProperty("quotation_currency")
+    private  Double currencyAmount;
 
     @Column(name = "min_cost_amount")
     Double minCostAmount;
@@ -104,6 +106,7 @@ public class EnquiryChargeDetailsNew extends Auditable<String> {
     Double costPerUnit;
 
     @Column(name = "cost_amount")
+    @JsonProperty("quotation_amount")
     Double costAmount;
 
     @Column(name = "cost_currency_amount")

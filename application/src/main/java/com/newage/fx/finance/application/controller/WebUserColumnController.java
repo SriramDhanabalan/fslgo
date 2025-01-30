@@ -18,7 +18,6 @@ import java.util.Map;
 @Log4j2
 @RequestMapping(value = "/api")
 @Tag(name = "Web User Column", description = "Web User Column Management APIs")
-@CrossOrigin(origins = "*", maxAge = 3600)
 public class WebUserColumnController {
 
     private final WebUserColumnService webUserColumnService;
