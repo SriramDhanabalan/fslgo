@@ -16,6 +16,4 @@ public class MilestoneDTO {
     private String date;
     private String status;
     private String milestonestatus;
-    private String is_updated;
-    private String updated_message;
 }

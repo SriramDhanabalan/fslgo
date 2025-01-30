@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -160,9 +161,8 @@ public class MasterContainerDetail extends Auditable<String> {
     @JoinColumn(name = "master_id", foreignKey = @ForeignKey(name = "FK_MASTER_RATES_DETAIL_ID"))
     public MasterHeader masterHeader;
 
-    // MasterContainerDetail.java
-    @OneToOne(mappedBy = "masterContainer", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private ShipmentContainerDetail shipmentContainerDetail;
+    @OneToMany(mappedBy = "masterContainer", cascade = CascadeType.ALL)
+    private List<ShipmentContainerDetail>  shipmentContainerDetails;
 
     @Version
     @Column(name = "version")

@@ -5,6 +5,7 @@ import com.newage.fx.finance.domain.enums.*;
 import com.querydsl.core.types.Predicate;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 import java.util.List;
@@ -22,5 +23,5 @@ public interface ShipmentNewPostgresService {
                                          ShipmentType shipmentType, YesNo isTransit);
 
 
-    ShipmentHeader getShipmentById(long id);
+
 }

@@ -21,6 +21,7 @@ public class SailingScheduleConnectionDetails extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "sl_no", length = 20)

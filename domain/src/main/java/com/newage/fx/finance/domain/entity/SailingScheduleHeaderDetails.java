@@ -1,4 +1,8 @@
 package com.newage.fx.finance.domain.entity;
+
+
+
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.SailingScheduleStatus;
 import lombok.AllArgsConstructor;
@@ -21,6 +25,7 @@ public class SailingScheduleHeaderDetails extends Auditable<String> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "schedule_id", nullable = false, length = 100)
@@ -38,12 +43,14 @@ public class SailingScheduleHeaderDetails extends Auditable<String> {
     private Long originId;
 
     @Column(name = "origin_name", nullable = false, length = 100)
+    @JsonProperty("origin")
     private String originName;
 
     @Column(name = "destination_id", nullable = false, length = 20)
     private Long destinationId;
 
     @Column(name = "destination_name", nullable = false, length = 100)
+    @JsonProperty("designation")
     private String destinationName;
 
     @Column(name = "service", length = 30)
@@ -139,5 +146,6 @@ public class SailingScheduleHeaderDetails extends Auditable<String> {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "headerDetails", cascade = CascadeType.ALL)
     private List<SailingScheduleMappedShipments> scheduleMappedShipments = new ArrayList();
+
 
 }

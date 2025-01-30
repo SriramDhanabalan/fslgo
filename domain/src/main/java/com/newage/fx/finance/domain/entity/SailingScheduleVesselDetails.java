@@ -16,7 +16,7 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "nxt_sailing_schedule_vessel_details")
+@Table(name = "sailing_schedule_vessel_details")
 public class SailingScheduleVesselDetails extends Auditable<String> {
 
     @Id
@@ -99,17 +99,12 @@ public class SailingScheduleVesselDetails extends Auditable<String> {
     @Column(name = "schedule_uid", nullable = false, length = 20)
     private Long ScheduleId;
 
-
-
-
-
-
-
     @OneToMany(mappedBy = "sailingScheduleVesselDetails", cascade = CascadeType.ALL)
     private List<SailingScheduleDetails> sailingScheduleDetails = new ArrayList();
 
     @Version
     @Column(name = "version")
     private long version;
+
 
 }
