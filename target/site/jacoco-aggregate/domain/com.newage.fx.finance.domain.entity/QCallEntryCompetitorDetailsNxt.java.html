@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QCallEntryCompetitorDetailsNxt.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QCallEntryCompetitorDetailsNxt.java</span></div><h1>QCallEntryCompetitorDetailsNxt.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCallEntryCompetitorDetailsNxt is a Querydsl query type for CallEntryCompetitorDetailsNxt
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QCallEntryCompetitorDetailsNxt extends EntityPathBase&lt;CallEntryCompetitorDetailsNxt&gt; {
+
+    private static final long serialVersionUID = -1312784871L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QCallEntryCompetitorDetailsNxt callEntryCompetitorDetailsNxt = new QCallEntryCompetitorDetailsNxt(&quot;callEntryCompetitorDetailsNxt&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+    public final QCallEntryHeaderNxt callEntryHeader;
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; competitorId = createNumber(&quot;competitorId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L38">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L40">    public final NumberPath&lt;Long&gt; destinationId = createNumber(&quot;destinationId&quot;, Long.class);</span>
+
+<span class="nc" id="L42">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L44">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L46">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L49">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L51">    public final NumberPath&lt;Long&gt; originId = createNumber(&quot;originId&quot;, Long.class);</span>
+
+<span class="nc" id="L53">    public final StringPath rate = createString(&quot;rate&quot;);</span>
+
+<span class="nc" id="L55">    public final NumberPath&lt;Long&gt; serviceId = createNumber(&quot;serviceId&quot;, Long.class);</span>
+
+<span class="nc" id="L57">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QCallEntryCompetitorDetailsNxt(String variable) {
+<span class="nc" id="L60">        this(CallEntryCompetitorDetailsNxt.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L61">    }</span>
+
+    public QCallEntryCompetitorDetailsNxt(Path&lt;? extends CallEntryCompetitorDetailsNxt&gt; path) {
+<span class="nc" id="L64">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L65">    }</span>
+
+    public QCallEntryCompetitorDetailsNxt(PathMetadata metadata) {
+<span class="nc" id="L68">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L69">    }</span>
+
+    public QCallEntryCompetitorDetailsNxt(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L72">        this(CallEntryCompetitorDetailsNxt.class, metadata, inits);</span>
+<span class="nc" id="L73">    }</span>
+
+    public QCallEntryCompetitorDetailsNxt(Class&lt;? extends CallEntryCompetitorDetailsNxt&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L76">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L77" title="All 2 branches missed.">        this.callEntryHeader = inits.isInitialized(&quot;callEntryHeader&quot;) ? new QCallEntryHeaderNxt(forProperty(&quot;callEntryHeader&quot;), inits.get(&quot;callEntryHeader&quot;)) : null;</span>
+<span class="nc" id="L78">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

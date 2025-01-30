@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CallEntryQuestionnairesResponsesNxt.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CallEntryQuestionnairesResponsesNxt.java</span></div><h1>CallEntryQuestionnairesResponsesNxt.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L13">@Setter</span>
+<span class="nc" id="L14">@NoArgsConstructor</span>
+<span class="nc" id="L15">@AllArgsConstructor</span>
+@Table(name = &quot;call_entry_questionnaires_responses&quot;)
+public class CallEntryQuestionnairesResponsesNxt extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L26">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L29">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L38">    private Long slNo;</span>
+
+    @Column(name = &quot;response_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L41">    private Long responseId;</span>
+
+    @Column(name = &quot;response&quot;, nullable = false, length = 50)
+<span class="nc" id="L44">    private String response;</span>
+
+    @ManyToOne()
+    @JoinColumn(name = &quot;questionnaire_id&quot;, foreignKey = @ForeignKey(name = &quot;fk_call_entry_question_response&quot;))
+<span class="nc" id="L48">    private CallEntryQuestionnairesNxt callEntryQuestionnaire;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CfsWareHouseHeaderDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CfsWareHouseHeaderDetails.java</span></div><h1>CfsWareHouseHeaderDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.DimensionUnit;
+import com.newage.fx.finance.domain.enums.ReceiveType;
+import com.newage.fx.finance.domain.enums.ReceivedIn;
+
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L23">@Setter</span>
+<span class="nc" id="L24">@NoArgsConstructor</span>
+<span class="nc" id="L25">@AllArgsConstructor</span>
+@Table(name = &quot;efs_cfs_warehouse_header_details&quot;)
+public class CfsWareHouseHeaderDetails extends Auditable&lt;String&gt; {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L32">    private Long id;</span>
+
+    /*Call Number*/
+    @NotNull
+    @Column(name = &quot;cfs_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L37">    private Long cfsId;</span>
+
+    @NotNull
+    @Column(name = &quot;cfs_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L41">    private String cfsName;</span>
+
+    @NotNull
+    @Column(name = &quot;receipt_id&quot;, nullable = false, length = 100)
+<span class="nc" id="L45">    private String receiptId;</span>
+
+    @Column(name = &quot;receipt_type&quot;,nullable = true)
+<span class="nc" id="L48">    private ReceiveType receiptType;</span>
+
+    @CreatedDate
+    @Column(name = &quot;received_datetime&quot;, nullable = false)
+<span class="nc" id="L52">    private Date receivedDate;</span>
+
+
+    @Column(name = &quot;received_time&quot;, nullable = false)
+<span class="nc" id="L56">    private String  receivedTime;</span>
+
+    @Column(name = &quot;customer_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L59">    private Long customerId;</span>
+
+
+    @Column(name = &quot;customer_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L63">    private String customerName;</span>
+
+
+    @Column(name = &quot;cust_ref_no&quot;, nullable = false, length = 100)
+<span class="nc" id="L67">    private String custRefNo;</span>
+
+    @Column(name = &quot;supplier_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L70">    private Long supplierId;</span>
+
+
+    @Column(name = &quot;supplier_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L74">    private String supplierName;</span>
+
+
+    @Column(name = &quot;supplier_ref_no&quot;, nullable = false, length = 100)
+<span class="nc" id="L78">    private String supplierRefNo;</span>
+
+
+    @Column(name = &quot;cfs_note&quot;, nullable = true, length = 2000)
+<span class="nc" id="L82">    private String cfsNote;</span>
+
+    @Column(name = &quot;marks_and_numbers&quot;, nullable = true, length = 2000)
+<span class="nc" id="L85">    private String marksAndNumbers;</span>
+
+    @Column(name = &quot;commodity&quot;, nullable = true, length = 2000)
+<span class="nc" id="L88">    private String commodity;</span>
+
+//    @Column(name = &quot;driver_id&quot;, nullable = true, length = 20)
+//    private Long driverId;
+
+    @NotNull
+    @Column(name = &quot;driver_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L95">    private String driverName;</span>
+
+    @NotNull
+    @Column(name = &quot;truck_no&quot;, nullable = false, length = 100)
+<span class="nc" id="L99">    private String truckNo;</span>
+
+    @Column(name = &quot;hbl_hawb_no&quot;, nullable = false, length = 100)
+<span class="nc" id="L102">    private String HBLOrHawb;</span>
+
+    @Column(name=&quot;branch_id&quot;,nullable = false)
+<span class="nc" id="L105">    private Long userBranchId;</span>
+
+    @Column(name=&quot;employee_id&quot;,nullable = false)
+<span class="nc" id="L108">    private Long userEmployeeId;</span>
+
+    @Column(name = &quot;dimension_unit&quot;, nullable = true, length = 50)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L112">    private DimensionUnit unit;</span>
+
+    @Column(name = &quot;received_in&quot;, nullable = true, length = 50)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L116">    private ReceivedIn receivedIn;</span>
+
+    @Column(name = &quot;dimension_value&quot;, nullable = true, length = 20)
+<span class="nc" id="L119">    private Integer dimensionValue;</span>
+
+<span class="nc" id="L121">    @Column(name = &quot;auto_cfs&quot;, nullable = true, length = 10)</span>
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L123">    private YesNo autoCfs = YesNo.Yes;</span>
+
+    @Column(name = &quot;manual_cfs&quot;, nullable = true, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L127">    private YesNo manualCfs;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L131">    private Long version;</span>
+
+<span class="nc" id="L133">    @OneToMany(mappedBy = &quot;headerDetails&quot;,cascade = CascadeType.ALL,orphanRemoval = true)</span>
+<span class="nc" id="L134">    private List&lt;CfsWareHouseItemInformation&gt; information = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L136">    @OneToMany(mappedBy = &quot;headerDetails&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L137">    private List&lt;CfsWareHouseDimensionDetail&gt; dimensionDetail= new ArrayList&lt;&gt;();</span>
+
+    @OneToOne (mappedBy = &quot;information&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L140">    private CfsWareHouseCustoms cfsCustoms;</span>
+
+//    @OneToOne(mappedBy = &quot;information&quot;,cascade = CascadeType.ALL)
+//    private CfsWareHouseMileStone cfsMileStone;
+
+    @OneToOne (mappedBy = &quot;information&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L146">    private CfsWareHousePackageDetail cfsPackageDetail;</span>
+
+<span class="nc" id="L148">    @OneToMany(mappedBy = &quot;headerDetails&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L149">    private List&lt;CfsWareHouseAttachment&gt; attachments = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L151">    @OneToMany(mappedBy = &quot;headerDetails&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L152">    private List&lt;CfsWareHouseShipmentMap&gt; shipmentMap = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(mappedBy = &quot;information&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L155">    private ServiceDetails serviceDetails;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

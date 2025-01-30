@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QDirectRateRequestHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QDirectRateRequestHeader.java</span></div><h1>QDirectRateRequestHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QDirectRateRequestHeader is a Querydsl query type for DirectRateRequestHeader
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QDirectRateRequestHeader extends EntityPathBase&lt;DirectRateRequestHeader&gt; {
+
+    private static final long serialVersionUID = -1205825692L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QDirectRateRequestHeader directRateRequestHeader = new QDirectRateRequestHeader(&quot;directRateRequestHeader&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+    public final QDirectRateCargoDetails cargoDetails;
+
+<span class="nc" id="L29">    public final ListPath&lt;DirectRateRequestCarrierDetail, QDirectRateRequestCarrierDetail&gt; carrier = this.&lt;DirectRateRequestCarrierDetail, QDirectRateRequestCarrierDetail&gt;createList(&quot;carrier&quot;, DirectRateRequestCarrierDetail.class, QDirectRateRequestCarrierDetail.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L31">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L34">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L36">    public final StringPath deliveryPlace = createString(&quot;deliveryPlace&quot;);</span>
+
+<span class="nc" id="L38">    public final BooleanPath deliveryRequired = createBoolean(&quot;deliveryRequired&quot;);</span>
+
+<span class="nc" id="L40">    public final StringPath designationName = createString(&quot;designationName&quot;);</span>
+
+<span class="nc" id="L42">    public final NumberPath&lt;Long&gt; destinationId = createNumber(&quot;destinationId&quot;, Long.class);</span>
+
+<span class="nc" id="L44">    public final StringPath destinationName = createString(&quot;destinationName&quot;);</span>
+
+<span class="nc" id="L46">    public final ListPath&lt;DirectAddRateDetails, QDirectAddRateDetails&gt; directAddRateDetails = this.&lt;DirectAddRateDetails, QDirectAddRateDetails&gt;createList(&quot;directAddRateDetails&quot;, DirectAddRateDetails.class, QDirectAddRateDetails.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L48">    public final StringPath emailId = createString(&quot;emailId&quot;);</span>
+
+<span class="nc" id="L50">    public final StringPath employeeName = createString(&quot;employeeName&quot;);</span>
+
+<span class="nc" id="L52">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; enquiryCreated = createEnum(&quot;enquiryCreated&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+    public final QEnquiryHeader enquiryHeader;
+
+<span class="nc" id="L56">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L58">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.JointCallStatus&gt; jointCallStatus = createEnum(&quot;jointCallStatus&quot;, com.newage.fx.finance.domain.enums.JointCallStatus.class);</span>
+
+<span class="nc" id="L60">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L63">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L65">    public final NumberPath&lt;Long&gt; originId = createNumber(&quot;originId&quot;, Long.class);</span>
+
+<span class="nc" id="L67">    public final StringPath originName = createString(&quot;originName&quot;);</span>
+
+<span class="nc" id="L69">    public final StringPath phoneNo = createString(&quot;phoneNo&quot;);</span>
+
+<span class="nc" id="L71">    public final StringPath pickupPlace = createString(&quot;pickupPlace&quot;);</span>
+
+<span class="nc" id="L73">    public final BooleanPath pickupRequired = createBoolean(&quot;pickupRequired&quot;);</span>
+
+<span class="nc" id="L75">    public final DateTimePath&lt;java.util.Date&gt; rateRequestDate = createDateTime(&quot;rateRequestDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L77">    public final StringPath rateRequestNo = createString(&quot;rateRequestNo&quot;);</span>
+
+<span class="nc" id="L79">    public final ListPath&lt;CreateRateRequest, QCreateRateRequest&gt; rateRequests = this.&lt;CreateRateRequest, QCreateRateRequest&gt;createList(&quot;rateRequests&quot;, CreateRateRequest.class, QCreateRateRequest.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L81">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.RequestFor&gt; requestFor = createEnum(&quot;requestFor&quot;, com.newage.fx.finance.domain.enums.RequestFor.class);</span>
+
+<span class="nc" id="L83">    public final StringPath serviceCode = createString(&quot;serviceCode&quot;);</span>
+
+<span class="nc" id="L85">    public final NumberPath&lt;Long&gt; serviceId = createNumber(&quot;serviceId&quot;, Long.class);</span>
+
+<span class="nc" id="L87">    public final StringPath serviceName = createString(&quot;serviceName&quot;);</span>
+
+<span class="nc" id="L89">    public final NumberPath&lt;Long&gt; tosId = createNumber(&quot;tosId&quot;, Long.class);</span>
+
+<span class="nc" id="L91">    public final StringPath tosName = createString(&quot;tosName&quot;);</span>
+
+<span class="nc" id="L93">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ImportExport&gt; tradeCode = createEnum(&quot;tradeCode&quot;, com.newage.fx.finance.domain.enums.ImportExport.class);</span>
+
+<span class="nc" id="L95">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QDirectRateRequestHeader(String variable) {
+<span class="nc" id="L98">        this(DirectRateRequestHeader.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L99">    }</span>
+
+    public QDirectRateRequestHeader(Path&lt;? extends DirectRateRequestHeader&gt; path) {
+<span class="nc" id="L102">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L103">    }</span>
+
+    public QDirectRateRequestHeader(PathMetadata metadata) {
+<span class="nc" id="L106">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L107">    }</span>
+
+    public QDirectRateRequestHeader(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L110">        this(DirectRateRequestHeader.class, metadata, inits);</span>
+<span class="nc" id="L111">    }</span>
+
+    public QDirectRateRequestHeader(Class&lt;? extends DirectRateRequestHeader&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L114">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        this.cargoDetails = inits.isInitialized(&quot;cargoDetails&quot;) ? new QDirectRateCargoDetails(forProperty(&quot;cargoDetails&quot;), inits.get(&quot;cargoDetails&quot;)) : null;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        this.enquiryHeader = inits.isInitialized(&quot;enquiryHeader&quot;) ? new QEnquiryHeader(forProperty(&quot;enquiryHeader&quot;), inits.get(&quot;enquiryHeader&quot;)) : null;</span>
+<span class="nc" id="L117">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

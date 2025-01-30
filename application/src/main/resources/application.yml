@@ -1,0 +1,116 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://database-dev-nxt.cg6mtzrdu9a8.ap-south-1.rds.amazonaws.com:5432/newagenxt_dev?currentSchema=tenant_default
+    username: dev_user
+    password: Dev_user@123
+    schemaname: tenant_default
+    hikari:
+      maximum-pool-size: 10
+  activemq:
+    broker-url: tcp://15.207.32.200:61616
+  boot:
+    admin:
+      client:
+        url: [ http://localhost:8080 ]
+        username: "admin"
+        password: "admin123"
+        instance:
+          metadata:
+            tags:
+              environment: localhost
+  application:
+    name: fx-external-service
+
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        generate_statistics: false
+        format_sql: false
+        dialect: org.hibernate.dialect.PostgreSQL81Dialect
+#        multiTenancy: SCHEMA
+    hibernate:
+      ddl-auto: none
+  data:
+    web:
+      pageable:
+        default-page-size: 20
+  liquibase:
+    changeLog: classpath:/db/changelog/changelog-master.yml
+    enabled:  false
+  freemarker:
+    suffix: .ftl
+    template-loader-path: classpath:/templates/
+
+server:
+  servlet:
+    context-path: /fslgo
+  port: 9098
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout:  600000
+        readTimeout: 600000
+        loggerLevel: FULL
+    referencedata:
+      url: https://dev.newage-nxt.com/fx-referencedata
+    notification:
+      url: https://<HOST>/fx-notification
+    auth:
+      url: https://dev.newage-nxt.com/fx-auth
+    tenants:
+      url: https://dev.newage-nxt.com/fx-multi-tenant-service
+
+freightX:
+  smtp:
+    port: 587
+    host: smtp.office365.com
+    fromEmailId: newefs@newage-global.com
+    fromEmailPassword: Ef$@Del!ver_2k20
+  env: DEV
+  url: https://<HOST>/fx-external/
+
+springdoc:
+  swagger-ui:
+    operationsSorter: alpha
+    tagsSorter: alpha
+    groups-order: asc
+    disable-swagger-default-url: true
+    docUrl: http://localhost:9098/fslgo
+
+management:
+  endpoint:
+    logfile:
+      enabled: true
+      shutdown:
+        enabled: false
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+
+logging:
+  level:
+    org:
+      hibernate:
+        stat: info
+        type:
+          descriptor:
+            sql: info
+  config: classpath:log4j2.xml
+  pattern: #  Set color log information
+    file: "%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(%5p) %clr(${PID}){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n%wEx"
+  file:
+    name: logs/application.log
+    max-history: 7
+    max-size: 10MB
+bearer:
+  authorization: Basic Nzd0cHAxN2RicHZhaWV2N282ZThkaTlwYzE6MXJrMnI0OWE5ZzExZGxhZHRoaDE3bzQ4MmUwZzl2MDl2ODBsdTY2ZzVnM2kwbXFxb2NtZA==%
+  content-type: application/x-www-form-urlencoded
+  grant_type: client_credentials
+  scope: transactions/all

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CustomMasterBlDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CustomMasterBlDetails.java</span></div><h1>CustomMasterBlDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L13">@Setter</span>
+<span class="nc" id="L14">@NoArgsConstructor</span>
+<span class="nc" id="L15">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_custom_master_bl_details&quot;)
+public class CustomMasterBlDetails {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L21">    private Long id;</span>
+
+    @Column(name = &quot;vcn&quot;)
+<span class="nc" id="L24">    private String vcn;</span>
+
+    @Column(name = &quot;obl_no&quot;)
+<span class="nc" id="L27">    private String oblNo;</span>
+
+    @Column(name = &quot;obl_date&quot;)
+<span class="nc" id="L30">    private Date oblDate;</span>
+
+    @Column(name = &quot;bl_type&quot;)
+<span class="nc" id="L33">    private String blType;</span>
+
+    @Column(name = &quot;custom_house&quot;)
+<span class="nc" id="L36">    private String customHouse;</span>
+
+    @Column(name = &quot;pieces&quot;)
+<span class="nc" id="L39">    private String pieces;</span>
+
+    @Column(name = &quot;piece_type&quot;)
+<span class="nc" id="L42">    private String pieceType;</span>
+
+    @Column(name = &quot;gross_weight&quot;)
+<span class="nc" id="L45">    private Double grossWeight;</span>
+
+    @Column(name = &quot;volume&quot;)
+<span class="nc" id="L48">    private Double volume;</span>
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_shipment_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_SHIPMENT_ID&quot;))
+<span class="nc" id="L52">    private MasterHeader masterHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

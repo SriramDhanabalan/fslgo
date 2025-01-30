@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CallEntryNxtToEfsPosting.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CallEntryNxtToEfsPosting.java</span></div><h1>CallEntryNxtToEfsPosting.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+
+import com.newage.fx.finance.domain.enums.CreateOrUpdate;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+<span class="nc" id="L19">@AllArgsConstructor</span>
+@Table(name = &quot;efs_sales_call_entry_nxt_to_efs&quot;)
+public class CallEntryNxtToEfsPosting extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L25">    private Long id;</span>
+
+    @OneToOne
+    @JoinColumn(name = &quot;call_entry_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CALL_ENTRY_ID&quot;))
+<span class="nc" id="L29">    private CallEntryHeaderNxt callEntry;</span>
+
+<span class="nc" id="L31">    @Column(name = &quot;posting_status&quot;)</span>
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L33">    private YesNo postingStatus=YesNo.No;</span>
+
+    @Column(name = &quot;posting_date_time&quot;)
+<span class="nc" id="L36">    private Date postingDateTime;</span>
+
+    @Column(name = &quot;efs_call_no&quot;)
+<span class="nc" id="L39">    private String efsCallNo;</span>
+
+<span class="nc" id="L41">    @Column(name = &quot;create_or_update&quot;)</span>
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L43">    private CreateOrUpdate createOrUpdate=CreateOrUpdate.CREATED;</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

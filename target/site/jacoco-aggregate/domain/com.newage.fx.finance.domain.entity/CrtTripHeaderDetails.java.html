@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CrtTripHeaderDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CrtTripHeaderDetails.java</span></div><h1>CrtTripHeaderDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.TripStatus;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+<span class="nc" id="L16">@Setter</span>
+@Getter
+<span class="nc" id="L18">@AllArgsConstructor</span>
+<span class="nc" id="L19">@NoArgsConstructor</span>
+@Table(name = &quot;crt_trip_detail_header&quot;)
+public class CrtTripHeaderDetails extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L26">    private Long id;</span>
+
+//    @Version
+//    @Column(name = &quot;version&quot;)
+//    private Long version;
+
+//    @Column(name = &quot;company_entity_id&quot;, length = 20)
+//    private Long companyId;
+//
+//    @Column(name = &quot;group_company_id&quot;, length = 20)
+//    private Long groupCompanyId;
+//
+//    @Column(name = &quot;branch_id&quot;, length = 20)
+//    private Long branchId;
+
+    @Column(name = &quot;trip_no&quot;, nullable = false)
+<span class="nc" id="L42">    private String tripNo;</span>
+
+    @Column(name = &quot;trip_status&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L46">    private TripStatus tripStatus;</span>
+
+<span class="nc" id="L48">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;crtHeader&quot;, cascade = CascadeType.ALL)</span>
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L50">    private List&lt;CrtTripDetails&gt; crtTripDetails = new ArrayList&lt;&gt;();</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;enquiry_detail&quot;, foreignKey = @ForeignKey(name = &quot;FK_ENQ_TRIP_ID&quot;))
+<span class="nc" id="L54">    private EnquiryHeader enquiryDetail;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

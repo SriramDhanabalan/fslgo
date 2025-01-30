@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CarrierBookingDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CarrierBookingDetails.java</span></div><h1>CarrierBookingDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+
+import com.newage.fx.finance.domain.enums.CarrierBookingStatus;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Table(name = &quot;nxt_sales_carrier_booking&quot;)
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+<span class="nc" id="L19">@AllArgsConstructor</span>
+public class CarrierBookingDetails extends Auditable&lt;String&gt; {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Column(name = &quot;service_provider&quot;, nullable = true)
+<span class="nc" id="L26">    private  String  serviceProvider;</span>
+
+    @Column(name = &quot;booking_ref_no&quot;, nullable = true)
+<span class="nc" id="L29">    private  String  carrierBookingRefNo;</span>
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;booking_current_status&quot;, nullable = true)
+<span class="nc" id="L33">    private CarrierBookingStatus bookingCurrentStatus;</span>
+
+    @Column(name = &quot;carrier_id&quot;, nullable = true)
+<span class="nc" id="L36">    private  Long  carrierId;</span>
+
+    @Column(name = &quot;carrier&quot;, nullable = true)
+<span class="nc" id="L39">    private  String  carrier;</span>
+
+    @Column(name = &quot;vessel_id&quot;, nullable = true)
+<span class="nc" id="L42">    private  Long  vesselId;</span>
+
+    @Column(name = &quot;vessel&quot;, nullable = true)
+<span class="nc" id="L45">    private  String  vessel;</span>
+
+    @Column(name = &quot;voyage&quot;, nullable = true)
+<span class="nc" id="L48">    private  String  voyage;</span>
+
+    @Column(name = &quot;carrier_contract_no&quot;, nullable = true)
+<span class="nc" id="L51">    private  String  carrierContractNo;</span>
+
+    @Column(name = &quot;place_of_receipt_id&quot;, nullable = true)
+<span class="nc" id="L54">    private  Long  placeOfReceiptId;</span>
+
+    @Column(name = &quot;place_of_delivery_id&quot;, nullable = true)
+<span class="nc" id="L57">    private  Long  placeOfDeliveryId;</span>
+
+    @Column(name = &quot;etd&quot;, nullable = true)
+<span class="nc" id="L60">    private  Date  etd;</span>
+
+    @Column(name = &quot;service_type&quot;, nullable = true)
+<span class="nc" id="L63">    private  String  serviceType;</span>
+
+<span class="nc" id="L65">    @Column(name = &quot;retry_count&quot;)</span>
+<span class="nc" id="L66">    private Integer retryCount=0;</span>
+
+    @Column(name = &quot;job_ref_no&quot;, nullable = true)   //ShipmentUid
+<span class="nc" id="L69">    private  String  jobReferenceNo;</span>
+
+    @Column(name=&quot;tenant_id&quot;)
+<span class="nc" id="L72">    private String tenantId;</span>
+
+    @Column(name=&quot;company&quot;)
+<span class="nc" id="L75">    private String company;</span>
+
+    @Column(name = &quot;branch&quot;)
+<span class="nc" id="L78">    private String branch;</span>
+
+    @Column(name = &quot;additional_request_id&quot;)
+<span class="nc" id="L81">    private String additionalRequestId;</span>
+
+<span class="nc" id="L83">    @Column(name= &quot;send_si&quot;)</span>
+<span class="nc" id="L84">    private Boolean sendSI=false;</span>
+
+    @OneToOne(mappedBy = &quot;carrierBookingDetails&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L87">    private CarrierBookingOtherInfoDetails carrierBookingOtherInfoDetails;</span>
+
+    @OneToOne(mappedBy = &quot;carrierBookingDetails&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L90">    private CarrierShipmentPartyDetails partyDetails;</span>
+
+//    @OneToOne(mappedBy = &quot;carrierBookingDetails&quot;, cascade = CascadeType.ALL)
+//    private CarrierShipmentInfoDetails infoDetails;
+
+    @OneToOne(mappedBy = &quot;carrierBookingDetails&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L96">    private CarrierShipmentCargoDetails cargoDetails;</span>
+
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_ID&quot;))
+<span class="nc" id="L101">    private ShipmentHeader shipmentHeader;</span>
+
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;sailing_schedule_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SAILING_SCHEDULE_ID&quot;))
+<span class="nc" id="L106">    private SailingScheduleHeaderDetails sailingScheduleDetails;</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

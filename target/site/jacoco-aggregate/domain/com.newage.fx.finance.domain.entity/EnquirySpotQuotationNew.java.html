@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EnquirySpotQuotationNew.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">EnquirySpotQuotationNew.java</span></div><h1>EnquirySpotQuotationNew.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.querydsl.core.annotations.QueryInit;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+<span class="nc" id="L20">@Setter</span>
+@Getter
+<span class="nc" id="L22">@AllArgsConstructor</span>
+<span class="nc" id="L23">@NoArgsConstructor</span>
+@Table(name = &quot;spotquote_header&quot;)
+public class EnquirySpotQuotationNew extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L30">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L34">    private Long version;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L37">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L40">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L43">    private Long branchId;</span>
+
+    @Column(name = &quot;enquiry_uid&quot;, length = 100,nullable = true)
+<span class="nc" id="L46">    private String enquiryUid;</span>
+
+    @NotNull
+    @NotEmpty
+    @Column(name = &quot;quotation_no&quot;, nullable = false, length = 20)
+<span class="nc" id="L51">    private String quotationNo;</span>
+
+    @NotNull
+    @Column(name = &quot;currency_id&quot;, nullable = false)
+<span class="nc" id="L55">    Long currencyId;</span>
+
+    @Column(name = &quot;currency_code&quot;)
+<span class="nc" id="L58">    private String currencyCode;</span>
+
+    @NotNull
+    @Column(name = &quot;valid_upto&quot;, nullable = false)
+<span class="nc" id="L62">    Date validUpTo;</span>
+
+    @NotNull(message = &quot;Accepted Values (Standard, LumpSum, Split)&quot;)
+    @Column(name = &quot;quote_type&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L67">    QuoteType quoteType;</span>
+
+    @Column(name = &quot;quote_amount&quot;, nullable = false, length = 20)
+<span class="nc" id="L70">    Double quoteAmount;</span>
+
+    @Column(name = &quot;buy_amount&quot;, nullable = false, length = 20)
+<span class="nc" id="L73">    Double buyAmount;</span>
+
+    @Column(name = &quot;shipment_uid&quot;, length = 100, nullable = false)
+<span class="nc" id="L76">    private String shipmentUid;</span>
+
+    @OneToOne
+    @MapsId
+    @JoinColumn(name = &quot;enquiry_id&quot;)
+    @QueryInit(&quot;*.*&quot;)
+<span class="nc" id="L82">    private EnquiryHeader enquiryDetail;</span>
+
+    @Column(name = &quot;emp_name&quot;, nullable = true, length = 100)
+<span class="nc" id="L85">    private String employeeName;</span>
+
+    @Column(name = &quot;email_id&quot;, nullable = true, length = 100)
+<span class="nc" id="L88">    private String empEmailId;</span>
+
+    @Column(name = &quot;phone_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L91">    private String empPhoneNo;</span>
+
+    @Column(name = &quot;branch_line1&quot;, nullable = true, length = 1000)
+<span class="nc" id="L94">    private String branchAddress;</span>
+
+    @Column(name = &quot;branch_line2&quot;, nullable = true, length = 1000)
+<span class="nc" id="L97">    private String branchAddress2;</span>
+
+    @Column(name = &quot;branch_line3&quot;, nullable = true, length = 1000)
+<span class="nc" id="L100">    private String branchAddress3;</span>
+
+    @Column(name = &quot;zip_code&quot;, nullable = true, length = 10)
+<span class="nc" id="L103">    private String zipCode;</span>
+
+    @Column(name = &quot;reason_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L106">    private Long reasonId;</span>
+
+    @Column(name = &quot;reason_note&quot;, nullable = true, length = 500)
+<span class="nc" id="L109">    private String reasonNote;</span>
+
+    @Column(name = &quot;approver_name&quot;, nullable = true, length = 50)
+<span class="nc" id="L112">    private String approvalName;</span>
+
+    @Column(name = &quot;approved_date&quot;, nullable = true)
+<span class="nc" id="L115">    Date approvedDate;</span>
+
+    @Column(name = &quot;approval_sent_date&quot;)
+<span class="nc" id="L118">    Date sentApprovalDate;</span>
+
+    @Column(name = &quot;booked_date&quot;)
+<span class="nc" id="L121">    Date bookedDate;</span>
+
+    @OneToMany(mappedBy = &quot;spotQuotation&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L124">    List&lt;EnquiryChargeDetailsNew&gt; chargeDetails;</span>
+
+
+<span class="nc" id="L127">    @OneToMany(fetch = FetchType.LAZY,mappedBy = &quot;spotQuotation&quot;, cascade = CascadeType.ALL,orphanRemoval = true)</span>
+<span class="nc" id="L128">    List&lt;QuotationTermsAndConditionsGeneralNotes&gt; quotationTermsAndConditionGeneralNotes = new ArrayList&lt;&gt;();</span>
+
+
+<span class="nc" id="L131">    @OneToMany(fetch = FetchType.LAZY,mappedBy = &quot;spotQuotation&quot;, cascade = CascadeType.ALL,orphanRemoval = true)</span>
+<span class="nc" id="L132">    List&lt;QuotationTermsAndConditionServiceNotes&gt; quotationTermsAndConditionServiceNotes =new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L134">    @Column(name = &quot;custom_version&quot;)</span>
+<span class="nc" id="L135">    Long customVersion = 1L;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

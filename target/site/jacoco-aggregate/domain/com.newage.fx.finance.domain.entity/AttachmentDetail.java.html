@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>AttachmentDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">AttachmentDetail.java</span></div><h1>AttachmentDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.SourceType;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+@Table(name = &quot;attachment_detail&quot;)
+public class AttachmentDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L21">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L25">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L28">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L34">    private Long branchId;</span>
+
+    @Column(name = &quot;source_type&quot;, length = 100)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L38">    private SourceType sourceType;</span>
+
+
+//    @Column(name = &quot;source_id&quot;, length = 100)
+//    private String sourceId;
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L45">    private Long slNo;</span>
+
+    @Column(name = &quot;document_type_id&quot;, length = 100)
+<span class="nc" id="L48">    private Long documentTypeId;</span>
+
+    @Column(name = &quot;document_type_name&quot;, length = 100, nullable = true)
+<span class="nc" id="L51">    private String documentTypeName;</span>
+
+    @Column(name = &quot;document_name&quot;, length = 100)
+<span class="nc" id="L54">    private String documentName;</span>
+
+    @Column(name = &quot;file_attached&quot;)
+<span class="nc" id="L57">    private byte[] file;</span>
+
+    @Column(name = &quot;reference&quot;, length = 100)//name change
+<span class="nc" id="L60">    private String documentRefNo;</span>
+
+    @Column(name = &quot;alfresco_node_id&quot;, nullable = true, length = 200)
+<span class="nc" id="L63">    private String alfrescoNodeId;</span>
+
+<span class="nc" id="L65">    @Column(name = &quot;is_protected&quot;)</span>
+<span class="nc" id="L66">    private Boolean isProtected = false;</span>
+
+    @Column(name = &quot;customs&quot;, length = 20)
+<span class="nc" id="L69">    private String customs;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L73">    private String notes;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_EVENT_SHIPMENT_ID&quot;), insertable = false, updatable = false)
+<span class="nc" id="L77">    public ShipmentHeader shipmentHeader;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_ATTACHMENT_ENQUIRY_ID&quot;), insertable = false, updatable = false)
+<span class="nc" id="L81">    EnquiryHeader enquiryDetail;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_EVENT_MASTER_ID&quot;), insertable = false, updatable = false)
+<span class="nc" id="L85">    public MasterHeader masterHeader;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;fk_call_entry_header&quot;),insertable = false, updatable = false)
+<span class="nc" id="L89">    CallEntryHeaderNxt callEntryHeader;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;fk_service_master&quot;),insertable = false, updatable = false)
+<span class="nc" id="L93">    public ServiceMasterShipmentHeader serviceMasterShipmentHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

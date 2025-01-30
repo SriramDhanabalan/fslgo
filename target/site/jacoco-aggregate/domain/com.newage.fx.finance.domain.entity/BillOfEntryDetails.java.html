@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>BillOfEntryDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">BillOfEntryDetails.java</span></div><h1>BillOfEntryDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.PassedBy;
+import com.newage.fx.finance.domain.enums.TransactionType;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_bill_of_entry&quot;)
+public class BillOfEntryDetails extends Auditable&lt;String&gt; {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;)
+<span class="nc" id="L25">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;)
+<span class="nc" id="L28">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;)
+<span class="nc" id="L31">    private Long branchId;</span>
+
+    @Column(name = &quot;declaration_no&quot;, nullable = false)
+<span class="nc" id="L34">    private String declarationNo;</span>
+
+    @Column(name = &quot;boe_no&quot;, nullable = false)
+<span class="nc" id="L37">    private String boeNO;</span>
+
+    @Column(name = &quot;boe_date&quot;)
+<span class="nc" id="L40">    private Date boeDate;</span>
+
+    @Column(name = &quot;boe_expiry_date&quot;)
+<span class="nc" id="L43">    private Date boeExpiryDate;</span>
+
+    @Column(name = &quot;boe_value&quot;)
+<span class="nc" id="L46">    private String boeValue;</span>
+
+    @Column(name = &quot;boe_invoice_no&quot;)
+<span class="nc" id="L49">    private String boeInvoiceNo;</span>
+
+    @Column(name = &quot;transaction_type&quot;, length = 100, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L53">    private TransactionType transactionType;</span>
+
+    @Column(name = &quot;amount&quot;)
+<span class="nc" id="L56">    private Double amount;</span>
+
+    @Column(name = &quot;passed_by&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L60">    private PassedBy passedBy;</span>
+
+    @Column(name = &quot;boe_id&quot;)
+<span class="nc" id="L63">    private Long boeId;</span>
+
+    @Column(name = &quot;passed_person&quot;)
+<span class="nc" id="L66">    private String passedPerson;</span>
+
+    @Column(name = &quot;process_date&quot;)
+<span class="nc" id="L69">    private Date processDate;</span>
+
+    @Column(name = &quot;receive_date&quot;)
+<span class="nc" id="L72">    private Date receiveDate;</span>
+
+    @Column(name = &quot;ack_no&quot;)
+<span class="nc" id="L75">    private String ackNo;</span>
+
+    @Column(name = &quot;ack_date&quot;)
+<span class="nc" id="L78">    private Date ackDate;</span>
+
+    @Column(name = &quot;ack_status&quot;)
+<span class="nc" id="L81">    private String ackStatus;</span>
+
+    @Column(name = &quot;note&quot;)
+<span class="nc" id="L84">    private String note;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_BILL_ENTRY_SHIPMENT_ID&quot;))
+<span class="nc" id="L88">    public ShipmentHeader shipmentHeader;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L92">    private Long version;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

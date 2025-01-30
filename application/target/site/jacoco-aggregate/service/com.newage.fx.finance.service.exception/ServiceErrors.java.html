@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ServiceErrors.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">application</a> &gt; <a href="../index.html" class="el_bundle">service</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.service.exception</a> &gt; <span class="el_source">ServiceErrors.java</span></div><h1>ServiceErrors.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.service.exception;
+
+import lombok.ToString;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.util.CollectionUtils;
+
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
+import java.util.stream.Collectors;
+
+<span class="nc" id="L12">@ToString</span>
+<span class="nc" id="L13">@Log4j2</span>
+public enum ServiceErrors {
+
+<span class="nc" id="L16">    CHART_NOT_EXISTS(&quot;FINANCE-2000&quot;, &quot;chart.not.found&quot;),</span>
+<span class="nc" id="L17">    ACCOUNT_NOT_EXISTS(&quot;FINANCE-2001&quot;, &quot;account.not.found&quot;),</span>
+<span class="nc" id="L18">    ACCOUNT_TYPE_NOT_EXISTS(&quot;FINANCE-2002&quot;, &quot;accounttype.not.found&quot;),</span>
+<span class="nc" id="L19">    HEAD_NOT_EXISTS(&quot;FINANCE-2003&quot;, &quot;head.not.found&quot;),</span>
+<span class="nc" id="L20">    GROUP_NOT_EXISTS(&quot;FINANCE-2004&quot;, &quot;group.not.found&quot;),</span>
+<span class="nc" id="L21">    SUBGROUP_NOT_EXISTS(&quot;FINANCE-2005&quot;, &quot;subgroup.not.found&quot;),</span>
+<span class="nc" id="L22">    GL_ACCOUNT_NOT_EXISTS(&quot;FINANCE-2006&quot;, &quot;glaccount.not.found&quot;),</span>
+<span class="nc" id="L23">    CHART_COMPANY_NOT_EXISTS(&quot;FINANCE-2007&quot;, &quot;chart.company.not.found&quot;),</span>
+
+<span class="nc" id="L25">    ACCOUNT_NAME_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2008&quot;, &quot;account.name.should.not.be.null.or.empty&quot;),</span>
+//    ACCOUNT_CODE_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2009&quot;, &quot;account.name.should.not.be.null.or.empty&quot;),
+
+<span class="nc" id="L28">    HEAD_NAME_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2012&quot;, &quot;head.name.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L29">    HEAD_CODE_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2013&quot;, &quot;head.code.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L30">    HEAD_CODE_SHOULD_BE_DIGITS(&quot;FINANCE-2014&quot;, &quot;head.code.should.be.digits&quot;),</span>
+<span class="nc" id="L31">    HEAD_ACCOUNT_SHOULD_NOT_NULL(&quot;FINANCE-2015&quot;, &quot;head.account.should.not.be.null.or.empty&quot;),</span>
+
+<span class="nc" id="L33">    GROUP_NAME_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2016&quot;, &quot;group.name.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L34">    GROUP_CODE_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2017&quot;, &quot;group.code.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L35">    GROUP_CODE_SHOULD_BE_DIGITS(&quot;FINANCE-2018&quot;, &quot;group.code.should.be.digits&quot;),</span>
+<span class="nc" id="L36">    GROUP_HEAD_SHOULD_NOT_NULL(&quot;FINANCE-2019&quot;, &quot;group.head.should.not.be.null.or.empty&quot;),</span>
+
+<span class="nc" id="L38">    SUBGROUP_NAME_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2020&quot;, &quot;subgroup.name.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L39">    SUBGROUP_CODE_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2021&quot;, &quot;subgroup.code.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L40">    SUBGROUP_CODE_SHOULD_BE_DIGITS(&quot;FINANCE-2022&quot;, &quot;subgroup.code.should.be.digits&quot;),</span>
+<span class="nc" id="L41">    SUBGROUP_GROUP_SHOULD_NOT_NULL(&quot;FINANCE-2023&quot;, &quot;subgroup.group.should.not.be.null.or.empty&quot;),</span>
+
+<span class="nc" id="L43">    GLACCOUNT_NAME_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2024&quot;, &quot;glaccount.name.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L44">    GLACCOUNT_CODE_SHOULD_NOT_NULL_OR_EMPTY(&quot;FINANCE-2025&quot;, &quot;glaccount.code.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L45">    GLACCOUNT_CODE_SHOULD_BE_DIGITS(&quot;FINANCE-2026&quot;, &quot;glaccount.code.should.be.digits&quot;),</span>
+<span class="nc" id="L46">    GLACCOUNT_SUBGROUP_SHOULD_NOT_NULL(&quot;FINANCE-2027&quot;, &quot;glaccount.subgroup.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L47">    GLACCOUNT_CURRENCY_SHOULD_NOT_NULL(&quot;FINANCE-2028&quot;, &quot;glaccount.currency.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L48">    GLACCOUNT_COMPANY_SHOULD_NOT_NULL(&quot;FINANCE-2029&quot;, &quot;glaccount.company.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L49">    GLACCOUNT_ACCOUNT_SHOULD_NOT_NULL(&quot;FINANCE-2030&quot;, &quot;glaccount.account.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L50">    GLACCOUNT_HEAD_SHOULD_NOT_NULL(&quot;FINANCE-2031&quot;, &quot;glaccount.head.should.not.be.null.or.empty&quot;),</span>
+<span class="nc" id="L51">    GLACCOUNT_GROUP_SHOULD_NOT_NULL(&quot;FINANCE-2032&quot;, &quot;glaccount.group.should.not.be.null.or.empty&quot;),</span>
+
+<span class="nc" id="L53">    RECORD_DELETE_RESTRICTED(&quot;FINANCE-2900&quot;, &quot;record.delete.restricted&quot;),</span>
+
+<span class="nc" id="L55">    CHARTACCOUNTS_NOT_DEFINED(&quot;FINANCE-3000&quot;, &quot;chartaccounts.not.defined&quot;),</span>
+
+<span class="nc" id="L57">    USER_NOT_DEFINED(&quot;FINANCE-4000&quot;, &quot;user.not.defined&quot;),</span>
+<span class="nc" id="L58">    UPDATED_DATE_NOT_DEFINED(&quot;FINANCE-4001&quot;, &quot;updated.date.not.defined&quot;),</span>
+<span class="nc" id="L59">    UPDATED_DATE_DO_NOT_MATCH(&quot;FINANCE-4002&quot;, &quot;updated.date.do.not.match&quot;),</span>
+
+<span class="nc" id="L61">    PARTY_IS_NOT_MAPPED_WITH_ACCOUNT(&quot;FINANCE-4003&quot;, &quot;party.is.not.mapped.with.any.account&quot;),</span>
+<span class="nc" id="L62">    SERVICE_CHARGE_NOT_MAPPED_WITH_ACCOUNT(&quot;FINANCE-4004&quot;, &quot;service.charge.is.not.mapped.with.account&quot;),</span>
+<span class="nc" id="L63">    VESSEL_ID_NOT_FOUND(&quot;FINANCE-4005&quot;, &quot;vessel.id.not.found&quot;);</span>
+
+
+
+    public final String CODE;
+    public final String KEY;
+
+<span class="nc" id="L70">    ServiceErrors ( String code, String key ) {</span>
+<span class="nc" id="L71">        this.CODE = code;</span>
+<span class="nc" id="L72">        this.KEY = key;</span>
+<span class="nc" id="L73">    }</span>
+
+    public static void validateDuplicates () {
+
+<span class="nc" id="L77">        ServiceErrors[] errorCodes = ServiceErrors.values();</span>
+<span class="nc" id="L78">        Set&lt;String&gt; codes = new HashSet&lt;&gt;();</span>
+<span class="nc" id="L79">        Set&lt;String&gt; keys = new HashSet&lt;&gt;();</span>
+
+<span class="nc" id="L81">        Set&lt;ServiceErrors&gt; duplicateKeys = Arrays.stream(errorCodes)</span>
+<span class="nc bnc" id="L82" title="All 2 branches missed.">                .filter(n -&gt; !codes.add(n.CODE))</span>
+<span class="nc" id="L83">                .collect(Collectors.toSet());</span>
+
+<span class="nc" id="L85">        Set&lt;ServiceErrors&gt; duplicateCodes = Arrays.stream(errorCodes)</span>
+<span class="nc bnc" id="L86" title="All 2 branches missed.">                .filter(n -&gt; !keys.add(n.KEY))</span>
+<span class="nc" id="L87">                .collect(Collectors.toSet());</span>
+
+<span class="nc bnc" id="L89" title="All 4 branches missed.">        if (!CollectionUtils.isEmpty(duplicateKeys) || !CollectionUtils.isEmpty(duplicateCodes)) {</span>
+<span class="nc bnc" id="L90" title="All 2 branches missed.">            if (!CollectionUtils.isEmpty(duplicateCodes))</span>
+<span class="nc" id="L91">                log.error(&quot;Found Duplicate Error Code : {} &quot;, duplicateCodes);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if (!CollectionUtils.isEmpty(duplicateKeys))</span>
+<span class="nc" id="L93">                log.error(&quot;Found Duplicate Error Key : {} &quot;, duplicateKeys);</span>
+<span class="nc" id="L94">            throw new RuntimeException(&quot;Found Duplicate Error Codes&quot;);</span>
+        }
+<span class="nc" id="L96">    }</span>
+
+    public static Set&lt;String&gt; getMessageKeys () {
+<span class="nc" id="L99">        return Arrays.stream(ServiceErrors.values())</span>
+<span class="nc" id="L100">                .map(n -&gt; n.KEY)</span>
+<span class="nc" id="L101">                .collect(Collectors.toSet());</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

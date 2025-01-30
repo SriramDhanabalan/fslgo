@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SailingScheduleRoutings.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">SailingScheduleRoutings.java</span></div><h1>SailingScheduleRoutings.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+<span class="nc" id="L17">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_sailing_schedule_routings&quot;)
+public class SailingScheduleRoutings extends Auditable&lt;String&gt; {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = &quot;mode&quot;, length = 20)
+//    private SailingScheduleRoutingMode Mode;
+
+    @Column(name = &quot;origin_id&quot;, length = 20)
+<span class="nc" id="L29">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, length = 100)
+<span class="nc" id="L32">    private String originName;</span>
+
+    @Column(name = &quot;etd&quot;, length = 100)
+<span class="nc" id="L35">    private Date etd;</span>
+
+    @Column(name = &quot;destination_id&quot;, length = 20)
+<span class="nc" id="L38">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, length = 100)
+<span class="nc" id="L41">    private String destinationName;</span>
+
+    @Column(name = &quot;eta&quot;, length = 100)
+<span class="nc" id="L44">    private Date eta;</span>
+
+    @Column(name = &quot;vessel_id&quot;, length = 20)
+<span class="nc" id="L47">    private Long vesselId;</span>
+
+    @Column(name = &quot;vessel_name&quot;, length = 20)
+<span class="nc" id="L50">    private String vesselName;</span>
+
+    @Column(name = &quot;voyage_number&quot;, length = 20)
+<span class="nc" id="L53">    private String voyageNumber;</span>
+
+    @Column(name = &quot;connection_port_id&quot;, length = 20)
+<span class="nc" id="L56">    private Long connectionPortId;</span>
+
+    @Column(name = &quot;connection_port_name&quot;, length = 100)
+<span class="nc" id="L59">    private String connectionPortName;</span>
+
+    //    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = &quot;arrival_date_time&quot;)
+<span class="nc" id="L63">    private Date arrivalDateTime;</span>
+
+    //    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = &quot;departure_date_time&quot;)
+<span class="nc" id="L67">    private Date departureDateTime;</span>
+
+    @Column(name = &quot;imo_number&quot;, length = 100)
+<span class="nc" id="L70">    private String imoNumber;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;schedule_details_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SCHEDULE_DETAILS_ID&quot;))
+<span class="nc" id="L74">    public SailingScheduleDetails sailingScheduleDetails;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L78">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

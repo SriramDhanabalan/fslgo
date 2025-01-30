@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CarrierShipmentPartyDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CarrierShipmentPartyDetails.java</span></div><h1>CarrierShipmentPartyDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L11">@Setter</span>
+<span class="nc" id="L12">@NoArgsConstructor</span>
+@Table(name = &quot;nxt_sales_carrier_party_details&quot;)
+public class CarrierShipmentPartyDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L17">    private Long id;</span>
+
+
+    @JoinColumn(name = &quot;booked_by_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CARRIER_SHIPMENT_BOOKEDBYADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L22">    private CarrierPartyAddressInfo bookedByAdd;</span>
+
+    @Column(name = &quot;booked_by_contact_person&quot;)
+<span class="nc" id="L25">    private String bookedByContactPerson;</span>
+
+//        @Column(name = &quot;price_owner_id&quot;,  length = 20)
+//        private Long priceOwnerId;
+
+    @JoinColumn(name = &quot;price_owner_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CARRIER_SHIPMENT_PRICEOWNERADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L32">    private CarrierPartyAddressInfo priceOwnerAdd;</span>
+
+    @Column(name = &quot;price_owner_contact_person&quot;)
+<span class="nc" id="L35">    private String priceOwnerContactPerson;</span>
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;carrier_booking_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CARRIER_PARTY_ID&quot;))
+<span class="nc" id="L39">    private CarrierBookingDetails carrierBookingDetails;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

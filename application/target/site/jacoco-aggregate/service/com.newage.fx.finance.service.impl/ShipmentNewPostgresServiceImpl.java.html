@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentNewPostgresServiceImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">application</a> &gt; <a href="../index.html" class="el_bundle">service</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.service.impl</a> &gt; <span class="el_source">ShipmentNewPostgresServiceImpl.java</span></div><h1>ShipmentNewPostgresServiceImpl.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.service.impl;
+
+import com.newage.fx.finance.domain.entity.QShipmentHeader;
+import com.newage.fx.finance.domain.entity.ShipmentHeader;
+import com.newage.fx.finance.domain.enums.*;
+import com.newage.fx.finance.domain.repository.ShipmentNewPostgresRepository;
+import com.newage.fx.finance.service.ShipmentNewPostgresService;
+import com.querydsl.core.types.ExpressionUtils;
+import com.querydsl.core.types.Predicate;
+import lombok.extern.log4j.Log4j2;
+import org.apache.commons.lang3.time.DateUtils;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.List;
+
+<span class="nc" id="L24">@Log4j2</span>
+@Service
+public class ShipmentNewPostgresServiceImpl implements ShipmentNewPostgresService {
+
+    private final ShipmentNewPostgresRepository shipmentNewPostgresRepository;
+
+<span class="nc" id="L30">    public ShipmentNewPostgresServiceImpl(ShipmentNewPostgresRepository shipmentNewPostgresRepository) {</span>
+<span class="nc" id="L31">        this.shipmentNewPostgresRepository = shipmentNewPostgresRepository;</span>
+<span class="nc" id="L32">    }</span>
+
+
+        @Transactional
+        @Override
+        public Page&lt;ShipmentHeader&gt; getAllShipments(Predicate predicate, Pageable pageRequest, Date fromDate, Date toDate, Integer dateFilter,
+                                                   // Long branchId,
+                                                   // String customerCode,
+                                                    long nxtCustomerId,
+                                                    String jobId, String serviceName, com.newage.fx.finance.domain.enums.Service  service, ImportExport tradeCode, YesNo coLoad, YesNo direct,
+                                                    List&lt;ShipmentStatus&gt; serviceStatus, Boolean CSDashboard, String hawbOrHbl, YesNo isServiceJob, boolean followupList, ShipmentType shipmentType, YesNo isTransit) {
+<span class="nc" id="L43">            log.info(&quot;Method getAllShipments called&quot;);</span>
+<span class="nc" id="L44">            QShipmentHeader shipment = QShipmentHeader.shipmentHeader;</span>
+<span class="nc" id="L45">            LocalDateTime now = LocalDateTime.now();</span>
+<span class="nc" id="L46">            LocalDateTime midnight = now.toLocalDate().atStartOfDay();</span>
+<span class="nc" id="L47">            Date d1 = Date.from(midnight.atZone(ZoneId.systemDefault()).toInstant());</span>
+<span class="nc" id="L48">            Date d2 = Date.from(now.atZone(ZoneId.systemDefault()).toInstant());</span>
+<span class="nc" id="L49">            Date dt1 = null;</span>
+<span class="nc" id="L50">            Date dt2 = null;</span>
+
+<span class="nc" id="L52">            boolean isdatefilter = false;</span>
+<span class="nc bnc" id="L53" title="All 2 branches missed.">            if (dateFilter!=null) {</span>
+<span class="nc" id="L54">                isdatefilter = true;</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">                if (dateFilter == DateFilter.TODAY.getDays()) {</span>
+<span class="nc" id="L56">                    dt1 = DateUtils.addDays(d1, 0);</span>
+<span class="nc" id="L57">                    dt2 = DateUtils.addDays(d2, 1);</span>
+<span class="nc bnc" id="L58" title="All 2 branches missed.">                } else if (dateFilter == DateFilter.LAST_7_DAYS.getDays()) {</span>
+<span class="nc" id="L59">                    dt1 = DateUtils.addDays(d1, -7);</span>
+<span class="nc" id="L60">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L61" title="All 2 branches missed.">                } else if (dateFilter == DateFilter.LAST_15_DAYS.getDays()) {</span>
+<span class="nc" id="L62">                    dt1 = DateUtils.addDays(d1, -15);</span>
+<span class="nc" id="L63">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L64" title="All 2 branches missed.">                } else if (dateFilter == DateFilter.LAST_30_DAYS.getDays()) {</span>
+<span class="nc" id="L65">                    dt1 = DateUtils.addDays(d1, -30);</span>
+<span class="nc" id="L66">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L67" title="All 2 branches missed.">                }else if (dateFilter == DateFilter.LAST_60_DAYS.getDays()) {</span>
+<span class="nc" id="L68">                    dt1 = DateUtils.addDays(d1, -60);</span>
+<span class="nc" id="L69">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L70" title="All 2 branches missed.">                }else if (dateFilter == DateFilter.LAST_90_DAYS.getDays()) {</span>
+<span class="nc" id="L71">                    dt1 = DateUtils.addDays(d1, -90);</span>
+<span class="nc" id="L72">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">                }else if (dateFilter == DateFilter.LAST_180_DAYS.getDays()) {</span>
+<span class="nc" id="L74">                    dt1 = DateUtils.addDays(d1, -180);</span>
+<span class="nc" id="L75">                    dt2 = DateUtils.addDays(d2, 0);</span>
+<span class="nc bnc" id="L76" title="All 2 branches missed.">                } else if (dateFilter == DateFilter.LAST_365_DAYS.getDays()) {</span>
+<span class="nc" id="L77">                    dt1 = DateUtils.addDays(d1, -365);</span>
+<span class="nc" id="L78">                    dt2 = DateUtils.addDays(d2, 0);</span>
+                }
+            }
+<span class="nc bnc" id="L81" title="All 4 branches missed.">            if (fromDate != null &amp;&amp; toDate != null) {</span>
+<span class="nc" id="L82">                isdatefilter = true;</span>
+<span class="nc" id="L83">                dt1 = DateUtils.addDays(fromDate, 0);</span>
+<span class="nc" id="L84">                dt2 = DateUtils.addDays(toDate, 1);</span>
+            }
+<span class="nc" id="L86">            log.info(&quot;dateFilter  &quot; + dateFilter);</span>
+<span class="nc" id="L87">            log.info(&quot;dt1----&quot; + dt1);</span>
+<span class="nc" id="L88">            log.info(&quot;dt2----&quot; + dt2);</span>
+
+<span class="nc" id="L90">            Collection&lt;Predicate&gt; predicates = new ArrayList();</span>
+<span class="nc" id="L91">            predicates.add(predicate);</span>
+<span class="nc bnc" id="L92" title="All 2 branches missed.">            if (direct != null) {</span>
+<span class="nc" id="L93">                predicates.add(shipment.direct.eq(direct));</span>
+            }
+<span class="nc bnc" id="L95" title="All 2 branches missed.">            if (isdatefilter) {</span>
+<span class="nc" id="L96">                predicates.add(shipment.shipmentServices.any().shipmentDate.between(dt1, dt2));</span>
+            }
+<span class="nc bnc" id="L98" title="All 2 branches missed.">            if (jobId != null) {</span>
+<span class="nc" id="L99">                predicates.add(shipment.shipmentServices.any().jobId.containsIgnoreCase(jobId).or(shipment.shipmentUid.containsIgnoreCase(jobId)));</span>
+            }
+<span class="nc bnc" id="L101" title="All 2 branches missed.">            if (hawbOrHbl != null) {</span>
+<span class="nc" id="L102">                predicates.add(shipment.addlDetail.transportDocumentNo.containsIgnoreCase(hawbOrHbl).</span>
+<span class="nc" id="L103">                        or(shipment.transportDocumentAir.documentNo.containsIgnoreCase(hawbOrHbl).</span>
+<span class="nc" id="L104">                                or(shipment.transportDocumentAir.documentNo.containsIgnoreCase(hawbOrHbl))));</span>
+            }
+<span class="nc bnc" id="L106" title="All 2 branches missed.">            if (serviceName != null) {</span>
+<span class="nc" id="L107">                predicates.add(shipment.shipmentServices.any().serviceName.containsIgnoreCase(serviceName));</span>
+            }
+
+//            if (branchId != null) {
+//                predicates.add(shipment.shipmentServices.any().branchId.eq(branchId));
+//            }
+//            if (customerCode != null) {
+//                predicates.add(shipment.webUserDetail.customerCode.eq(customerCode));
+//            }
+//
+<span class="nc bnc" id="L117" title="All 2 branches missed.">            if (nxtCustomerId!=-1) {</span>
+<span class="nc" id="L118">                predicates.add(</span>
+<span class="nc" id="L119">                                        (shipment.customerId.eq(nxtCustomerId)));</span>
+
+
+            }
+<span class="nc bnc" id="L123" title="All 2 branches missed.">            if (serviceStatus != null) {</span>
+<span class="nc" id="L124">                predicates.add(shipment.shipmentServices.any().serviceStatus.in(serviceStatus));</span>
+            }
+<span class="nc bnc" id="L126" title="All 2 branches missed.">            if (tradeCode != null) {</span>
+<span class="nc" id="L127">                predicates.add(shipment.shipmentServices.any().tradeCode.eq(tradeCode));</span>
+            }
+<span class="nc bnc" id="L129" title="All 2 branches missed.">            if (coLoad != null) {</span>
+<span class="nc" id="L130">                predicates.add(shipment.shipmentServices.any().serviceAddlDetail.coLoad.eq(coLoad));</span>
+            }
+<span class="nc bnc" id="L132" title="All 4 branches missed.">            if (CSDashboard != null &amp;&amp; CSDashboard) {</span>
+<span class="nc" id="L133">                predicates.add(shipment.shipmentServices.any().serviceStatus.notIn(ShipmentStatus.Cancelled));</span>
+<span class="nc" id="L134">                predicates.add(shipment.signOff.any().isChecked.eq(YesNo.No));</span>
+            }
+<span class="nc bnc" id="L136" title="All 2 branches missed.">            if (isServiceJob!=null){</span>
+<span class="nc" id="L137">                predicates.add(shipment.addlDetail.isServiceJob.eq(isServiceJob));</span>
+            }
+<span class="nc bnc" id="L139" title="All 2 branches missed.">            if (isTransit!=null){</span>
+<span class="nc" id="L140">                predicates.add(shipment.shipmentServices.any().otherTrade.eq(OtherTrade.Transit));</span>
+            }
+<span class="nc bnc" id="L142" title="All 2 branches missed.">            if (followupList){</span>
+<span class="nc" id="L143">                predicates.add(shipment.pickUpDeliveryDetail.plannedPickupDate.isNotNull());</span>
+            }
+<span class="nc bnc" id="L145" title="All 2 branches missed.">            if(service!=null){</span>
+<span class="nc" id="L146">                predicates.add(shipment.serviceType.eq(service));</span>
+            }
+<span class="nc bnc" id="L148" title="All 2 branches missed.">            if(shipmentType!=null){</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">                if(ShipmentType.ServiceShipment.equals(shipmentType)){</span>
+<span class="nc" id="L150">                    predicates.add(shipment.addlDetail.isServiceJob.eq(YesNo.Yes));</span>
+<span class="nc bnc" id="L151" title="All 2 branches missed.">                }else if(ShipmentType.CourierShipment.equals(shipmentType)){</span>
+<span class="nc" id="L152">                    predicates.add(shipment.addlDetail.isCourierShipment.eq(YesNo.Yes));</span>
+                }else{
+<span class="nc" id="L154">                    predicates.add(shipment.addlDetail.isServiceJob.eq(YesNo.No)</span>
+<span class="nc" id="L155">                            .and(shipment.addlDetail.isCourierShipment.eq(YesNo.No)));</span>
+                }
+            }
+<span class="nc bnc" id="L158" title="All 6 branches missed.">            if(shipmentType==null &amp;&amp; (isServiceJob==null||YesNo.No.equals(isServiceJob))){</span>
+<span class="nc" id="L159">                predicates.add(shipment.addlDetail.isServiceJob.ne(YesNo.Yes)</span>
+<span class="nc" id="L160">                        .and(shipment.addlDetail.isCourierShipment.ne(YesNo.Yes)));</span>
+            }
+
+<span class="nc" id="L163">            Predicate predicateAll = ExpressionUtils.allOf(predicates);</span>
+<span class="nc" id="L164">            return shipmentNewPostgresRepository.findAll(predicateAll, pageRequest);</span>
+        }
+
+    @Override
+    public ShipmentHeader getShipmentById(long id) {
+<span class="nc" id="L169">        return shipmentNewPostgresRepository.findById(id).orElse(null);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

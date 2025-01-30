@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>IntermediateConsigneeDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">IntermediateConsigneeDetails.java</span></div><h1>IntermediateConsigneeDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L12">@Setter</span>
+<span class="nc" id="L13">@NoArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+@Table(name = &quot;us_custom_intermediate_consignee&quot;)
+public class IntermediateConsigneeDetails {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L20">    private Long id;</span>
+
+    @Column(name = &quot;intermediate_consignee_code&quot;)
+<span class="nc" id="L23">    private String intermediateConsigneeCode;</span>
+
+    @Column(name = &quot;intermediate_consignee_id&quot;)
+<span class="nc" id="L26">    private Long intermediateConsigneeId;</span>
+
+    @JoinColumn(name = &quot;intermediate_contact_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_AES_INTERMEDIATE_CON_ID&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L30">    private UsCustomContactInfoDetails intermediateConsigneeContactInfo;</span>
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;consignee_info_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_INTERMEDIATE_CONSIGNEE_GENERAL_ID&quot;))
+<span class="nc" id="L34">    private ConsigneeDetails consigneeInfo;</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>WebReportRepository.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.repository</a> &gt; <span class="el_source">WebReportRepository.java</span></div><h1>WebReportRepository.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.repository;
+
+
+import com.newage.fx.finance.domain.entity.QWebReport;
+import com.newage.fx.finance.domain.entity.WebReport;
+import com.querydsl.core.types.dsl.StringExpression;
+import com.querydsl.core.types.dsl.StringPath;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
+import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.data.querydsl.binding.SingleValueBinding;
+import org.springframework.stereotype.Repository;
+
+import java.util.Optional;
+
+@Repository
+public interface WebReportRepository extends JpaRepository&lt;WebReport, String&gt;,
+        QuerydslPredicateExecutor&lt;WebReport&gt;, QuerydslBinderCustomizer&lt;QWebReport&gt; {
+
+    // Find WebReport by email
+    Optional&lt;WebReport&gt; findByEmail(String email);
+
+    // Find WebReport by reportId
+    Optional&lt;WebReport&gt; findByReportId(String reportId);
+
+    // Find WebReport by email and reportId
+    Optional&lt;WebReport&gt; findByEmailAndReportId(String email, String reportId);
+
+    @Override
+    default void customize(QuerydslBindings bindings, QWebReport root) {
+<span class="nc" id="L32">        bindings.excludeUnlistedProperties(true);</span>
+<span class="nc" id="L33">        bindings.including(root.userId);</span>
+<span class="nc" id="L34">        bindings.including(root.reportId);</span>
+<span class="nc" id="L35">        bindings.including(root.reportName);</span>
+<span class="nc" id="L36">        bindings.including(root.runDate);</span>
+<span class="nc" id="L37">        bindings.including(root.daily);</span>
+<span class="nc" id="L38">        bindings.including(root.weekly);</span>
+<span class="nc" id="L39">        bindings.including(root.monthly);</span>
+<span class="nc" id="L40">        bindings.including(root.email);</span>
+<span class="nc" id="L41">        bindings.including(root.status);</span>
+<span class="nc" id="L42">        bindings.including(root.filter);</span>
+<span class="nc" id="L43">        bindings.including(root.shipmentStatus);</span>
+<span class="nc" id="L44">        bindings.including(root.isDefault);</span>
+<span class="nc" id="L45">        bindings.including(root.autoReportType);</span>
+<span class="nc" id="L46">        bindings.including(root.chartType);</span>
+<span class="nc" id="L47">        bindings.including(root.graphCounts);</span>
+<span class="nc" id="L48">        bindings.including(root.menuType);</span>
+<span class="nc" id="L49">        bindings.including(root.menuLovStatus);</span>
+<span class="nc" id="L50">        bindings.including(root.presetName);</span>
+
+        // Custom String search for fields like reportName and filter
+<span class="nc" id="L53">        bindings.bind(String.class).first((SingleValueBinding&lt;StringPath, String&gt;) StringExpression::containsIgnoreCase);</span>
+<span class="nc" id="L54">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

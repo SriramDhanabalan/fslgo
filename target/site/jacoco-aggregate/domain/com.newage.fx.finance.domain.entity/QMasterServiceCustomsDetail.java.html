@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QMasterServiceCustomsDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QMasterServiceCustomsDetail.java</span></div><h1>QMasterServiceCustomsDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QMasterServiceCustomsDetail is a Querydsl query type for MasterServiceCustomsDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QMasterServiceCustomsDetail extends EntityPathBase&lt;MasterServiceCustomsDetail&gt; {
+
+    private static final long serialVersionUID = 1945236975L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QMasterServiceCustomsDetail masterServiceCustomsDetail = new QMasterServiceCustomsDetail(&quot;masterServiceCustomsDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final DateTimePath&lt;java.util.Date&gt; boeDate = createDateTime(&quot;boeDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L29">    public final StringPath boeNo = createString(&quot;boeNo&quot;);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final StringPath branchSerialNo = createString(&quot;branchSerialNo&quot;);</span>
+
+<span class="nc" id="L35">    public final NumberPath&lt;Long&gt; cargoMovement = createNumber(&quot;cargoMovement&quot;, Long.class);</span>
+
+<span class="nc" id="L37">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L39">    public final NumberPath&lt;Long&gt; consigneeId = createNumber(&quot;consigneeId&quot;, Long.class);</span>
+
+<span class="nc" id="L41">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L44">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L46">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; customsCleared = createEnum(&quot;customsCleared&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L48">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; customsConsigneeConfirmed = createEnum(&quot;customsConsigneeConfirmed&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L50">    public final DateTimePath&lt;java.util.Date&gt; customsEntryDate = createDateTime(&quot;customsEntryDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L52">    public final StringPath customsEntryNo = createString(&quot;customsEntryNo&quot;);</span>
+
+<span class="nc" id="L54">    public final StringPath customsStatus = createString(&quot;customsStatus&quot;);</span>
+
+<span class="nc" id="L56">    public final StringPath declaredValueForCustoms = createString(&quot;declaredValueForCustoms&quot;);</span>
+
+<span class="nc" id="L58">    public final DateTimePath&lt;java.util.Date&gt; exportCustomsClearanceDate = createDateTime(&quot;exportCustomsClearanceDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L60">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; finalBuyer = createEnum(&quot;finalBuyer&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L62">    public final NumberPath&lt;Long&gt; firstNotifyId = createNumber(&quot;firstNotifyId&quot;, Long.class);</span>
+
+<span class="nc" id="L64">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; forwarderHBLInvolved = createEnum(&quot;forwarderHBLInvolved&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L66">    public final NumberPath&lt;Long&gt; forwarderId = createNumber(&quot;forwarderId&quot;, Long.class);</span>
+
+<span class="nc" id="L68">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L70">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.BLType&gt; hblType = createEnum(&quot;hblType&quot;, com.newage.fx.finance.domain.enums.BLType.class);</span>
+
+<span class="nc" id="L72">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L74">    public final StringPath ieCode = createString(&quot;ieCode&quot;);</span>
+
+<span class="nc" id="L76">    public final DateTimePath&lt;java.util.Date&gt; igmDate = createDateTime(&quot;igmDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L78">    public final StringPath igmNo = createString(&quot;igmNo&quot;);</span>
+
+<span class="nc" id="L80">    public final DateTimePath&lt;java.util.Date&gt; importCustomsClearanceDate = createDateTime(&quot;importCustomsClearanceDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L82">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; isHighSeaSale = createEnum(&quot;isHighSeaSale&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L84">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L87">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+    public final QMasterHeader masterHeader;
+
+<span class="nc" id="L91">    public final DateTimePath&lt;java.util.Date&gt; mrnDate = createDateTime(&quot;mrnDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L93">    public final StringPath mrnNo = createString(&quot;mrnNo&quot;);</span>
+
+<span class="nc" id="L95">    public final NumberPath&lt;Long&gt; natureOfCargo = createNumber(&quot;natureOfCargo&quot;, Long.class);</span>
+
+<span class="nc" id="L97">    public final StringPath remarks = createString(&quot;remarks&quot;);</span>
+
+<span class="nc" id="L99">    public final DateTimePath&lt;java.util.Date&gt; rotationDate = createDateTime(&quot;rotationDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L101">    public final StringPath rotationNo = createString(&quot;rotationNo&quot;);</span>
+
+<span class="nc" id="L103">    public final NumberPath&lt;Long&gt; shipperId = createNumber(&quot;shipperId&quot;, Long.class);</span>
+
+<span class="nc" id="L105">    public final NumberPath&lt;Long&gt; slNo = createNumber(&quot;slNo&quot;, Long.class);</span>
+
+<span class="nc" id="L107">    public final DateTimePath&lt;java.util.Date&gt; unstuffDate = createDateTime(&quot;unstuffDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L109">    public final NumberPath&lt;Long&gt; unstuffPlace = createNumber(&quot;unstuffPlace&quot;, Long.class);</span>
+
+<span class="nc" id="L111">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QMasterServiceCustomsDetail(String variable) {
+<span class="nc" id="L114">        this(MasterServiceCustomsDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L115">    }</span>
+
+    public QMasterServiceCustomsDetail(Path&lt;? extends MasterServiceCustomsDetail&gt; path) {
+<span class="nc" id="L118">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L119">    }</span>
+
+    public QMasterServiceCustomsDetail(PathMetadata metadata) {
+<span class="nc" id="L122">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L123">    }</span>
+
+    public QMasterServiceCustomsDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L126">        this(MasterServiceCustomsDetail.class, metadata, inits);</span>
+<span class="nc" id="L127">    }</span>
+
+    public QMasterServiceCustomsDetail(Class&lt;? extends MasterServiceCustomsDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L130">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">        this.masterHeader = inits.isInitialized(&quot;masterHeader&quot;) ? new QMasterHeader(forProperty(&quot;masterHeader&quot;), inits.get(&quot;masterHeader&quot;)) : null;</span>
+<span class="nc" id="L132">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

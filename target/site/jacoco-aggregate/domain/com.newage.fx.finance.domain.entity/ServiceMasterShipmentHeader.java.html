@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ServiceMasterShipmentHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ServiceMasterShipmentHeader.java</span></div><h1>ServiceMasterShipmentHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ImportExport;
+import com.newage.fx.finance.domain.enums.Service;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;service_master_shipment_header&quot;)
+public class ServiceMasterShipmentHeader extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L27">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long branchId;</span>
+
+    @Column(name = &quot;master_uid&quot;, length = 100, nullable = false)
+<span class="nc" id="L36">    private String masterUid;</span>
+
+    @Column(name = &quot;trade_id&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L40">    private ImportExport tradeCode;</span>
+
+    @Column(name = &quot;service_type&quot;, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L44">    private Service serviceType;</span>
+
+    @Column(name = &quot;service_id&quot;)
+<span class="nc" id="L47">    private Long serviceId;</span>
+
+    @Column(name = &quot;product_code&quot;)
+<span class="nc" id="L50">    private String productCode;</span>
+
+    @Column(name = &quot;customer_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L53">    private Long customerId;</span>
+
+    @Column(name = &quot;customer_name&quot;, length = 20)
+<span class="nc" id="L56">    private String customerName;</span>
+
+    @Column(name = &quot;origin_id&quot;,  nullable = false)
+<span class="nc" id="L59">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, nullable = false)
+<span class="nc" id="L62">    private String originName;</span>
+
+    @Column(name = &quot;destination_id&quot;, nullable = false)
+<span class="nc" id="L65">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, nullable = false)
+<span class="nc" id="L68">    private String destinationName;</span>
+
+    @Column(name = &quot;etd&quot;, nullable = true)
+<span class="nc" id="L71">    private Date etd;</span>
+
+    @Column(name = &quot;eta&quot;, nullable = true)
+<span class="nc" id="L74">    private Date eta;</span>
+
+    @Column(name = &quot;atd&quot;, nullable = true)
+<span class="nc" id="L77">    private Date atd;</span>
+
+    @Column(name = &quot;ata&quot;, nullable = true)
+<span class="nc" id="L80">    private Date ata;</span>
+
+
+    @Column(name = &quot;salesman_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L84">    private Long salesmanId;</span>
+
+
+    @Column(name = &quot;salesman_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L88">    private String salesmanName;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L91">    private String notes;</span>
+
+    @Column(name = &quot;master_completed&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L95">    private YesNo masterCompleted;</span>
+
+    @OneToOne(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L98">    private ServiceMasterShipmentPartyDetail partyDetails;</span>
+
+    @OneToMany(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L101">    private List&lt;ServiceMasterShipmentRatesDetail&gt; ratesDetails;</span>
+
+    @OneToMany(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L104">    private List&lt;SignOff&gt; signOffDetail;</span>
+
+    @OneToMany(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L107">    private List&lt;EventDetail&gt; eventDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L110">    private List&lt;ReferenceDetail&gt; referenceDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;serviceMasterShipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L113">    private List&lt;AttachmentDetail&gt; attachmentDetail;//foreign key not added</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L117">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

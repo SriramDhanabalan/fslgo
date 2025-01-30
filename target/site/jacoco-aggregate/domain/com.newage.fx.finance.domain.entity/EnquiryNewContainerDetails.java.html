@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EnquiryNewContainerDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">EnquiryNewContainerDetails.java</span></div><h1>EnquiryNewContainerDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+<span class="nc" id="L16">@AllArgsConstructor</span>
+@Table(name = &quot;enquiry_container_details&quot;)
+public class EnquiryNewContainerDetails extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    /*Container Master id*/
+    @Column(name = &quot;container_id&quot;)
+<span class="nc" id="L26">    private Long containerId;</span>
+
+    @Column(name = &quot;cfs_terminal_id&quot;)
+<span class="nc" id="L29">    private  Long cfsTerminalId;</span>
+
+    /*No of Container*/
+    @Column(name = &quot;no_of_container&quot;)
+<span class="nc" id="L33">    private Integer noOfContainer;</span>
+
+    @Column(name = &quot;container_no&quot;)
+<span class="nc" id="L36">    private String containerNo;</span>
+
+    @Column(name = &quot;container_type&quot;,nullable = true)
+<span class="nc" id="L39">    private String containerType;</span>
+
+    @Column(name = &quot;cfs_terminal_name&quot;)
+<span class="nc" id="L42">    private String cfsTerminalName;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L45">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L48">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L51">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L54">    private long slNo;</span>
+
+    @Column(name = &quot;notes&quot;, nullable = true)
+<span class="nc" id="L57">    private String note;</span>
+
+    @Column(name = &quot;expected_date&quot;)
+<span class="nc" id="L60">    private Date expectedArrivalTime;</span>
+
+    @Column(name = &quot;planned_date&quot;)
+<span class="nc" id="L63">    private Date plannedArrivalTime;</span>
+
+    @Column(name = &quot;time_slot&quot;)
+<span class="nc" id="L66">    private String timeSlot;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;enquiry_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CONTAINER_DETAILS_ID&quot;))
+<span class="nc" id="L70">    public EnquiryHeader enquiryDetail;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

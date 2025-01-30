@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QShipmentAddlDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QShipmentAddlDetail.java</span></div><h1>QShipmentAddlDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QShipmentAddlDetail is a Querydsl query type for ShipmentAddlDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QShipmentAddlDetail extends EntityPathBase&lt;ShipmentAddlDetail&gt; {
+
+    private static final long serialVersionUID = -1591986331L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QShipmentAddlDetail shipmentAddlDetail = new QShipmentAddlDetail(&quot;shipmentAddlDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final DateTimePath&lt;java.util.Date&gt; aesCutoffDate = createDateTime(&quot;aesCutoffDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L29">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.AesFillingParty&gt; aesFillingParty = createEnum(&quot;aesFillingParty&quot;, com.newage.fx.finance.domain.enums.AesFillingParty.class);</span>
+
+<span class="nc" id="L31">    public final StringPath aesNo = createString(&quot;aesNo&quot;);</span>
+
+<span class="nc" id="L33">    public final StringPath amsHblNo = createString(&quot;amsHblNo&quot;);</span>
+
+<span class="nc" id="L35">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; asAgreed = createEnum(&quot;asAgreed&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L37">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L39">    public final DateTimePath&lt;java.util.Date&gt; cargoReadyDate = createDateTime(&quot;cargoReadyDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L41">    public final DateTimePath&lt;java.util.Date&gt; carrierBookingDate = createDateTime(&quot;carrierBookingDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L43">    public final StringPath carrierBookingNo = createString(&quot;carrierBookingNo&quot;);</span>
+
+<span class="nc" id="L45">    public final NumberPath&lt;Long&gt; carrierId = createNumber(&quot;carrierId&quot;, Long.class);</span>
+
+<span class="nc" id="L47">    public final DateTimePath&lt;java.util.Date&gt; ccnDate = createDateTime(&quot;ccnDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L49">    public final StringPath ccnNo = createString(&quot;ccnNo&quot;);</span>
+
+<span class="nc" id="L51">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L53">    public final NumberPath&lt;Long&gt; costCenterId = createNumber(&quot;costCenterId&quot;, Long.class);</span>
+
+<span class="nc" id="L55">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L58">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L60">    public final StringPath customerReferenceNo = createString(&quot;customerReferenceNo&quot;);</span>
+
+<span class="nc" id="L62">    public final DateTimePath&lt;java.util.Date&gt; doDate = createDateTime(&quot;doDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L64">    public final DateTimePath&lt;java.util.Date&gt; doExpiryDate = createDateTime(&quot;doExpiryDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L66">    public final StringPath doNumber = createString(&quot;doNumber&quot;);</span>
+
+<span class="nc" id="L68">    public final StringPath efsJobno = createString(&quot;efsJobno&quot;);</span>
+
+<span class="nc" id="L70">    public final StringPath efsJobStatus = createString(&quot;efsJobStatus&quot;);</span>
+
+<span class="nc" id="L72">    public final StringPath efsSegmentCode = createString(&quot;efsSegmentCode&quot;);</span>
+
+<span class="nc" id="L74">    public final DateTimePath&lt;java.util.Date&gt; eta = createDateTime(&quot;eta&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L76">    public final StringPath etaTime = createString(&quot;etaTime&quot;);</span>
+
+<span class="nc" id="L78">    public final DateTimePath&lt;java.util.Date&gt; etd = createDateTime(&quot;etd&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L80">    public final StringPath etdTime = createString(&quot;etdTime&quot;);</span>
+
+<span class="nc" id="L82">    public final StringPath forwarderCcnNo = createString(&quot;forwarderCcnNo&quot;);</span>
+
+<span class="nc" id="L84">    public final StringPath forwarderHbl = createString(&quot;forwarderHbl&quot;);</span>
+
+<span class="nc" id="L86">    public final StringPath forwarderHblNo = createString(&quot;forwarderHblNo&quot;);</span>
+
+<span class="nc" id="L88">    public final StringPath forwarderTranshipmentCcnNo = createString(&quot;forwarderTranshipmentCcnNo&quot;);</span>
+
+<span class="nc" id="L90">    public final DateTimePath&lt;java.util.Date&gt; goDate = createDateTime(&quot;goDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L92">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L94">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; hold = createEnum(&quot;hold&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L96">    public final StringPath holdNotes = createString(&quot;holdNotes&quot;);</span>
+
+<span class="nc" id="L98">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L100">    public final StringPath importFileNo = createString(&quot;importFileNo&quot;);</span>
+
+<span class="nc" id="L102">    public final StringPath InsertUpdate = createString(&quot;InsertUpdate&quot;);</span>
+
+<span class="nc" id="L104">    public final StringPath invoiceNote = createString(&quot;invoiceNote&quot;);</span>
+
+<span class="nc" id="L106">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; isCourierShipment = createEnum(&quot;isCourierShipment&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L108">    public final StringPath isfNumber = createString(&quot;isfNumber&quot;);</span>
+
+<span class="nc" id="L110">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; isServiceJob = createEnum(&quot;isServiceJob&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L112">    public final NumberPath&lt;Long&gt; itApprovedPortId = createNumber(&quot;itApprovedPortId&quot;, Long.class);</span>
+
+<span class="nc" id="L114">    public final StringPath itApprovedPortName = createString(&quot;itApprovedPortName&quot;);</span>
+
+<span class="nc" id="L116">    public final DateTimePath&lt;java.util.Date&gt; itDate = createDateTime(&quot;itDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L118">    public final NumberPath&lt;Long&gt; itemNo = createNumber(&quot;itemNo&quot;, Long.class);</span>
+
+<span class="nc" id="L120">    public final StringPath itNo = createString(&quot;itNo&quot;);</span>
+
+<span class="nc" id="L122">    public final DateTimePath&lt;java.util.Date&gt; lastFreeDay = createDateTime(&quot;lastFreeDay&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L124">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L127">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L129">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; lc = createEnum(&quot;lc&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L131">    public final DateTimePath&lt;java.util.Date&gt; lcExpiryDate = createDateTime(&quot;lcExpiryDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L133">    public final StringPath lcNote = createString(&quot;lcNote&quot;);</span>
+
+<span class="nc" id="L135">    public final StringPath lcNumber = createString(&quot;lcNumber&quot;);</span>
+
+<span class="nc" id="L137">    public final StringPath manifestHblNo = createString(&quot;manifestHblNo&quot;);</span>
+
+<span class="nc" id="L139">    public final StringPath masterNo = createString(&quot;masterNo&quot;);</span>
+
+<span class="nc" id="L141">    public final NumberPath&lt;Long&gt; mftFromId = createNumber(&quot;mftFromId&quot;, Long.class);</span>
+
+<span class="nc" id="L143">    public final NumberPath&lt;Long&gt; mftToId = createNumber(&quot;mftToId&quot;, Long.class);</span>
+
+<span class="nc" id="L145">    public final NumberPath&lt;Long&gt; nxToefsId = createNumber(&quot;nxToefsId&quot;, Long.class);</span>
+
+<span class="nc" id="L147">    public final NumberPath&lt;Long&gt; plannedScheduleId = createNumber(&quot;plannedScheduleId&quot;, Long.class);</span>
+
+<span class="nc" id="L149">    public final StringPath poNumber = createString(&quot;poNumber&quot;);</span>
+
+<span class="nc" id="L151">    public final StringPath referenceNumber = createString(&quot;referenceNumber&quot;);</span>
+
+<span class="nc" id="L153">    public final StringPath secondaryDestinationBookingPerson = createString(&quot;secondaryDestinationBookingPerson&quot;);</span>
+
+<span class="nc" id="L155">    public final StringPath secondaryOriginBookingPerson = createString(&quot;secondaryOriginBookingPerson&quot;);</span>
+
+<span class="nc" id="L157">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; shipmentCompleted = createEnum(&quot;shipmentCompleted&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+    public final QShipmentHeader shipmentHeader;
+
+<span class="nc" id="L161">    public final StringPath shipperRefNo = createString(&quot;shipperRefNo&quot;);</span>
+
+<span class="nc" id="L163">    public final NumberPath&lt;Long&gt; slNo = createNumber(&quot;slNo&quot;, Long.class);</span>
+
+<span class="nc" id="L165">    public final NumberPath&lt;Long&gt; subItemNo = createNumber(&quot;subItemNo&quot;, Long.class);</span>
+
+<span class="nc" id="L167">    public final StringPath tabValidation = createString(&quot;tabValidation&quot;);</span>
+
+<span class="nc" id="L169">    public final DateTimePath&lt;java.util.Date&gt; transCcnDate = createDateTime(&quot;transCcnDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L171">    public final StringPath transhipmentCcnNo = createString(&quot;transhipmentCcnNo&quot;);</span>
+
+<span class="nc" id="L173">    public final NumberPath&lt;Long&gt; transhipmentWarehouseId = createNumber(&quot;transhipmentWarehouseId&quot;, Long.class);</span>
+
+<span class="nc" id="L175">    public final StringPath transportDocumentNo = createString(&quot;transportDocumentNo&quot;);</span>
+
+<span class="nc" id="L177">    public final DateTimePath&lt;java.util.Date&gt; transWareHouseDate = createDateTime(&quot;transWareHouseDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L179">    public final StringPath tsaNo = createString(&quot;tsaNo&quot;);</span>
+
+<span class="nc" id="L181">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+<span class="nc" id="L183">    public final NumberPath&lt;Long&gt; vesselId = createNumber(&quot;vesselId&quot;, Long.class);</span>
+
+<span class="nc" id="L185">    public final DateTimePath&lt;java.util.Date&gt; vgmCutOffDate = createDateTime(&quot;vgmCutOffDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L187">    public final NumberPath&lt;Double&gt; vgmWeightInKgs = createNumber(&quot;vgmWeightInKgs&quot;, Double.class);</span>
+
+<span class="nc" id="L189">    public final NumberPath&lt;Double&gt; vgmWeightInLbs = createNumber(&quot;vgmWeightInLbs&quot;, Double.class);</span>
+
+<span class="nc" id="L191">    public final StringPath voyageOrflightNo = createString(&quot;voyageOrflightNo&quot;);</span>
+
+    public QShipmentAddlDetail(String variable) {
+<span class="nc" id="L194">        this(ShipmentAddlDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L195">    }</span>
+
+    public QShipmentAddlDetail(Path&lt;? extends ShipmentAddlDetail&gt; path) {
+<span class="nc" id="L198">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L199">    }</span>
+
+    public QShipmentAddlDetail(PathMetadata metadata) {
+<span class="nc" id="L202">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L203">    }</span>
+
+    public QShipmentAddlDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L206">        this(ShipmentAddlDetail.class, metadata, inits);</span>
+<span class="nc" id="L207">    }</span>
+
+    public QShipmentAddlDetail(Class&lt;? extends ShipmentAddlDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L210">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L211" title="All 2 branches missed.">        this.shipmentHeader = inits.isInitialized(&quot;shipmentHeader&quot;) ? new QShipmentHeader(forProperty(&quot;shipmentHeader&quot;), inits.get(&quot;shipmentHeader&quot;)) : null;</span>
+<span class="nc" id="L212">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

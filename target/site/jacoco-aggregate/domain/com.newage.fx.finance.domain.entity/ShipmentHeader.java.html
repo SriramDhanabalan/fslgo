@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentHeader.java</span></div><h1>ShipmentHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.Configuration.CustomValidationMarkerInterface;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+
+import com.querydsl.core.annotations.QueryInit;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L21">@Setter</span>
+<span class="nc" id="L22">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_header&quot;)
+public class ShipmentHeader extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L28">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L34">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L37">    private Long branchId;</span>
+
+    @Column(name = &quot;shipment_uid&quot;, length = 100,nullable = false)
+<span class="nc" id="L40">    private String shipmentUid;</span>
+
+    @Column(name = &quot;shipment_date&quot;, nullable = false)
+<span class="nc" id="L43">    private Date shipmentDate;</span>
+
+    @Column(name = &quot;status&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L47">    private ShipmentStatus status;</span>
+
+    @Column(name = &quot;customer_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L50">    private Long customerId;</span>
+
+    @Column(name = &quot;customer_name&quot;, length = 20)
+<span class="nc" id="L53">    private String customerName;</span>
+
+    @Column(name = &quot;routed&quot;, nullable = true, length = 5)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L57">    private Routed routed;</span>
+
+    @Column(name = &quot;routed_by_id&quot;, length = 20)
+<span class="nc" id="L60">    private Long routedById;</span>
+
+    @Column(name = &quot;shipment_transport_mode_id&quot;, length = 20)
+<span class="nc" id="L63">    private TransportMode serviceCode;</span>
+
+    @NotNull(groups = {CustomValidationMarkerInterface.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;service_type&quot;, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L68">    private Service serviceType;</span>
+
+    @Column(name = &quot;shipment_trade_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L71">    private ImportExport tradeCode;</span>
+
+    /* Origin Port Id */
+
+    @Column(name = &quot;origin_id&quot;, length = 20)
+<span class="nc" id="L76">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, length = 20)
+<span class="nc" id="L79">    private String originName;</span>
+
+    /* destination Port Id */
+
+    @Column(name = &quot;destination_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L84">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, length = 20)
+<span class="nc" id="L87">    private String destinationName;</span>
+
+    /* Term of shipment Id */
+    @Column(name = &quot;tos_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L91">    private Long tosId;</span>
+
+    @Column(name = &quot;tos_name&quot;, nullable = false, length = 20)
+<span class="nc" id="L94">    private String tosName;</span>
+
+    @Column(name = &quot;freight_term&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L98">    private Freight freight;</span>
+
+    @Column(name = &quot;creation_mode&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L102">    private ShipmentCreationMode creationMode;</span>
+
+    @Column(name = &quot;business_type&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L106">    private ServiceType businessType;</span>
+
+    @Column(name = &quot;direct&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L110">    private YesNo direct;</span>
+
+    @Column(name = &quot;division_id&quot;, nullable = false, length = 7)
+<span class="nc" id="L113">    private Long divisionId;</span>
+
+//  future use - type of shipments identification
+    @Column(name = &quot;shipment_type&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L118">    private ShipmentType shipmentType;</span>
+
+    @Column(name = &quot;note&quot;)
+//    @Lob
+<span class="nc" id="L122">    private String notes;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L125">    private ShipmentAddlDetail addlDetail;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L129">    private ShipmentPartyDetail partyDetail;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L132">    private ShipmentPickUpDeliveryDetail pickUpDeliveryDetail;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L136">    private ShipmentCargoDetail cargoDetail;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L139">    private RateRequestModificationHistory rateRequestModificationHistory;</span>
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+<span class="nc" id="L143">    private List&lt;ShipmentCommodityDetail&gt; shipmentCommodityDetail;</span>
+
+//    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+//    private List&lt;ShipmentDimensionDetailPlanned&gt; dimensionDetailPlanned;
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+<span class="nc" id="L149">    private List&lt;ShipmentDimensionDetailActual&gt; dimensionDetailActual;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L152">    private List&lt;ShipmentRoutingDetail&gt; shipmentRoutingDetails;</span>
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L156">    private List&lt;ShipmentContainerRequest&gt; containerRequests;</span>
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L160">    private List&lt;ShipmentContainerDetail&gt; containerDetail;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L163">    private List&lt;EventDetail&gt; eventDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L166">    private List&lt;ReferenceDetail&gt; referenceDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L169">    private List&lt;AttachmentDetail&gt; attachmentDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L172">    private List&lt;TriggerDetail&gt; triggerDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L175">    private List&lt;SignOff&gt; signOff;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L178">    private List&lt;ShipmentRatesDetail&gt; ratesDetails;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L181">    private List&lt;AuthenticatedDocumentDetail&gt; authenticatedDocumentDetails;</span>
+
+<span class="nc" id="L183">    @OneToMany(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)</span>
+    @QueryInit(&quot;*.*&quot;)
+<span class="nc" id="L185">    private List&lt;ShipmentServiceDetail&gt; shipmentServices = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L188">    private CarrierBookingDetails carrierBookingDetails;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L191">    private TransportDocumentAir transportDocumentAir;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L195">    private TransportDocumentOcean transportDocumentOcean;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L198">    private CustomHouseDetails customHouseDetails;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L201">    private GeneralInfoAesCustomDetails generalInfoAesCustomDetails;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L204">    private List&lt;BillOfEntryDetails&gt; billOfEntryDetails;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L208">    private List&lt;ShipmentChargeHistory&gt; shipmentChargeHistories;</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;,cascade = CascadeType.ALL)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L212">    private List&lt;SignOffAndUnSignOffLogHistory&gt; signOffAndUnSignOffLogHistories;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L215">    private NxtToEfsServiceMasterEntity nxtToEfsServiceMasterEntity;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L218">    private NxtToEfsFinanceIntegration nxtToEfsFinanceIntegration;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;customer_code&quot;,referencedColumnName = &quot;customer_code&quot;, foreignKey = @ForeignKey(name = &quot;FK_WEB_USER_DETAILS_ID&quot;))
+<span class="nc" id="L222">    public WebUserDetail webUserDetail;</span>
+
+
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L228">    private Long version;</span>
+
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

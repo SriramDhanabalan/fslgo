@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CustomHouseDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CustomHouseDetails.java</span></div><h1>CustomHouseDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.Freight;
+import com.newage.fx.finance.domain.enums.HouseDetailsTrade;
+import com.newage.fx.finance.domain.enums.Routed;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L18">@Setter</span>
+<span class="nc" id="L19">@NoArgsConstructor</span>
+<span class="nc" id="L20">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_custom_house_details&quot;)
+public class CustomHouseDetails extends Auditable&lt;String&gt; {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L26">    private Long id;</span>
+
+    @Column(name = &quot;division_id&quot;)
+<span class="nc" id="L29">    private Long divisionId;</span>
+
+    @Column(name = &quot;hbl_no&quot;)
+<span class="nc" id="L32">    private String hblNo;</span>
+
+    @Column(name = &quot;hbl_date&quot;)
+<span class="nc" id="L35">    private Date hblDate;</span>
+
+    @Column(name = &quot;manifest_hbl_no&quot;)
+<span class="nc" id="L38">    private String manifestHblNo;</span>
+
+    @Column(name = &quot;manifest_hbl_date&quot;)
+<span class="nc" id="L41">    private Date manifestHblDate;</span>
+
+    @Column(name = &quot;port_of_origin_id&quot;)
+<span class="nc" id="L44">    private Long portOfOriginId;</span>
+
+    @Column(name = &quot;port_of_loading_id&quot;)
+<span class="nc" id="L47">    private Long portOfLoadingId;</span>
+
+    @Column(name = &quot;port_of_loading_leg_id&quot;)
+<span class="nc" id="L50">    private Long portOfLoadingLegId;</span>
+
+    @Column(name = &quot;port_of_discharge_id&quot;)
+<span class="nc" id="L53">    private Long portOfDischargeId;</span>
+
+    @Column(name = &quot;final_destination_id&quot;)
+<span class="nc" id="L56">    private Long finalDestinationId;</span>
+
+    @Column(name = &quot;final_destination_leg_id&quot;)
+<span class="nc" id="L59">    private Long finalDestinationLegId;</span>
+
+    @Column(name = &quot;term_of_Shipment_id&quot;)
+<span class="nc" id="L62">    private Long termOfShipmentId;</span>
+
+    @Column(name = &quot;final_destination_country_id&quot;)
+<span class="nc" id="L65">    private Long finalDestinationCountryId;</span>
+
+    @Column(name = &quot;house_details_trade&quot;)
+<span class="nc" id="L68">    private HouseDetailsTrade houseDetailsTrade;</span>
+
+    @Column(name = &quot;freight&quot;)
+<span class="nc" id="L71">    private Freight freight;</span>
+
+    @Column(name = &quot;routed&quot;)
+<span class="nc" id="L74">    private Routed routed;</span>
+
+    @Column(name = &quot;routed_by_id&quot;)
+<span class="nc" id="L77">    private Long routedById;</span>
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_ID&quot;))
+<span class="nc" id="L81">    private ShipmentHeader shipmentHeader;</span>
+
+    @Column(name = &quot;master_id&quot;)
+<span class="nc" id="L84">    private Long masterId;</span>
+
+    @OneToOne(mappedBy = &quot;customHouseDetails&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L87">    CustomPartyDetails partyDetails;</span>
+
+    @OneToOne(mappedBy = &quot;customHouseDetails&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L90">    CustomShipmentDetails shipmentDetails;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

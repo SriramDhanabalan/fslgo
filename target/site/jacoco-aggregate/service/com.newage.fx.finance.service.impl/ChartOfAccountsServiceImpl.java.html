@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ChartOfAccountsServiceImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">application</a> &gt; <a href="../index.html" class="el_bundle">service</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.service.impl</a> &gt; <span class="el_source">ChartOfAccountsServiceImpl.java</span></div><h1>ChartOfAccountsServiceImpl.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.service.impl;
+
+import com.newage.fx.finance.domain.entity.coa.CoaControl;
+import com.newage.fx.finance.domain.repository.CoaControlRepository;
+import com.newage.fx.finance.service.ChartOfAccountsService;
+import com.querydsl.core.types.Predicate;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
+<span class="nc" id="L16">@Log4j2</span>
+@Service
+@Transactional
+public class ChartOfAccountsServiceImpl implements ChartOfAccountsService {
+
+    private final CoaControlRepository coaControlRepository;
+
+    @Autowired
+<span class="nc" id="L24">    public ChartOfAccountsServiceImpl(CoaControlRepository coaControlRepository) {</span>
+<span class="nc" id="L25">        this.coaControlRepository = coaControlRepository;</span>
+<span class="nc" id="L26">    }</span>
+
+    @Override
+    public Page&lt;CoaControl&gt; getAllCoaControl(Predicate predicate, Pageable pageRequest) {
+<span class="nc" id="L30">        return coaControlRepository.findAll(predicate, pageRequest);</span>
+    }
+    @Override
+    public CoaControl createCoaControl(CoaControl coaControl) {
+<span class="nc" id="L34">        return coaControlRepository.save(coaControl);</span>
+    }
+
+    @Override
+    public CoaControl updateCoaControl(CoaControl coaControl) {
+<span class="nc" id="L39">        return coaControlRepository.save(coaControl);</span>
+    }
+
+    @Override
+    public CoaControl getCoaById(Long id) {
+<span class="nc" id="L44">        return coaControlRepository.findById(id).get();</span>
+    }
+
+    @Override
+    public List&lt;CoaControl&gt; getCoaControlLike(Long headerId,Long groupId,Long subGroupId){
+<span class="nc" id="L49">        return  coaControlRepository.findByCoaHeaderIdAndCoaGroupIdAndCoaSubGroupId(headerId,groupId,subGroupId);</span>
+    }
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

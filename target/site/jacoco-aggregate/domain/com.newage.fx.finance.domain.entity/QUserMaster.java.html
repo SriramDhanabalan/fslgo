@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QUserMaster.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QUserMaster.java</span></div><h1>QUserMaster.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QUserMaster is a Querydsl query type for UserMaster
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QUserMaster extends EntityPathBase&lt;UserMaster&gt; {
+
+    private static final long serialVersionUID = -240510180L;
+
+<span class="nc" id="L21">    public static final QUserMaster userMaster = new QUserMaster(&quot;userMaster&quot;);</span>
+
+<span class="nc" id="L23">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L25">    public final StringPath accountId = createString(&quot;accountId&quot;);</span>
+
+<span class="nc" id="L27">    public final StringPath address = createString(&quot;address&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath bcCode = createString(&quot;bcCode&quot;);</span>
+
+<span class="nc" id="L31">    public final StringPath ccEmail = createString(&quot;ccEmail&quot;);</span>
+
+<span class="nc" id="L33">    public final StringPath city = createString(&quot;city&quot;);</span>
+
+<span class="nc" id="L35">    public final StringPath clearanceEmail = createString(&quot;clearanceEmail&quot;);</span>
+
+<span class="nc" id="L37">    public final StringPath clientType = createString(&quot;clientType&quot;);</span>
+
+<span class="nc" id="L39">    public final StringPath companyCode = createString(&quot;companyCode&quot;);</span>
+
+<span class="nc" id="L41">    public final StringPath countryCode = createString(&quot;countryCode&quot;);</span>
+
+<span class="nc" id="L43">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L46">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L48">    public final StringPath creditLimitOverride = createString(&quot;creditLimitOverride&quot;);</span>
+
+<span class="nc" id="L50">    public final StringPath currency = createString(&quot;currency&quot;);</span>
+
+<span class="nc" id="L52">    public final StringPath customerContactPerson = createString(&quot;customerContactPerson&quot;);</span>
+
+<span class="nc" id="L54">    public final StringPath customerRole = createString(&quot;customerRole&quot;);</span>
+
+<span class="nc" id="L56">    public final StringPath defaultAirport = createString(&quot;defaultAirport&quot;);</span>
+
+<span class="nc" id="L58">    public final StringPath defaultPortCode = createString(&quot;defaultPortCode&quot;);</span>
+
+<span class="nc" id="L60">    public final StringPath divisionNote = createString(&quot;divisionNote&quot;);</span>
+
+<span class="nc" id="L62">    public final StringPath eblEmail = createString(&quot;eblEmail&quot;);</span>
+
+<span class="nc" id="L64">    public final StringPath email = createString(&quot;email&quot;);</span>
+
+<span class="nc" id="L66">    public final StringPath employeeCode = createString(&quot;employeeCode&quot;);</span>
+
+<span class="nc" id="L68">    public final StringPath exportAirEmail = createString(&quot;exportAirEmail&quot;);</span>
+
+<span class="nc" id="L70">    public final StringPath exportFclEmail = createString(&quot;exportFclEmail&quot;);</span>
+
+<span class="nc" id="L72">    public final StringPath exportImport = createString(&quot;exportImport&quot;);</span>
+
+<span class="nc" id="L74">    public final StringPath exportLclEmail = createString(&quot;exportLclEmail&quot;);</span>
+
+<span class="nc" id="L76">    public final StringPath groupAccountId = createString(&quot;groupAccountId&quot;);</span>
+
+<span class="nc" id="L78">    public final StringPath groupName = createString(&quot;groupName&quot;);</span>
+
+<span class="nc" id="L80">    public final StringPath handlingBranchCode = createString(&quot;handlingBranchCode&quot;);</span>
+
+<span class="nc" id="L82">    public final StringPath handlingPersonEmail = createString(&quot;handlingPersonEmail&quot;);</span>
+
+<span class="nc" id="L84">    public final StringPath handlingPersonName = createString(&quot;handlingPersonName&quot;);</span>
+
+<span class="nc" id="L86">    public final StringPath importAirEmail = createString(&quot;importAirEmail&quot;);</span>
+
+<span class="nc" id="L88">    public final StringPath importFclEmail = createString(&quot;importFclEmail&quot;);</span>
+
+<span class="nc" id="L90">    public final StringPath importHandlingPersonEmail = createString(&quot;importHandlingPersonEmail&quot;);</span>
+
+<span class="nc" id="L92">    public final StringPath importLclEmail = createString(&quot;importLclEmail&quot;);</span>
+
+<span class="nc" id="L94">    public final StringPath isAccountDocumentDisplay = createString(&quot;isAccountDocumentDisplay&quot;);</span>
+
+<span class="nc" id="L96">    public final StringPath isAgent = createString(&quot;isAgent&quot;);</span>
+
+<span class="nc" id="L98">    public final StringPath isClearance = createString(&quot;isClearance&quot;);</span>
+
+<span class="nc" id="L100">    public final StringPath isContractedCust = createString(&quot;isContractedCust&quot;);</span>
+
+<span class="nc" id="L102">    public final StringPath isDocumentViewable = createString(&quot;isDocumentViewable&quot;);</span>
+
+<span class="nc" id="L104">    public final StringPath isFreight = createString(&quot;isFreight&quot;);</span>
+
+<span class="nc" id="L106">    public final StringPath isGroupAccount = createString(&quot;isGroupAccount&quot;);</span>
+
+<span class="nc" id="L108">    public final StringPath isLocked = createString(&quot;isLocked&quot;);</span>
+
+<span class="nc" id="L110">    public final StringPath isOurEmployee = createString(&quot;isOurEmployee&quot;);</span>
+
+<span class="nc" id="L112">    public final StringPath isPo = createString(&quot;isPo&quot;);</span>
+
+<span class="nc" id="L114">    public final StringPath isWms = createString(&quot;isWms&quot;);</span>
+
+<span class="nc" id="L116">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L119">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L121">    public final StringPath lovStatus = createString(&quot;lovStatus&quot;);</span>
+
+<span class="nc" id="L123">    public final StringPath name = createString(&quot;name&quot;);</span>
+
+<span class="nc" id="L125">    public final ArrayPath&lt;byte[], Byte&gt; note = createArray(&quot;note&quot;, byte[].class);</span>
+
+<span class="nc" id="L127">    public final DateTimePath&lt;java.util.Date&gt; overrideUpto = createDateTime(&quot;overrideUpto&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L129">    public final StringPath password = createString(&quot;password&quot;);</span>
+
+<span class="nc" id="L131">    public final DateTimePath&lt;java.util.Date&gt; passwordExpiryDate = createDateTime(&quot;passwordExpiryDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L133">    public final StringPath phoneNo = createString(&quot;phoneNo&quot;);</span>
+
+<span class="nc" id="L135">    public final StringPath product = createString(&quot;product&quot;);</span>
+
+<span class="nc" id="L137">    public final NumberPath&lt;Long&gt; registrationNo = createNumber(&quot;registrationNo&quot;, Long.class);</span>
+
+<span class="nc" id="L139">    public final StringPath role = createString(&quot;role&quot;);</span>
+
+<span class="nc" id="L141">    public final StringPath routed = createString(&quot;routed&quot;);</span>
+
+<span class="nc" id="L143">    public final ArrayPath&lt;byte[], Byte&gt; shortName = createArray(&quot;shortName&quot;, byte[].class);</span>
+
+<span class="nc" id="L145">    public final StringPath type = createString(&quot;type&quot;);</span>
+
+<span class="nc" id="L147">    public final StringPath userId = createString(&quot;userId&quot;);</span>
+
+<span class="nc" id="L149">    public final StringPath userType = createString(&quot;userType&quot;);</span>
+
+<span class="nc" id="L151">    public final StringPath versionCode = createString(&quot;versionCode&quot;);</span>
+
+<span class="nc" id="L153">    public final ListPath&lt;WebUserDetail, QWebUserDetail&gt; webUserDetails = this.&lt;WebUserDetail, QWebUserDetail&gt;createList(&quot;webUserDetails&quot;, WebUserDetail.class, QWebUserDetail.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L155">    public final ArrayPath&lt;byte[], Byte&gt; welcomeGroupNote = createArray(&quot;welcomeGroupNote&quot;, byte[].class);</span>
+
+<span class="nc" id="L157">    public final ArrayPath&lt;byte[], Byte&gt; welcomeNote = createArray(&quot;welcomeNote&quot;, byte[].class);</span>
+
+<span class="nc" id="L159">    public final StringPath wmsEmail = createString(&quot;wmsEmail&quot;);</span>
+
+    public QUserMaster(String variable) {
+<span class="nc" id="L162">        super(UserMaster.class, forVariable(variable));</span>
+<span class="nc" id="L163">    }</span>
+
+    public QUserMaster(Path&lt;? extends UserMaster&gt; path) {
+<span class="nc" id="L166">        super(path.getType(), path.getMetadata());</span>
+<span class="nc" id="L167">    }</span>
+
+    public QUserMaster(PathMetadata metadata) {
+<span class="nc" id="L170">        super(UserMaster.class, metadata);</span>
+<span class="nc" id="L171">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

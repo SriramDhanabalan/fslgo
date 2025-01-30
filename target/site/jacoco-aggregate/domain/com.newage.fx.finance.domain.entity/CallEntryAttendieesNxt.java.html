@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CallEntryAttendieesNxt.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CallEntryAttendieesNxt.java</span></div><h1>CallEntryAttendieesNxt.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+<span class="nc" id="L16">@AllArgsConstructor</span>
+@Table(name = &quot;call_entry_attendees&quot;)
+public class CallEntryAttendieesNxt extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L27">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L36">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L39">    private Long slNo;</span>
+
+    @NotNull(message = &quot;Accepted Values ( Mr, Ms, Mrs)&quot;)
+    @Column(name = &quot;salutation&quot;, nullable = false, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L44">    private Salutation salutation;</span>
+
+    @Column(name = &quot;first_name&quot;, nullable = false, length = 60)
+<span class="nc" id="L47">    private String firstName;</span>
+
+    @Column(name = &quot;last_name&quot;, nullable = true, length = 60)
+<span class="nc" id="L50">    private String lastName;</span>
+
+    @Column(name = &quot;designation_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L53">    private Long designationId;</span>
+
+    @Column(name = &quot;designation_name&quot;, nullable = true, length = 60)
+<span class="nc" id="L56">    private String designationName;</span>
+
+    @Column(name = &quot;pre_office_no&quot;, nullable = true, length = 10)
+<span class="nc" id="L59">    private String preOfficeNo;</span>
+
+    @Column(name = &quot;office_phone_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L62">    private String officePhoneNo;</span>
+
+    @NotNull(message = &quot;Accepted Values (Yes, No)&quot;)
+    @Column(name = &quot;primary_contact&quot;, nullable = false, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L67">    private YesNo primaryContact;</span>
+
+    @NotNull(message = &quot;Accepted Values (Yes, No)&quot;)
+    @Column(name = &quot;decision_maker&quot;, nullable = false, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L72">    private YesNo decisionMaker;</span>
+
+    @Column(name = &quot;pre_mobile_no&quot;, nullable = true, length = 10)
+<span class="nc" id="L75">    private String preMobileNo;</span>
+
+    @Column(name = &quot;mobile_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L78">    private String mobileNo;</span>
+
+    @Column(name = &quot;email&quot;, nullable = true, length = 100)
+<span class="nc" id="L81">    private String email;</span>
+
+    @Column(name = &quot;department_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L84">    private Long departmentId;</span>
+
+    @Column(name = &quot;department&quot;, nullable = true, length = 30)
+<span class="nc" id="L87">    private String department;</span>
+
+    @Column(name = &quot;customer_contact_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L90">    private Long customerContactId;</span>
+
+    @ManyToOne()
+    @JoinColumn(name = &quot;call_entry_id&quot;, foreignKey = @ForeignKey(name = &quot;fk_call_entry_header&quot;))
+<span class="nc" id="L94">    private CallEntryHeaderNxt callEntryHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

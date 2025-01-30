@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CoaControl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity.coa</a> &gt; <span class="el_source">CoaControl.java</span></div><h1>CoaControl.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity.coa;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+@Where(clause = &quot;deleted &lt;&gt; true &quot;)
+<span class="nc" id="L17">@NoArgsConstructor</span>
+<span class="nc" id="L18">@AllArgsConstructor</span>
+@Table(name = &quot;coa_control&quot;)
+public class CoaControl extends Auditable&lt;String&gt; {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L28">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;)
+<span class="nc" id="L31">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;coa_header_id&quot;)
+<span class="nc" id="L34">    private Long coaHeaderId;</span>
+
+    @Column(name = &quot;coa_group_id&quot;)
+<span class="nc" id="L37">    private Long coaGroupId;</span>
+
+    @Column(name = &quot;coa_subgroup_id&quot;)
+<span class="nc" id="L40">    private Long coaSubGroupId;</span>
+
+    @Column(name = &quot;control_account_id&quot;)
+<span class="nc" id="L43">    private Long controlAccountId;</span>
+
+    @Column(name = &quot;account_uid&quot;)
+<span class="nc" id="L46">    private Long accountUid;</span>
+
+    @Column(name = &quot;account_name&quot;)
+<span class="nc" id="L49">    private String accountName;</span>
+
+    @Column(name = &quot;status&quot;)
+<span class="nc" id="L52">    private String status;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L55">    private String notes;</span>
+
+<span class="nc" id="L57">    @Column(name = &quot;deleted&quot;)</span>
+<span class="nc" id="L58">    boolean deleted = false;</span>
+
+<span class="nc" id="L60">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;coaControl&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L61">    private List&lt;CoaControlDetail&gt; coaControlDetails = new ArrayList();</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

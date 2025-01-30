@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CrtTripContainerDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CrtTripContainerDetails.java</span></div><h1>CrtTripContainerDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+
+@Entity
+<span class="nc" id="L14">@Setter</span>
+@Getter
+<span class="nc" id="L16">@AllArgsConstructor</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;crt_trip_container_details&quot;)
+public class CrtTripContainerDetails extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L24">    private Long id;</span>
+
+    //Trailer
+    @Column(name = &quot;trailer_no&quot;)
+<span class="nc" id="L28">    private String trailerNo;</span>
+
+    //container
+    @Column(name = &quot;container_no&quot;)
+<span class="nc" id="L32">    private String containerNo;</span>
+
+    @Column(name = &quot;tare_weight&quot;)
+<span class="nc" id="L35">    private Double tareWeight;</span>
+
+    @Column(name = &quot;seal_no&quot;)
+<span class="nc" id="L38">    private String sealNo;</span>
+
+    @Column(name = &quot;container_id&quot;)
+<span class="nc" id="L41">    private Long containerId;</span>
+
+    @Column(name = &quot;container_type&quot;)
+<span class="nc" id="L44">    private String containerType;</span>
+
+    @Column(name = &quot;expected_date&quot;)
+<span class="nc" id="L47">    private Date expectedDate;</span>
+
+    @Column(name = &quot;planned_date&quot;)
+<span class="nc" id="L50">    private Date plannedDate;</span>
+
+    @Column(name = &quot;cfs_terminal_id&quot;)
+<span class="nc" id="L53">    private Long cfsTerminalId;</span>
+
+    @Column(name = &quot;time_slot&quot;)
+<span class="nc" id="L56">    private String timeSlot;</span>
+
+    @Column(name = &quot;cfs_terminal_name&quot;)
+<span class="nc" id="L59">    private String cfsTerminalName;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;trip_detail_id&quot;,foreignKey = @ForeignKey(name = &quot;FK_TRIP_DETAIL_ID&quot;))
+<span class="nc" id="L63">    private CrtTripDetails tripDetails;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

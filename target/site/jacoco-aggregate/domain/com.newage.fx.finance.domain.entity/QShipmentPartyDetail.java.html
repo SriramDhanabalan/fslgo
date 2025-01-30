@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QShipmentPartyDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QShipmentPartyDetail.java</span></div><h1>QShipmentPartyDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QShipmentPartyDetail is a Querydsl query type for ShipmentPartyDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QShipmentPartyDetail extends EntityPathBase&lt;ShipmentPartyDetail&gt; {
+
+    private static final long serialVersionUID = 1951125678L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QShipmentPartyDetail shipmentPartyDetail = new QShipmentPartyDetail(&quot;shipmentPartyDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+    public final QPartyAddressDetail consigneeAddress;
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; consigneeId = createNumber(&quot;consigneeId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath consigneeName = createString(&quot;consigneeName&quot;);</span>
+
+<span class="nc" id="L37">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L40">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+    public final QPartyAddressDetail customHouseAgentAddress;
+
+<span class="nc" id="L44">    public final NumberPath&lt;Long&gt; customHouseAgentId = createNumber(&quot;customHouseAgentId&quot;, Long.class);</span>
+
+    public final QPartyAddressDetail destinationAgentAddress;
+
+<span class="nc" id="L48">    public final NumberPath&lt;Long&gt; destinationAgentId = createNumber(&quot;destinationAgentId&quot;, Long.class);</span>
+
+<span class="nc" id="L50">    public final StringPath destinationAgentName = createString(&quot;destinationAgentName&quot;);</span>
+
+    public final QPartyAddressDetail forwarderAddress;
+
+<span class="nc" id="L54">    public final NumberPath&lt;Long&gt; forwarderId = createNumber(&quot;forwarderId&quot;, Long.class);</span>
+
+<span class="nc" id="L56">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L58">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L60">    public final BooleanPath isAgentNameEdited = createBoolean(&quot;isAgentNameEdited&quot;);</span>
+
+<span class="nc" id="L62">    public final BooleanPath isConsigneeNameEdited = createBoolean(&quot;isConsigneeNameEdited&quot;);</span>
+
+<span class="nc" id="L64">    public final BooleanPath isShipperNameEdited = createBoolean(&quot;isShipperNameEdited&quot;);</span>
+
+<span class="nc" id="L66">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L69">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+    public final QPartyAddressDetail notifyOneAddress;
+
+<span class="nc" id="L73">    public final NumberPath&lt;Long&gt; notifyOneId = createNumber(&quot;notifyOneId&quot;, Long.class);</span>
+
+    public final QPartyAddressDetail notifyTwoAddress;
+
+<span class="nc" id="L77">    public final NumberPath&lt;Long&gt; notifyTwoId = createNumber(&quot;notifyTwoId&quot;, Long.class);</span>
+
+    public final QPartyAddressDetail originAgentAddress;
+
+<span class="nc" id="L81">    public final NumberPath&lt;Long&gt; originAgentId = createNumber(&quot;originAgentId&quot;, Long.class);</span>
+
+<span class="nc" id="L83">    public final StringPath originAgentName = createString(&quot;originAgentName&quot;);</span>
+
+    public final QShipmentHeader shipmentHeader;
+
+    public final QPartyAddressDetail shipperAddress;
+
+<span class="nc" id="L89">    public final NumberPath&lt;Long&gt; shipperId = createNumber(&quot;shipperId&quot;, Long.class);</span>
+
+<span class="nc" id="L91">    public final StringPath shipperName = createString(&quot;shipperName&quot;);</span>
+
+<span class="nc" id="L93">    public final NumberPath&lt;Long&gt; slNo = createNumber(&quot;slNo&quot;, Long.class);</span>
+
+<span class="nc" id="L95">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QShipmentPartyDetail(String variable) {
+<span class="nc" id="L98">        this(ShipmentPartyDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L99">    }</span>
+
+    public QShipmentPartyDetail(Path&lt;? extends ShipmentPartyDetail&gt; path) {
+<span class="nc" id="L102">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L103">    }</span>
+
+    public QShipmentPartyDetail(PathMetadata metadata) {
+<span class="nc" id="L106">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L107">    }</span>
+
+    public QShipmentPartyDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L110">        this(ShipmentPartyDetail.class, metadata, inits);</span>
+<span class="nc" id="L111">    }</span>
+
+    public QShipmentPartyDetail(Class&lt;? extends ShipmentPartyDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L114">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L115" title="All 2 branches missed.">        this.consigneeAddress = inits.isInitialized(&quot;consigneeAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;consigneeAddress&quot;), inits.get(&quot;consigneeAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L116" title="All 2 branches missed.">        this.customHouseAgentAddress = inits.isInitialized(&quot;customHouseAgentAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;customHouseAgentAddress&quot;), inits.get(&quot;customHouseAgentAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L117" title="All 2 branches missed.">        this.destinationAgentAddress = inits.isInitialized(&quot;destinationAgentAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;destinationAgentAddress&quot;), inits.get(&quot;destinationAgentAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L118" title="All 2 branches missed.">        this.forwarderAddress = inits.isInitialized(&quot;forwarderAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;forwarderAddress&quot;), inits.get(&quot;forwarderAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        this.notifyOneAddress = inits.isInitialized(&quot;notifyOneAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;notifyOneAddress&quot;), inits.get(&quot;notifyOneAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L120" title="All 2 branches missed.">        this.notifyTwoAddress = inits.isInitialized(&quot;notifyTwoAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;notifyTwoAddress&quot;), inits.get(&quot;notifyTwoAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L121" title="All 2 branches missed.">        this.originAgentAddress = inits.isInitialized(&quot;originAgentAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;originAgentAddress&quot;), inits.get(&quot;originAgentAddress&quot;)) : null;</span>
+<span class="nc bnc" id="L122" title="All 2 branches missed.">        this.shipmentHeader = inits.isInitialized(&quot;shipmentHeader&quot;) ? new QShipmentHeader(forProperty(&quot;shipmentHeader&quot;), inits.get(&quot;shipmentHeader&quot;)) : null;</span>
+<span class="nc bnc" id="L123" title="All 2 branches missed.">        this.shipperAddress = inits.isInitialized(&quot;shipperAddress&quot;) ? new QPartyAddressDetail(forProperty(&quot;shipperAddress&quot;), inits.get(&quot;shipperAddress&quot;)) : null;</span>
+<span class="nc" id="L124">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QMasterTransportDocumentOcean.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QMasterTransportDocumentOcean.java</span></div><h1>QMasterTransportDocumentOcean.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QMasterTransportDocumentOcean is a Querydsl query type for MasterTransportDocumentOcean
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QMasterTransportDocumentOcean extends EntityPathBase&lt;MasterTransportDocumentOcean&gt; {
+
+    private static final long serialVersionUID = 1250241611L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QMasterTransportDocumentOcean masterTransportDocumentOcean = new QMasterTransportDocumentOcean(&quot;masterTransportDocumentOcean&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final StringPath aesNumber = createString(&quot;aesNumber&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath billLadingNo = createString(&quot;billLadingNo&quot;);</span>
+
+<span class="nc" id="L31">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.BLType&gt; blType = createEnum(&quot;blType&quot;, com.newage.fx.finance.domain.enums.BLType.class);</span>
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath company = createString(&quot;company&quot;);</span>
+
+<span class="nc" id="L37">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L39">    public final StringPath consignee = createString(&quot;consignee&quot;);</span>
+
+<span class="nc" id="L41">    public final StringPath consigneeAddress = createString(&quot;consigneeAddress&quot;);</span>
+
+<span class="nc" id="L43">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L46">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L48">    public final DateTimePath&lt;java.util.Date&gt; date = createDateTime(&quot;date&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L50">    public final StringPath descriptionOfPackage = createString(&quot;descriptionOfPackage&quot;);</span>
+
+<span class="nc" id="L52">    public final StringPath documentNo = createString(&quot;documentNo&quot;);</span>
+
+<span class="nc" id="L54">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.TransportDocumentType&gt; documentType = createEnum(&quot;documentType&quot;, com.newage.fx.finance.domain.enums.TransportDocumentType.class);</span>
+
+<span class="nc" id="L56">    public final StringPath exportInstruction = createString(&quot;exportInstruction&quot;);</span>
+
+<span class="nc" id="L58">    public final StringPath exportReference = createString(&quot;exportReference&quot;);</span>
+
+<span class="nc" id="L60">    public final StringPath fieldOne = createString(&quot;fieldOne&quot;);</span>
+
+<span class="nc" id="L62">    public final StringPath fieldThree = createString(&quot;fieldThree&quot;);</span>
+
+<span class="nc" id="L64">    public final StringPath fieldTwo = createString(&quot;fieldTwo&quot;);</span>
+
+<span class="nc" id="L66">    public final StringPath forwarderAgent = createString(&quot;forwarderAgent&quot;);</span>
+
+<span class="nc" id="L68">    public final StringPath forwarderAgentAddress = createString(&quot;forwarderAgentAddress&quot;);</span>
+
+<span class="nc" id="L70">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.Freight&gt; freight = createEnum(&quot;freight&quot;, com.newage.fx.finance.domain.enums.Freight.class);</span>
+
+<span class="nc" id="L72">    public final StringPath FTZNo = createString(&quot;FTZNo&quot;);</span>
+
+<span class="nc" id="L74">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L76">    public final ListPath&lt;TransportDocumentOtherCharges, QTransportDocumentOtherCharges&gt; hblChargeDetails = this.&lt;TransportDocumentOtherCharges, QTransportDocumentOtherCharges&gt;createList(&quot;hblChargeDetails&quot;, TransportDocumentOtherCharges.class, QTransportDocumentOtherCharges.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L78">    public final ListPath&lt;TransportDocumentContainerDetails, QTransportDocumentContainerDetails&gt; hblContainerDetails = this.&lt;TransportDocumentContainerDetails, QTransportDocumentContainerDetails&gt;createList(&quot;hblContainerDetails&quot;, TransportDocumentContainerDetails.class, QTransportDocumentContainerDetails.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L80">    public final ListPath&lt;TransportDocumentLogHistory, QTransportDocumentLogHistory&gt; hblHistoryLogs = this.&lt;TransportDocumentLogHistory, QTransportDocumentLogHistory&gt;createList(&quot;hblHistoryLogs&quot;, TransportDocumentLogHistory.class, QTransportDocumentLogHistory.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L82">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.HawbStatus&gt; hblStatus = createEnum(&quot;hblStatus&quot;, com.newage.fx.finance.domain.enums.HawbStatus.class);</span>
+
+<span class="nc" id="L84">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L86">    public final StringPath internalReference = createString(&quot;internalReference&quot;);</span>
+
+<span class="nc" id="L88">    public final DateTimePath&lt;java.util.Date&gt; issueDate = createDateTime(&quot;issueDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L90">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L93">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L95">    public final StringPath marksAndNumbers = createString(&quot;marksAndNumbers&quot;);</span>
+
+    public final QMasterHeader masterHeader;
+
+<span class="nc" id="L99">    public final StringPath move = createString(&quot;move&quot;);</span>
+
+<span class="nc" id="L101">    public final StringPath notifyParty = createString(&quot;notifyParty&quot;);</span>
+
+<span class="nc" id="L103">    public final StringPath notifyPartyAddress = createString(&quot;notifyPartyAddress&quot;);</span>
+
+<span class="nc" id="L105">    public final StringPath oceanCarrier = createString(&quot;oceanCarrier&quot;);</span>
+
+<span class="nc" id="L107">    public final NumberPath&lt;Long&gt; placeOfDeliveryId = createNumber(&quot;placeOfDeliveryId&quot;, Long.class);</span>
+
+<span class="nc" id="L109">    public final StringPath placeOfDeliveryName = createString(&quot;placeOfDeliveryName&quot;);</span>
+
+<span class="nc" id="L111">    public final NumberPath&lt;Long&gt; placeOfIssueId = createNumber(&quot;placeOfIssueId&quot;, Long.class);</span>
+
+<span class="nc" id="L113">    public final StringPath placeOfIssueName = createString(&quot;placeOfIssueName&quot;);</span>
+
+<span class="nc" id="L115">    public final NumberPath&lt;Long&gt; placeOfReceiptId = createNumber(&quot;placeOfReceiptId&quot;, Long.class);</span>
+
+<span class="nc" id="L117">    public final StringPath placeOfReceiptName = createString(&quot;placeOfReceiptName&quot;);</span>
+
+<span class="nc" id="L119">    public final NumberPath&lt;Long&gt; portOfDischargeId = createNumber(&quot;portOfDischargeId&quot;, Long.class);</span>
+
+<span class="nc" id="L121">    public final StringPath portOfDischargeName = createString(&quot;portOfDischargeName&quot;);</span>
+
+<span class="nc" id="L123">    public final NumberPath&lt;Long&gt; portOfLoadingId = createNumber(&quot;portOfLoadingId&quot;, Long.class);</span>
+
+<span class="nc" id="L125">    public final StringPath portOfLoadingName = createString(&quot;portOfLoadingName&quot;);</span>
+
+<span class="nc" id="L127">    public final NumberPath&lt;Long&gt; preCarriage = createNumber(&quot;preCarriage&quot;, Long.class);</span>
+
+<span class="nc" id="L129">    public final StringPath preCarrier = createString(&quot;preCarrier&quot;);</span>
+
+<span class="nc" id="L131">    public final StringPath shipper = createString(&quot;shipper&quot;);</span>
+
+<span class="nc" id="L133">    public final StringPath shipperAddress = createString(&quot;shipperAddress&quot;);</span>
+
+<span class="nc" id="L135">    public final NumberPath&lt;Long&gt; slNo = createNumber(&quot;slNo&quot;, Long.class);</span>
+
+<span class="nc" id="L137">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.SourceType&gt; sourceType = createEnum(&quot;sourceType&quot;, com.newage.fx.finance.domain.enums.SourceType.class);</span>
+
+<span class="nc" id="L139">    public final StringPath terminal = createString(&quot;terminal&quot;);</span>
+
+<span class="nc" id="L141">    public final ListPath&lt;TransportDocumentDetails, QTransportDocumentDetails&gt; transportDocumentDetails = this.&lt;TransportDocumentDetails, QTransportDocumentDetails&gt;createList(&quot;transportDocumentDetails&quot;, TransportDocumentDetails.class, QTransportDocumentDetails.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L143">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+<span class="nc" id="L145">    public final NumberPath&lt;Long&gt; vesselId = createNumber(&quot;vesselId&quot;, Long.class);</span>
+
+<span class="nc" id="L147">    public final StringPath vesselName = createString(&quot;vesselName&quot;);</span>
+
+<span class="nc" id="L149">    public final StringPath voyageNumber = createString(&quot;voyageNumber&quot;);</span>
+
+    public QMasterTransportDocumentOcean(String variable) {
+<span class="nc" id="L152">        this(MasterTransportDocumentOcean.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L153">    }</span>
+
+    public QMasterTransportDocumentOcean(Path&lt;? extends MasterTransportDocumentOcean&gt; path) {
+<span class="nc" id="L156">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L157">    }</span>
+
+    public QMasterTransportDocumentOcean(PathMetadata metadata) {
+<span class="nc" id="L160">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L161">    }</span>
+
+    public QMasterTransportDocumentOcean(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L164">        this(MasterTransportDocumentOcean.class, metadata, inits);</span>
+<span class="nc" id="L165">    }</span>
+
+    public QMasterTransportDocumentOcean(Class&lt;? extends MasterTransportDocumentOcean&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L168">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L169" title="All 2 branches missed.">        this.masterHeader = inits.isInitialized(&quot;masterHeader&quot;) ? new QMasterHeader(forProperty(&quot;masterHeader&quot;), inits.get(&quot;masterHeader&quot;)) : null;</span>
+<span class="nc" id="L170">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

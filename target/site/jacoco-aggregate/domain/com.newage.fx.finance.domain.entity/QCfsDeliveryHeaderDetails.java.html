@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QCfsDeliveryHeaderDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QCfsDeliveryHeaderDetails.java</span></div><h1>QCfsDeliveryHeaderDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCfsDeliveryHeaderDetails is a Querydsl query type for CfsDeliveryHeaderDetails
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QCfsDeliveryHeaderDetails extends EntityPathBase&lt;CfsDeliveryHeaderDetails&gt; {
+
+    private static final long serialVersionUID = 220498848L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QCfsDeliveryHeaderDetails cfsDeliveryHeaderDetails = new QCfsDeliveryHeaderDetails(&quot;cfsDeliveryHeaderDetails&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final ListPath&lt;CfsDeliveryAttachments, QCfsDeliveryAttachments&gt; cfsDeliveryAttachments = this.&lt;CfsDeliveryAttachments, QCfsDeliveryAttachments&gt;createList(&quot;cfsDeliveryAttachments&quot;, CfsDeliveryAttachments.class, QCfsDeliveryAttachments.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L29">    public final ListPath&lt;CfsDeliveryInfo, QCfsDeliveryInfo&gt; cfsDeliveryInfos = this.&lt;CfsDeliveryInfo, QCfsDeliveryInfo&gt;createList(&quot;cfsDeliveryInfos&quot;, CfsDeliveryInfo.class, QCfsDeliveryInfo.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; cfsId = createNumber(&quot;cfsId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final StringPath cfsName = createString(&quot;cfsName&quot;);</span>
+
+<span class="nc" id="L35">    public final StringPath commodity = createString(&quot;commodity&quot;);</span>
+
+<span class="nc" id="L37">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L40">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L42">    public final NumberPath&lt;Long&gt; customerId = createNumber(&quot;customerId&quot;, Long.class);</span>
+
+<span class="nc" id="L44">    public final StringPath customerName = createString(&quot;customerName&quot;);</span>
+
+<span class="nc" id="L46">    public final StringPath deliveryId = createString(&quot;deliveryId&quot;);</span>
+
+<span class="nc" id="L48">    public final DateTimePath&lt;java.util.Date&gt; doDate = createDateTime(&quot;doDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L50">    public final StringPath doNumber = createString(&quot;doNumber&quot;);</span>
+
+<span class="nc" id="L52">    public final StringPath hblOrHawbNo = createString(&quot;hblOrHawbNo&quot;);</span>
+
+<span class="nc" id="L54">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L56">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L59">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L61">    public final StringPath manifestHblOrHawbNo = createString(&quot;manifestHblOrHawbNo&quot;);</span>
+
+<span class="nc" id="L63">    public final StringPath marksAndNumbers = createString(&quot;marksAndNumbers&quot;);</span>
+
+<span class="nc" id="L65">    public final NumberPath&lt;Integer&gt; noOfGrids = createNumber(&quot;noOfGrids&quot;, Integer.class);</span>
+
+    public final QShipmentServiceDetail shipmentService;
+
+<span class="nc" id="L69">    public final DateTimePath&lt;java.util.Date&gt; unloadingDate = createDateTime(&quot;unloadingDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L71">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QCfsDeliveryHeaderDetails(String variable) {
+<span class="nc" id="L74">        this(CfsDeliveryHeaderDetails.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L75">    }</span>
+
+    public QCfsDeliveryHeaderDetails(Path&lt;? extends CfsDeliveryHeaderDetails&gt; path) {
+<span class="nc" id="L78">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L79">    }</span>
+
+    public QCfsDeliveryHeaderDetails(PathMetadata metadata) {
+<span class="nc" id="L82">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L83">    }</span>
+
+    public QCfsDeliveryHeaderDetails(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L86">        this(CfsDeliveryHeaderDetails.class, metadata, inits);</span>
+<span class="nc" id="L87">    }</span>
+
+    public QCfsDeliveryHeaderDetails(Class&lt;? extends CfsDeliveryHeaderDetails&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L90">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        this.shipmentService = inits.isInitialized(&quot;shipmentService&quot;) ? new QShipmentServiceDetail(forProperty(&quot;shipmentService&quot;), inits.get(&quot;shipmentService&quot;)) : null;</span>
+<span class="nc" id="L92">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

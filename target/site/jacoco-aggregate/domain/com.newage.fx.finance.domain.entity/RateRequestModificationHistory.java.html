@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RateRequestModificationHistory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">RateRequestModificationHistory.java</span></div><h1>RateRequestModificationHistory.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.RateModificationStatus;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+@Table(name = &quot;rate_request_modification_history&quot;)
+public class RateRequestModificationHistory extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L21">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L24">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L27">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long branchId;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L34">    private Long version;</span>
+
+    @Column(name = &quot;user_id&quot;, length = 100)
+<span class="nc" id="L37">    private Long userId;</span>
+
+    @Column(name = &quot;user_name&quot;, length = 100)
+<span class="nc" id="L40">    private String userName;</span>
+
+    @Column(name = &quot;assignee_id&quot;, length = 100)
+<span class="nc" id="L43">    private Long assigneeId;</span>
+
+    @Column(name = &quot;assignee_name&quot;, length = 100)
+<span class="nc" id="L46">    private String assigneeName;</span>
+
+    @Column(name = &quot;document_id&quot;, length = 100)
+<span class="nc" id="L49">    private Long documentId;</span>
+
+    @Column(name = &quot;enquiry_uid&quot;, length = 100)
+<span class="nc" id="L52">    private String enquiryUid;</span>
+
+    @Column(name = &quot;file_name&quot;, length = 100)
+<span class="nc" id="L55">    private String fileName;</span>
+
+    @Column(name = &quot;file_attached&quot;)
+<span class="nc" id="L58">    private byte[] file;</span>
+
+    @Column(name = &quot;reference_no&quot;, length = 100)
+<span class="nc" id="L61">    private String referenceNo;</span>
+
+    @Column(name = &quot;type_for_request&quot;, length = 100)
+<span class="nc" id="L64">    private String typeForRequest;</span>
+
+    @Column(name = &quot;status&quot;, length = 100)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L68">    private RateModificationStatus status;</span>
+
+    @Column(name = &quot;rejection_reason&quot;, length = 100)
+<span class="nc" id="L71">    private String rejectionReason;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_ID&quot;))
+<span class="nc" id="L75">    public ShipmentHeader shipmentHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

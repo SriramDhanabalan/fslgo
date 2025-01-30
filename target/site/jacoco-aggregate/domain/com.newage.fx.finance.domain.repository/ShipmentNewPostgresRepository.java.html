@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentNewPostgresRepository.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.repository</a> &gt; <span class="el_source">ShipmentNewPostgresRepository.java</span></div><h1>ShipmentNewPostgresRepository.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.repository;
+
+import com.newage.fx.finance.domain.entity.QShipmentHeader;
+import com.newage.fx.finance.domain.entity.ShipmentHeader;
+import com.newage.fx.finance.domain.enums.Service;
+import com.querydsl.core.types.Predicate;
+import com.querydsl.core.types.dsl.StringExpression;
+import com.querydsl.core.types.dsl.StringPath;
+import org.springframework.data.jpa.repository.EntityGraph;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+
+import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
+import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.data.querydsl.binding.SingleValueBinding;
+
+import java.util.List;
+
+
+public interface ShipmentNewPostgresRepository extends JpaRepository&lt;ShipmentHeader, Long&gt;,
+        QuerydslPredicateExecutor&lt;ShipmentHeader&gt;, QuerydslBinderCustomizer&lt;QShipmentHeader&gt; {
+
+//    @Override
+//    @EntityGraph(attributePaths = {&quot;shipmentServices&quot;,&quot;cargoDetail&quot;,&quot;transportDocumentAir&quot;,&quot;transportDocumentOcean&quot;,&quot;addlDetail&quot;})
+//    Page&lt;ShipmentHeader&gt; findAll(Predicate predicate, Pageable pageRequest);
+
+    List&lt;ShipmentHeader&gt; findByShipmentUid(String shipmentUid);
+
+    List&lt;ShipmentHeader&gt; findByShipmentUidLikeIgnoreCase(String shipmentUid);
+
+    @Query(&quot;select s.shipmentHeader from ShipmentServiceDetail s where s.id = :shipmentServiceId&quot;)
+    ShipmentHeader getShipmentByServiceId(Long shipmentServiceId);
+
+//    @Query(&quot;SELECT sh FROM ShipmentHeader sh JOIN sh.containerDetail cd WHERE cd.containerNumber = :containerNumber&quot;)
+//    List&lt;ShipmentHeader&gt; findByContainerNumber(String containerNumber);
+
+//    @Query(&quot;SELECT ta.documentNo,h.id \n&quot;+
+//            &quot;FROM ShipmentHeader AS h\n&quot; +
+//            &quot;LEFT JOIN ShipmentServiceDetail AS s ON h.id = s.shipmentHeader.id\n&quot; +
+//            &quot;LEFT JOIN TransportDocumentOcean AS ta ON h.id = ta.shipmentHeader.id\n&quot; +
+//            &quot;WHERE s.serviceStatus IN ('Booked', 'Received') \n&quot; +
+//            &quot;  AND s.tradeCode = 'Import'\n&quot; +
+//            &quot;  AND s.branchId = :branchId\n&quot; +
+//            &quot;  AND s.serviceName = :serviceName\n&quot; +
+//            &quot;  AND s.serviceType = :serviceType\n&quot; +
+//            &quot;  AND h.originId = :originId\n&quot; +
+//            &quot;  AND h.destinationId = :destinationId\n&quot; +
+//            &quot;  AND ta.documentNo IS NOT NULL&quot;)
+//    List&lt;Object[]&gt; getListOfTransportDocumentOcean(Service serviceType, Long originId, Long destinationId, String serviceName, Long branchId);
+//    @Query(&quot;SELECT ta.documentNo,h.id  \n&quot; +
+//            &quot;FROM ShipmentHeader AS h\n&quot; +
+//            &quot;LEFT JOIN ShipmentServiceDetail AS s ON h.id = s.shipmentHeader.id\n&quot; +
+//            &quot;LEFT JOIN TransportDocumentAir AS ta ON h.id = ta.shipmentHeader.id\n&quot; +
+//            &quot;WHERE s.serviceStatus IN ('Booked', 'Received') \n&quot; +
+//            &quot;  AND s.tradeCode = 'Import'\n&quot; +
+//            &quot;  AND s.branchId = :branchId\n&quot; +
+//            &quot;  AND s.serviceName = :serviceName\n&quot; +
+//            &quot;  AND s.serviceType = :serviceType\n&quot; +
+//            &quot;  AND h.originId = :originId\n&quot; +
+//            &quot;  AND h.destinationId = :destinationId\n&quot; +
+//            &quot;  AND ta.documentNo IS NOT NULL&quot;)
+//    List&lt;Object[]&gt; getListOfTransportDocumentAir(Service serviceType,Long originId,Long destinationId,String serviceName, Long branchId);
+
+//    @EntityGraph(attributePaths = &quot;shipmentServices&quot;) // Eagerly fetch the shipmentServices collection
+//    Iterable&lt;ShipmentHeader&gt; findAll(Predicate predicate);
+
+    @Override
+    default void customize(QuerydslBindings bindings, QShipmentHeader root) {
+<span class="nc" id="L70">        bindings.excludeUnlistedProperties(true);</span>
+<span class="nc" id="L71">        bindings.including(root.id);</span>
+<span class="nc" id="L72">        bindings.including(root.customerId);</span>
+<span class="nc" id="L73">        bindings.including(root.customerName);</span>
+<span class="nc" id="L74">        bindings.including(root.originId);</span>
+<span class="nc" id="L75">        bindings.including(root.shipmentUid);</span>
+<span class="nc" id="L76">        bindings.including(root.creationMode);</span>
+<span class="nc" id="L77">        bindings.including(root.originName);</span>
+<span class="nc" id="L78">        bindings.including(root.destinationId);</span>
+<span class="nc" id="L79">        bindings.including(root.destinationName);</span>
+<span class="nc" id="L80">        bindings.including(root.serviceCode);</span>
+<span class="nc" id="L81">        bindings.including(root.serviceType);</span>
+<span class="nc" id="L82">        bindings.including(root.direct);</span>
+<span class="nc" id="L83">        bindings.including(root.routed);</span>
+<span class="nc" id="L84">        bindings.including(root.routedById);</span>
+<span class="nc" id="L85">        bindings.including(root.shipmentServices.any().serviceName);</span>
+<span class="nc" id="L86">        bindings.including(root.shipmentServices.any().serviceStatus);</span>
+<span class="nc" id="L87">        bindings.including(root.shipmentServices.any().tradeCode);</span>
+<span class="nc" id="L88">        bindings.including(root.shipmentServices.any().shipmentDate);</span>
+<span class="nc" id="L89">        bindings.including(root.shipmentServices.any().serviceMode);</span>
+<span class="nc" id="L90">        bindings.including(root.shipmentServices.any().serviceAddlDetail.coLoad);</span>
+<span class="nc" id="L91">        bindings.including(root.addlDetail.plannedScheduleId);</span>
+<span class="nc" id="L92">        bindings.including(root.transportDocumentOcean.documentNo);</span>
+<span class="nc" id="L93">        bindings.including(root.transportDocumentAir.documentNo);</span>
+<span class="nc" id="L94">        bindings.including(root.partyDetail.shipperName);</span>
+<span class="nc" id="L95">        bindings.including(root.partyDetail.consigneeName);</span>
+<span class="nc" id="L96">        bindings.including(root.addlDetail.transportDocumentNo);</span>
+<span class="nc" id="L97">        bindings.including(root.tosName);</span>
+<span class="nc" id="L98">        bindings.including(root.status);</span>
+<span class="nc" id="L99">        bindings.including(root.webUserDetail.nxtCustomerId);</span>
+<span class="nc" id="L100">        bindings.including(root.addlDetail.goDate);</span>
+<span class="nc" id="L101">        bindings.including(root.pickUpDeliveryDetail.actualPickupDate);</span>
+<span class="nc" id="L102">        bindings.including(root.pickUpDeliveryDetail.actualDeliveryDate);</span>
+<span class="nc" id="L103">        bindings.including(root.partyDetail.forwarderId);</span>
+<span class="nc" id="L104">        bindings.including(root.businessType);</span>
+<span class="nc" id="L105">        bindings.including(root.cargoDetail.noOfPieces);</span>
+<span class="nc" id="L106">        bindings.including(root.cargoDetail.grossWeightKgs);</span>
+<span class="nc" id="L107">        bindings.including(root.cargoDetail.volumeInCbm);</span>
+<span class="nc" id="L108">        bindings.including(root.addlDetail.shipperRefNo);</span>
+<span class="nc" id="L109">        bindings.including(root.addlDetail.lcNumber);</span>
+<span class="nc" id="L110">        bindings.including(root.addlDetail.lcExpiryDate);</span>
+<span class="nc" id="L111">        bindings.including(root.addlDetail.doDate);</span>
+<span class="nc" id="L112">        bindings.including(root.addlDetail.doNumber);</span>
+<span class="nc" id="L113">        bindings.bind(String.class).first((SingleValueBinding&lt;StringPath, String&gt;) StringExpression::containsIgnoreCase);</span>
+<span class="nc" id="L114">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

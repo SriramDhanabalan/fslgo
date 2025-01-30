@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentCargoDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentCargoDetail.java</span></div><h1>ShipmentCargoDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.Configuration.CustomValidationMarkerInterface;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.TemperatureUnit;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_cargo_detail&quot;)
+public class ShipmentCargoDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L28">    private Long version;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L34">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L37">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L40">    private Long slNo;</span>
+
+
+    @Column(name = &quot;hazardous&quot;, nullable = true, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L45">    private YesNo hazardous;</span>
+
+    @Column(name = &quot;stackable&quot;, nullable = true, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L49">    private YesNo stackable;</span>
+
+    @Column(name = &quot;refrigeration&quot;, nullable = true, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L53">    private YesNo refrigerationRequired;</span>
+
+    @Column(name = &quot;minimum_temperature&quot;)
+<span class="nc" id="L56">    private Double minTemperature;</span>
+
+    @Column(name = &quot;maximum_temperature&quot;)
+<span class="nc" id="L59">    private Double maxTemperature;</span>
+
+    @NotNull(groups = {CustomValidationMarkerInterface.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;commodity_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L63">    private Long commodityId;</span>
+
+    @Column(name = &quot;commodity_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L66">    private String commodityName;</span>
+
+   // @NotNull(groups = {CustomValidationMarkerInterface.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;commodity_description&quot;,nullable = true,length = 200)
+<span class="nc" id="L70">    private String commodityDescription;</span>
+
+
+    @Column(name = &quot;pack_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L74">    private Long packId; // We're using to  store As InternalPackId</span>
+
+    @Column(name = &quot;external_pack_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L77">    private Long ExternalPackId;</span>
+
+    @Column(name = &quot;no_of_pieces&quot;, nullable = false, length = 20)
+<span class="nc" id="L80">    private Integer noOfPieces;</span>
+
+
+    @Column(name = &quot;gross_weight_kgs&quot;, nullable = false, length = 20)
+<span class="nc" id="L84">    private Double grossWeightKgs;</span>
+
+    @Column(name = &quot;gross_weight_lbs&quot;, nullable = false, length = 20)
+<span class="nc" id="L87">    private Double grossWeightlbs;</span>
+
+    @Column(name = &quot;volume_in_cbm&quot;, nullable = false, length = 20)
+<span class="nc" id="L90">    private Double volumeInCbm;</span>
+
+    @Column(name = &quot;volume_in_cft&quot;, nullable = false, length = 20)
+<span class="nc" id="L93">    private Double volumeInCft;</span>
+
+    @NotNull(groups = {CustomValidationMarkerInterface.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;volume_weight&quot;, nullable = false, length = 20)
+<span class="nc" id="L97">    private Double volumeWeight;</span>
+
+    @Column(name = &quot;chargeable_unit&quot;, nullable = false, length = 20)
+<span class="nc" id="L100">    private Double chargeableUnit;</span>
+
+    @NotNull(groups = {CustomValidationMarkerInterface.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;marks_and_numbers&quot;, nullable = true, length = 200)
+<span class="nc" id="L104">    private String marksAndNumbers;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L108">    private String notes;</span>
+
+    @Column(name = &quot;imo_class_id&quot;)
+<span class="nc" id="L111">    private Long imoClassId;</span>
+
+    @Column(name = &quot;imo_class&quot;)
+<span class="nc" id="L114">    private String imoClassName;</span>
+
+    @Column(name = &quot;un_number&quot;)
+<span class="nc" id="L117">    private String unNumber;</span>
+
+    @Column(name = &quot;storage_code&quot;)
+<span class="nc" id="L120">    private String storageCode;</span>
+
+    @Column(name = &quot;flash_point&quot;)
+<span class="nc" id="L123">    private String flashPoint;</span>
+
+    @Column(name = &quot;temperature_code&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L127">    private TemperatureUnit temperatureCode;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CARGO_SHIPMENT_ID&quot;))
+<span class="nc" id="L131">    public ShipmentHeader shipmentHeader;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

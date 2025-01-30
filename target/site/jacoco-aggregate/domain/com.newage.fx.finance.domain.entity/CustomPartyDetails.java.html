@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CustomPartyDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CustomPartyDetails.java</span></div><h1>CustomPartyDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L12">@Setter</span>
+<span class="nc" id="L13">@NoArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_custom_party_details&quot;)
+public class CustomPartyDetails {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L20">    private Long id;</span>
+
+    @Column(name=&quot;shipper_id&quot;)
+<span class="nc" id="L23">    private Long shipperId;</span>
+
+    @JoinColumn(name = &quot;shipper_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CUSTOM_SHIPPERADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L27">    private CustomPartyAddressInfo shipperAdd;</span>
+
+    @Column(name=&quot;consignee_id&quot;)
+<span class="nc" id="L30">    private Long consigneeId;</span>
+
+    @JoinColumn(name = &quot;consignee_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CUSTOM_CONSIGNEEADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L34">    private CustomPartyAddressInfo consigneeAdd;</span>
+
+    @Column(name=&quot;notify_id&quot;)
+<span class="nc" id="L37">    private Long notifyId;</span>
+
+    @JoinColumn(name = &quot;notify_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CUSTOM_NOTIFYADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L41">    private CustomPartyAddressInfo notifyAdd;</span>
+
+    @OneToOne()
+    @JoinColumn(name = &quot;custom_house_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CUSTOM_HOUSE_ID&quot;))
+<span class="nc" id="L45">    CustomHouseDetails customHouseDetails;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

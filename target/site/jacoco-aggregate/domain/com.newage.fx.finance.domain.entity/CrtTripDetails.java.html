@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CrtTripDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CrtTripDetails.java</span></div><h1>CrtTripDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ServiceLegType;
+import com.newage.fx.finance.domain.enums.TripType;
+import com.newage.fx.finance.domain.enums.TypeStatus;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
+
+@Entity
+<span class="nc" id="L17">@Setter</span>
+@Getter
+<span class="nc" id="L19">@AllArgsConstructor</span>
+<span class="nc" id="L20">@NoArgsConstructor</span>
+@Table(name = &quot;crt_trip_details&quot;)
+public class CrtTripDetails extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L27">    private Long id;</span>
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;type&quot;)
+<span class="nc" id="L31">    private TypeStatus type;</span>
+
+    // Standard , Bogie, Couple
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;trip_type&quot;)
+<span class="nc" id="L36">    private TripType tripType;</span>
+
+    @Column(name = &quot;vehicle_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L39">    private Long vehicleId;</span>
+
+    @Column(name = &quot;vehicle_no&quot;)
+<span class="nc" id="L42">    private String vehicleNo;</span>
+
+    @Column(name = &quot;driver_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L45">    private Long driverId;</span>
+
+    @Column(name = &quot;driver_name&quot;)
+<span class="nc" id="L48">    private String driverName;</span>
+
+    @Column(name = &quot;driver_contact_no&quot;)
+<span class="nc" id="L51">    private String driverContactNo;</span>
+
+    @Column(name = &quot;token&quot;)
+<span class="nc" id="L54">    private String token;</span>
+
+    @Column(name = &quot;transporter_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L57">    private Long transporterId;</span>
+
+    @Column(name = &quot;transporter_name&quot;)
+<span class="nc" id="L60">    private String transporterName;</span>
+    //cost
+
+    @Column(name = &quot;trailer_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L64">    private Long trailerId;</span>
+
+    @Column(name = &quot;trailer_name&quot;)
+<span class="nc" id="L67">    private String trailerName;</span>
+
+    @Column(name = &quot;charge_id&quot;)
+<span class="nc" id="L70">    private Long chargeId;</span>
+
+    @Column(name = &quot;charge_name&quot;)
+<span class="nc" id="L73">    private String chargeName;</span>
+
+    @Column(name = &quot;billing_currency_id&quot;)
+<span class="nc" id="L76">    private Long billingCurrencyId;</span>
+
+    @Column(name = &quot;cost_amount&quot;)
+<span class="nc" id="L79">    private Double costAmount;</span>
+
+    @Column(name = &quot;trailer_no&quot;)
+<span class="nc" id="L82">    private String trailerNo;</span>
+
+    @Column(name = &quot;leg_type&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L86">    private ServiceLegType serviceLegType;</span>
+
+<span class="nc" id="L88">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;tripDetails&quot;, cascade = CascadeType.ALL)</span>
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L90">    private List&lt;CrtTripContainerDetails&gt; crtTripContainerDetails = new ArrayList&lt;&gt;();</span>
+//
+//    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+//    @JoinColumn(name = &quot;enquiry_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_ENQ_TRIP_ID&quot;))
+//    private EnquiryHeader enquiryDetail;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = &quot;crt_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CRT_TRIP_ID&quot;))
+<span class="nc" id="L98">    private CrtTripHeaderDetails crtHeader;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

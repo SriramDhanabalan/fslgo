@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QEnquiryAddlDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QEnquiryAddlDetail.java</span></div><h1>QEnquiryAddlDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QEnquiryAddlDetail is a Querydsl query type for EnquiryAddlDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QEnquiryAddlDetail extends EntityPathBase&lt;EnquiryAddlDetail&gt; {
+
+    private static final long serialVersionUID = 890505552L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QEnquiryAddlDetail enquiryAddlDetail = new QEnquiryAddlDetail(&quot;enquiryAddlDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; carrierId = createNumber(&quot;carrierId&quot;, Long.class);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; countryId = createNumber(&quot;countryId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L38">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+    public final QEnquiryHeader enquiryDetail;
+
+<span class="nc" id="L42">    public final StringPath enquiryNo = createString(&quot;enquiryNo&quot;);</span>
+
+<span class="nc" id="L44">    public final DateTimePath&lt;java.util.Date&gt; eta = createDateTime(&quot;eta&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L46">    public final DateTimePath&lt;java.util.Date&gt; etd = createDateTime(&quot;etd&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L48">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L50">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L52">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L55">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L57">    public final StringPath notes = createString(&quot;notes&quot;);</span>
+
+<span class="nc" id="L59">    public final NumberPath&lt;Long&gt; plannedScheduleId = createNumber(&quot;plannedScheduleId&quot;, Long.class);</span>
+
+<span class="nc" id="L61">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+<span class="nc" id="L63">    public final NumberPath&lt;Long&gt; vesselId = createNumber(&quot;vesselId&quot;, Long.class);</span>
+
+<span class="nc" id="L65">    public final StringPath voyageOrflightNo = createString(&quot;voyageOrflightNo&quot;);</span>
+
+    public QEnquiryAddlDetail(String variable) {
+<span class="nc" id="L68">        this(EnquiryAddlDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L69">    }</span>
+
+    public QEnquiryAddlDetail(Path&lt;? extends EnquiryAddlDetail&gt; path) {
+<span class="nc" id="L72">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L73">    }</span>
+
+    public QEnquiryAddlDetail(PathMetadata metadata) {
+<span class="nc" id="L76">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L77">    }</span>
+
+    public QEnquiryAddlDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L80">        this(EnquiryAddlDetail.class, metadata, inits);</span>
+<span class="nc" id="L81">    }</span>
+
+    public QEnquiryAddlDetail(Class&lt;? extends EnquiryAddlDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L84">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L85" title="All 2 branches missed.">        this.enquiryDetail = inits.isInitialized(&quot;enquiryDetail&quot;) ? new QEnquiryHeader(forProperty(&quot;enquiryDetail&quot;), inits.get(&quot;enquiryDetail&quot;)) : null;</span>
+<span class="nc" id="L86">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

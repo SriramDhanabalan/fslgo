@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterHeader.java</span></div><h1>MasterHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import com.querydsl.core.annotations.QueryInit;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L19">@Setter</span>
+<span class="nc" id="L20">@NoArgsConstructor</span>
+@Table(name = &quot;master_header&quot;)
+public class MasterHeader extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L26">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L29">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long branchId;</span>
+
+    @Column(name = &quot;master_uid&quot;, length = 100, nullable = false)
+<span class="nc" id="L38">    private String masterUid;</span>
+
+    @Column(name = &quot;status&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L42">    private ShipmentMasterStatus status;</span>
+
+    @Column(name = &quot;transport_mode_id&quot;, length = 20)
+<span class="nc" id="L45">    private TransportMode transportMode;</span>
+
+    @Column(name = &quot;trade_id&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L49">    private ImportExport tradeCode;</span>
+
+    @Column(name = &quot;service_type&quot;, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L53">    private Service serviceType;</span>
+
+    @Column(name = &quot;origin_id&quot;,  nullable = false)
+<span class="nc" id="L56">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, nullable = false)
+<span class="nc" id="L59">    private String originName;</span>
+
+    @Column(name = &quot;destination_id&quot;, nullable = false)
+<span class="nc" id="L62">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, nullable = false)
+<span class="nc" id="L65">    private String destinationName;</span>
+
+    @Column(name = &quot;etd&quot;, nullable = true)
+<span class="nc" id="L68">    private Date etd;</span>
+
+    @Column(name = &quot;eta&quot;, nullable = true)
+<span class="nc" id="L71">    private Date eta;</span>
+
+    @Column(name = &quot;atd&quot;, nullable = true)
+<span class="nc" id="L74">    private Date atd;</span>
+
+    @Column(name = &quot;ata&quot;, nullable = true)
+<span class="nc" id="L77">    private Date ata;</span>
+
+<span class="nc" id="L79">    @Column(name = &quot;container_track&quot;, nullable = true)</span>
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L81">    private YesNo containerTrack = YesNo.No;</span>
+
+    @Column(name = &quot;master_term&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L85">    private Freight freight;</span>
+
+    @Column(name = &quot;creation_mode&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L89">    private ShipmentCreationMode creationMode;</span>
+
+    @Column(name = &quot;business_type&quot;, nullable = false, length = 7)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L93">    private ServiceType businessType;</span>
+
+    @Column(name = &quot;division_id&quot;, nullable = false, length = 7)
+<span class="nc" id="L96">    private Long divisionId;</span>
+
+    @Column(name = &quot;service&quot;, length = 30)
+<span class="nc" id="L99">    private String service;</span>
+
+    @Column(name = &quot;efs_jobno&quot;)
+<span class="nc" id="L102">    private String efsJobno;</span>
+
+    @Column(name = &quot;efs_job_status&quot;)
+<span class="nc" id="L105">    private String efsJobStatus;</span>
+
+    @Column(name = &quot;efs_segment_code&quot;)
+<span class="nc" id="L108">    private String efsSegmentCode;</span>
+
+    @Column(name = &quot;flag_insert_update&quot;)
+<span class="nc" id="L111">    private String InsertUpdate;</span>
+
+    @Column(name = &quot;nxt_toefs_id&quot;)
+<span class="nc" id="L114">    private Long nxToefsId;</span>
+
+    @Column(name = &quot;transit_ref_no&quot;)
+<span class="nc" id="L117">    private String transitRefNo;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L120">    private String notes;</span>
+
+    @Column(name = &quot;service_code&quot;)
+<span class="nc" id="L123">    private String serviceCode;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L127">    private MasterAddlDetail masterAddlDetail;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L131">    private MasterCarrier masterCarrierInfo;</span>
+
+<span class="nc" id="L133">    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)</span>
+    @QueryInit(&quot;*.*&quot;)
+<span class="nc" id="L135">    private List&lt;MasterServiceDetail&gt; masterServices = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L137">    @Valid</span>
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L139">    private List&lt;MasterDimensionDetail&gt; masterDimensionDetails = new ArrayList&lt;&gt;();</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L143">    private MasterCargoDetail cargoDetail;</span>
+
+<span class="nc" id="L145">    @Valid</span>
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L147">    private List&lt;MasterRoutingDetail&gt; masterRoutingDetails = new ArrayList&lt;&gt;();</span>
+
+    @Valid
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L151">    private List&lt;MasterRatesDetail&gt; masterRatesDetails;</span>
+
+    @Valid
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L155">    private MasterPartyDetail masterPartyDetail;</span>
+
+    //vehicle details also will be also stored in same container table
+    // MasterHeader.java
+    @Valid
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L161">    private MasterContainerDetail masterContainerDetail;</span>
+
+//    need to be implemented
+//    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+//    private List&lt;MasterServicePortDetail&gt; masterServicePortDetails;
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L168">    private MasterServiceCustomsDetail masterServiceCustomsDetail;</span>
+
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L171">    private List&lt;EventDetail&gt; eventDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L174">    private List&lt;ReferenceDetail&gt; referenceDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L177">    private List&lt;AttachmentDetail&gt; attachmentDetail;//foreign key not added</span>
+
+    @OneToMany(mappedBy = &quot;shipmentHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L180">    private List&lt;SignOff&gt; signOff;</span>
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L183">    private CustomEdiDetails customEdiDetails;</span>
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L186">    private CustomMasterBlDetails customBlDetails;</span>
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L189">    private MasterTransportDocumentAir masterTransportDocumentAir;</span>
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L192">    private MasterTransportDocumentOcean masterTransportDocumentOcean;</span>
+
+    @OneToOne(mappedBy = &quot;masterHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L195">    private NxtToEfsFinanceIntegration nxtToEfsFinanceIntegration;</span>
+
+    @OneToMany(mappedBy = &quot;masterHeader&quot;,cascade = CascadeType.ALL)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L199">    private List&lt;MasterSignOffUnsignOffLogHistory&gt; signOffAndUnSignOffLogHistories;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L203">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

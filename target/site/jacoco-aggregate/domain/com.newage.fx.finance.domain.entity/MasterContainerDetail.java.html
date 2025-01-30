@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterContainerDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterContainerDetail.java</span></div><h1>MasterContainerDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+@Table(name = &quot;master_container_detail&quot;)
+public class MasterContainerDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L25">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L28">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L34">    private Long slNo;</span>
+
+    @Column(name = &quot;container_number&quot;, length = 20)
+<span class="nc" id="L37">    private String containerNumber;</span>
+
+    @Column(name = &quot;actual_seal_number&quot;, length = 30)
+<span class="nc" id="L40">    private String actualSealNumber;</span>
+
+    @Column(name = &quot;customs_seal_number&quot;, length = 30)
+<span class="nc" id="L43">    private String customsSealNumber;</span>
+
+    @Column(name = &quot;haz&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L47">    private YesNo haz;</span>
+
+    @Column(name = &quot;loading_date&quot;)
+<span class="nc" id="L50">    private Date loadingDate;</span>
+
+    @Column(name = &quot;unloading_date&quot;)
+<span class="nc" id="L53">    private Date unloadingDate;</span>
+
+    @Column(name = &quot;soc&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L57">    private YesNo soc;</span>
+
+    @Column(name = &quot;confirmed&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L61">    private YesNo confirmed;</span>
+
+    @Column(name = &quot;cfs_id&quot;)
+<span class="nc" id="L64">    private Long cfsId;</span>
+
+    @Column(name = &quot;cfs_name&quot;, length = 50)
+<span class="nc" id="L67">    private String cfsName;</span>
+
+    @Column(name = &quot;pickup_yard_date&quot;)
+<span class="nc" id="L70">    private Date pickupDate;</span>
+
+    @Column(name = &quot;pickup_yard&quot;, length = 30)
+<span class="nc" id="L73">    private String pickupYard;</span>
+
+    @Column(name = &quot;cfs_in_date&quot;)
+<span class="nc" id="L76">    private Date cfsInDate;</span>
+
+    @Column(name = &quot;cfs_out_date&quot;)
+<span class="nc" id="L79">    private Date cfsOutDate;</span>
+
+    @Column(name = &quot;grid_no&quot;, length = 20)
+<span class="nc" id="L82">    private String gridNo;</span>
+
+    @Column(name = &quot;tare_weight&quot;)
+<span class="nc" id="L85">    private Double tareWeight;</span>
+
+    @Column(name = &quot;transporter_id&quot;)
+<span class="nc" id="L88">    private Long transporterId;</span>
+
+    @Column(name = &quot;transporter_name&quot;, length = 50)
+<span class="nc" id="L91">    private String transporterName;</span>
+
+    @Column(name = &quot;commodity&quot;, length = 2000)
+<span class="nc" id="L94">    private String commodity;</span>
+
+    @Column(name = &quot;note&quot;, length = 2000)
+<span class="nc" id="L97">    private String note;</span>
+
+    @Column(name = &quot;stuffing_date&quot;)
+<span class="nc" id="L100">    private Date stuffingDate;</span>
+
+    @Column(name = &quot;unstuffing_date&quot;)
+<span class="nc" id="L103">    private Date unStuffingDate;</span>
+
+    @Column(name = &quot;port_unload_date&quot;)
+<span class="nc" id="L106">    private Date portUnloadDate;</span>
+
+    @Column(name = &quot;tallied&quot;, length = 20)
+<span class="nc" id="L109">    private String tallied;</span>
+
+    @Column(name = &quot;free_days&quot;)
+<span class="nc" id="L112">    private Date freeDays;</span>
+
+    @Column(name = &quot;damage_note&quot;, length = 2000)
+<span class="nc" id="L115">    private String damageNote;</span>
+
+    @Column(name = &quot;manifest_seal_number&quot;, length = 300)
+<span class="nc" id="L118">    private String manifestSealNumber;</span>
+
+    @Column(name = &quot;container_id&quot;)
+<span class="nc" id="L121">    private Long containerId;</span>
+
+    @Column(name = &quot;container_name&quot;)
+<span class="nc" id="L124">    private String containerName;</span>
+
+    @Column(name = &quot;vehicle_id&quot;)
+<span class="nc" id="L127">    private Long vehicleId;</span>
+
+    @Column(name = &quot;vehicle_name&quot;)
+<span class="nc" id="L130">    private String vehicleName;</span>
+
+    @Column(name = &quot;trailer_number&quot;)
+<span class="nc" id="L133">    private String trailerNo;</span>
+
+    @Column(name = &quot;vehicle_type_id&quot;)
+<span class="nc" id="L136">    private Long vehicleTypeId;</span>
+
+    @Column(name = &quot;driver_id&quot;)
+<span class="nc" id="L139">    private Long driverId;</span>
+
+    @Column(name = &quot;driver_name&quot;)
+<span class="nc" id="L142">    private String driverName;</span>
+
+    @Column(name = &quot;mobile&quot;, length = 20)
+<span class="nc" id="L145">    private String mobile;</span>
+
+    @Column(name = &quot;reference_number&quot;)
+<span class="nc" id="L148">    private String referenceNumber;</span>
+
+    @Column(name = &quot;po_number&quot;)
+<span class="nc" id="L151">    private String poNumber;</span>
+
+    @Column(name = &quot;external_no_of_piece&quot;)
+<span class="nc" id="L154">    private Long externalNoOfPiece;</span>
+
+    @Column(name = &quot;internal_no_of_piece&quot;)
+<span class="nc" id="L157">    private Long internalNoOfPiece;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_RATES_DETAIL_ID&quot;))
+<span class="nc" id="L161">    public MasterHeader masterHeader;</span>
+
+    // MasterContainerDetail.java
+    @OneToOne(mappedBy = &quot;masterContainer&quot;, cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+<span class="nc" id="L165">    private ShipmentContainerDetail shipmentContainerDetail;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L169">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentRatesDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentRatesDetail.java</span></div><h1>ShipmentRatesDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.Freight;
+import com.newage.fx.finance.domain.enums.RateReferenceTypes;
+import com.newage.fx.finance.domain.enums.RateTypes;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_rates_detail&quot;)
+public class ShipmentRatesDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L27">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L36">    private Long branchId;</span>
+
+//    @Column(name = &quot;shipment_id&quot;, length = 100,nullable = false)
+//    private String shipmentId;
+
+//    @Column(name = &quot;shipment_service_id&quot;, length = 100,nullable = false)
+//    private Long shipmentServiceId;
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L45">    private Long slNo;</span>
+
+    @Column(name = &quot;charge_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L48">    private Long chargeId;</span>
+
+    @Column(name = &quot;charge_name&quot;, nullable = true, length = 20)
+<span class="nc" id="L51">    private String chargeName;</span>
+
+    @Column(name = &quot;sell_unit_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L54">    private Long unitId;</span>
+
+    @Column(name = &quot;sell_unit&quot;, nullable = true, length = 20)
+<span class="nc" id="L57">    private String unitName;</span>
+
+    @Column(name = &quot;currency_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L60">    private Long currencyId;</span>
+
+    @Column(name = &quot;currency_code&quot;,nullable = true, length = 20)
+<span class="nc" id="L63">    private String currencyCode;</span>
+
+    @Column(name = &quot;currency_rate_of_exchange&quot;)//spell correction in db
+<span class="nc" id="L66">    private Double roe;</span>
+
+    @Column(name = &quot;sell_rate_per_unit&quot;, nullable = true, length = 20)
+<span class="nc" id="L69">    private Double sellRatePerUnit;</span>
+
+    @Column(name = &quot;sell_amount&quot;, nullable = true, length = 20)
+<span class="nc" id="L72">    private Double sellAmount;</span>
+
+    @Column(name = &quot;sell_amount_min&quot;, nullable = true, length = 20)
+<span class="nc" id="L75">    private Double sellAmountMinimum;</span>
+
+    @Column(name = &quot;cost_rate_per_unit&quot;, nullable = true, length = 20)
+<span class="nc" id="L78">    private Double costRatePerUnit;</span>
+
+    @Column(name = &quot;cost_amount&quot;, nullable = true, length = 20)
+<span class="nc" id="L81">    private Double costAmount;</span>
+
+    @Column(name = &quot;bill_to_customer_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L84">    private Long billToCustomerId;</span>
+
+    @Column(name = &quot;cost_to_vendor_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L87">    private Long costToVendorId;</span>
+
+    @Column(name = &quot;declrated_sell_rate&quot;, nullable = true, length = 20)
+<span class="nc" id="L90">    private Double declratedSellRate;</span>
+
+    @Column(name = &quot;declarted_sell_min&quot;, nullable = true, length = 20)
+<span class="nc" id="L93">    private Double declratedSellMinimum;</span>
+
+    @Column(name = &quot;rate_type&quot;, nullable = true, length = 20)
+<span class="nc" id="L96">    private RateTypes rateType;</span>
+
+    @Column(name = &quot;rate_reference_type&quot;, nullable = true, length = 20)
+<span class="nc" id="L99">    private RateReferenceTypes rateReferenceType;</span>
+
+    @Column(name = &quot;rate_reference_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L102">    private Long rateReferenceId;</span>
+
+    @Column(name = &quot;rate_reference_sl_no&quot;, nullable = true, length = 20)//spell correction in db
+<span class="nc" id="L105">    private Long rateReferenceSlNo;</span>
+
+    @Column(name = &quot;rate_reference_amount&quot;, nullable = true, length = 20)
+<span class="nc" id="L108">    private Double rateReferenceAmount;</span>
+
+    @Column(name = &quot;unit_from&quot;, nullable = true, length = 20)
+<span class="nc" id="L111">    private Long unitFrom;</span>
+
+    @Column(name = &quot;unit_to&quot;, nullable = true, length = 20)
+<span class="nc" id="L114">    private Long unitTo;</span>
+
+    @Column(name = &quot;cost_currency_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L117">    private Long costCurrencyId;</span>
+
+    @Column(name = &quot;cost_roe&quot;)//spell correction in db
+<span class="nc" id="L120">    private Double costRoe;</span>
+
+    @Column(name = &quot;cost_unit_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L123">    private Long costUnitId;</span>
+
+    @Column(name = &quot;cost_unit&quot;, nullable = true, length = 20)
+<span class="nc" id="L126">    private Double costUnit;</span>
+
+    @Column(name = &quot;no_of_units&quot;, nullable = true)
+<span class="nc" id="L129">    private Double noOfUnit;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L133">    private String notes;</span>
+
+    @Column(name = &quot;term&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L137">    private Freight term;</span>
+
+    @Column(name = &quot;modified&quot;, nullable = true)
+<span class="nc" id="L140">    private boolean isModified;</span>
+
+    @Column(name = &quot;enquiry_ref_charge_id&quot;)
+<span class="nc" id="L143">    private Long enquiryRefChargeId;</span>
+
+    @Column(name = &quot;balance_sell_amt&quot;)
+<span class="nc" id="L146">    private Double balanceSellAmt;</span>
+
+    @Column(name = &quot;balance_cost_amt&quot;)
+<span class="nc" id="L149">    private Double balanceCostAmt;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SERVICE_SHIPMENT_ID&quot;))
+<span class="nc" id="L153">    public ShipmentHeader shipmentHeader;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_service_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_SERVICE_ID&quot;))
+<span class="nc" id="L157">    public ShipmentServiceDetail shipmentServiceId;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

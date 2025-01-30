@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EnquiryChargeDetailsNew.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">EnquiryChargeDetailsNew.java</span></div><h1>EnquiryChargeDetailsNew.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ChargeType;
+import com.newage.fx.finance.domain.enums.Freight;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L19">@Setter</span>
+<span class="nc" id="L20">@NoArgsConstructor</span>
+<span class="nc" id="L21">@AllArgsConstructor</span>
+@Table(name = &quot;spotquote_charge_detail&quot;)
+public class EnquiryChargeDetailsNew extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L28">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L32">    private Long version;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L38">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L41">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L44">    private Long slNo;</span>
+
+    @NotNull
+    @Column(name = &quot;charge_id&quot;, nullable = false)
+<span class="nc" id="L48">    Long chargeId;</span>
+
+    @Column(name = &quot;charge_name&quot;)
+<span class="nc" id="L51">    private String chargeName;</span>
+
+    @Column(name = &quot;charge_code&quot;)
+<span class="nc" id="L54">    private String chargeCode;</span>
+
+    @NotNull
+    @Column(name = &quot;currency_id&quot;, nullable = false)
+<span class="nc" id="L58">    Long currencyId;</span>
+
+    @NotNull
+    @Column(name = &quot;converted_currency_id&quot;, nullable = false)
+<span class="nc" id="L62">    Long convertedCurrencyId;</span>
+
+    @Column(name = &quot;currency_code&quot;)
+<span class="nc" id="L65">    private String currencyCode;</span>
+
+    @Column(name = &quot;converted_currency_code&quot;)
+<span class="nc" id="L68">    private String convertedCurrencyCode;</span>
+
+    @Column(name = &quot;measurement_id&quot;, nullable = false)
+<span class="nc" id="L71">    Long measurementId;</span>
+
+    @Column(name = &quot;unit_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L74">    private String unit;</span>
+
+    @Column(name = &quot;unit_code&quot;, length = 20)
+<span class="nc" id="L77">    private String unitCode;</span>
+
+    @Column(name = &quot;unit_master_id&quot;)
+<span class="nc" id="L80">    Long unitId;</span>
+
+    @Column(name = &quot;no_of_units&quot;, nullable = false)
+<span class="nc" id="L83">    Double noOfUnit;</span>
+
+    @Column(name = &quot;rate_of_exchange&quot;)
+<span class="nc" id="L86">    private Double roe;</span>
+
+    @Column(name = &quot;min_amount&quot;)
+<span class="nc" id="L89">    private Double minAmount;</span>
+
+    @Column(name = &quot;amount_per_unit&quot;, length = 20)
+<span class="nc" id="L92">    Double amountPerUnit;</span>
+
+    @Column(name = &quot;amount&quot;)
+<span class="nc" id="L95">    Double amount;</span>
+
+    @Column(name = &quot;currency_amount&quot;)
+<span class="nc" id="L98">    Double currencyAmount;</span>
+
+    @Column(name = &quot;min_cost_amount&quot;)
+<span class="nc" id="L101">    Double minCostAmount;</span>
+
+    @Column(name = &quot;cost_per_unit&quot;, length = 20)
+<span class="nc" id="L104">    Double costPerUnit;</span>
+
+    @Column(name = &quot;cost_amount&quot;)
+<span class="nc" id="L107">    Double costAmount;</span>
+
+    @Column(name = &quot;cost_currency_amount&quot;)
+<span class="nc" id="L110">    Double costCurrencyAmount;</span>
+
+    @Column(name = &quot;vendor_id&quot;, length = 20)
+<span class="nc" id="L113">    Long vendorId;</span>
+
+    @Column(name = &quot;term&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L117">    private Freight term;</span>
+
+    @Column(name = &quot;bill_to_customer_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L120">    private Long billToCustomerId;</span>
+
+    @Column(name = &quot;bill_to_customer_name&quot;, nullable = true, length = 20)
+<span class="nc" id="L123">    private String billToCustomerName;</span>
+
+    @Column(name = &quot;cost_roe&quot;)//spell correction in db
+<span class="nc" id="L126">    private Double costRoe;</span>
+
+    @Column(name = &quot;charge_type&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L130">    private ChargeType chargeType;</span>
+
+    @Column(name = &quot;is_container&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L134">    private YesNo isContainer;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;spot_quotation_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CHARGE_SPOT_QUOTATION_ID&quot;))
+<span class="nc" id="L138">    EnquirySpotQuotationNew spotQuotation;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;enquiry_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_ENQUIRY_DETAIL_ID&quot;))
+<span class="nc" id="L142">    private EnquiryHeader enquiryDetail;</span>
+
+    @OneToMany(fetch = FetchType.LAZY,mappedBy = &quot;enquiryChargeDetailsNew&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L145">    private List&lt;MultiCarrier&gt; multiCarrier;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

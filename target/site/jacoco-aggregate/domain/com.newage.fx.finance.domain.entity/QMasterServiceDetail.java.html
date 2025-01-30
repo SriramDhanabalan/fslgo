@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QMasterServiceDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QMasterServiceDetail.java</span></div><h1>QMasterServiceDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QMasterServiceDetail is a Querydsl query type for MasterServiceDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QMasterServiceDetail extends EntityPathBase&lt;MasterServiceDetail&gt; {
+
+    private static final long serialVersionUID = -1888122891L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QMasterServiceDetail masterServiceDetail = new QMasterServiceDetail(&quot;masterServiceDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; agentId = createNumber(&quot;agentId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L31">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ServiceType&gt; businessType = createEnum(&quot;businessType&quot;, com.newage.fx.finance.domain.enums.ServiceType.class);</span>
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L38">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L40">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L42">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L44">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L47">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L49">    public final ListPath&lt;MasterServiceLinkDetail, QMasterServiceLinkDetail&gt; linkDetailList = this.&lt;MasterServiceLinkDetail, QMasterServiceLinkDetail&gt;createList(&quot;linkDetailList&quot;, MasterServiceLinkDetail.class, QMasterServiceLinkDetail.class, PathInits.DIRECT2);</span>
+
+    public final QMasterHeader masterHeader;
+
+<span class="nc" id="L53">    public final ListPath&lt;MasterRatesDetail, QMasterRatesDetail&gt; masterRatesDetail = this.&lt;MasterRatesDetail, QMasterRatesDetail&gt;createList(&quot;masterRatesDetail&quot;, MasterRatesDetail.class, QMasterRatesDetail.class, PathInits.DIRECT2);</span>
+
+    public final QMasterServiceAddlDetail masterServiceAddlDetail;
+
+<span class="nc" id="L57">    public final StringPath productCode = createString(&quot;productCode&quot;);</span>
+
+<span class="nc" id="L59">    public final DateTimePath&lt;java.util.Date&gt; serviceDate = createDateTime(&quot;serviceDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L61">    public final StringPath serviceDivision = createString(&quot;serviceDivision&quot;);</span>
+
+<span class="nc" id="L63">    public final NumberPath&lt;Long&gt; serviceId = createNumber(&quot;serviceId&quot;, Long.class);</span>
+
+<span class="nc" id="L65">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ServiceMode&gt; serviceMode = createEnum(&quot;serviceMode&quot;, com.newage.fx.finance.domain.enums.ServiceMode.class);</span>
+
+<span class="nc" id="L67">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ShipmentMasterStatus&gt; serviceStatus = createEnum(&quot;serviceStatus&quot;, com.newage.fx.finance.domain.enums.ShipmentMasterStatus.class);</span>
+
+<span class="nc" id="L69">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ImportExport&gt; serviceTrade = createEnum(&quot;serviceTrade&quot;, com.newage.fx.finance.domain.enums.ImportExport.class);</span>
+
+<span class="nc" id="L71">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.TransportMode&gt; serviceTransportMode = createEnum(&quot;serviceTransportMode&quot;, com.newage.fx.finance.domain.enums.TransportMode.class);</span>
+
+<span class="nc" id="L73">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.Service&gt; serviceType = createEnum(&quot;serviceType&quot;, com.newage.fx.finance.domain.enums.Service.class);</span>
+
+<span class="nc" id="L75">    public final StringPath serviceUid = createString(&quot;serviceUid&quot;);</span>
+
+<span class="nc" id="L77">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QMasterServiceDetail(String variable) {
+<span class="nc" id="L80">        this(MasterServiceDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L81">    }</span>
+
+    public QMasterServiceDetail(Path&lt;? extends MasterServiceDetail&gt; path) {
+<span class="nc" id="L84">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L85">    }</span>
+
+    public QMasterServiceDetail(PathMetadata metadata) {
+<span class="nc" id="L88">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L89">    }</span>
+
+    public QMasterServiceDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L92">        this(MasterServiceDetail.class, metadata, inits);</span>
+<span class="nc" id="L93">    }</span>
+
+    public QMasterServiceDetail(Class&lt;? extends MasterServiceDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L96">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        this.masterHeader = inits.isInitialized(&quot;masterHeader&quot;) ? new QMasterHeader(forProperty(&quot;masterHeader&quot;), inits.get(&quot;masterHeader&quot;)) : null;</span>
+<span class="nc bnc" id="L98" title="All 2 branches missed.">        this.masterServiceAddlDetail = inits.isInitialized(&quot;masterServiceAddlDetail&quot;) ? new QMasterServiceAddlDetail(forProperty(&quot;masterServiceAddlDetail&quot;), inits.get(&quot;masterServiceAddlDetail&quot;)) : null;</span>
+<span class="nc" id="L99">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

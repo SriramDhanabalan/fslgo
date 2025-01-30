@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterTransportDocumentOcean.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterTransportDocumentOcean.java</span></div><h1>MasterTransportDocumentOcean.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;master_transport_document_ocean&quot;)
+public class MasterTransportDocumentOcean extends Auditable&lt;String&gt; {
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">        private Long id;</span>
+
+        @Version
+        @Column(name = &quot;version&quot;)
+<span class="nc" id="L28">        private Long version;</span>
+
+        @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L31">        private Long groupCompanyId;</span>
+
+        @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L34">        private Long companyId;</span>
+
+        @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L37">        private Long branchId;</span>
+
+        @Column(name = &quot;source_type&quot;, length = 100)
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L41">        private SourceType sourceType;</span>
+
+//        @OneToOne(fetch = FetchType.LAZY)
+//        @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SERVICE_SHIPMENT_ID&quot;))
+//        public ShipmentHeader shipmentHeader;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L49">    public MasterHeader masterHeader;</span>
+
+        @Column(name = &quot;document_type&quot;, length = 100)
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L53">        private TransportDocumentType documentType;</span>
+
+        @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L56">        private Long slNo;</span>
+
+        @Column(name = &quot;document_no&quot;, length = 100)
+<span class="nc" id="L59">        private String documentNo;</span>
+
+        @Column(name = &quot;bl_type&quot;, length = 50)
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L63">        private BLType blType;</span>
+
+        @Column(name = &quot;shipper&quot;, length = 100)
+<span class="nc" id="L66">        private String shipper;</span>
+
+        @Column(name = &quot;shippers_address&quot;, length = 300)
+<span class="nc" id="L69">        private String shipperAddress;</span>
+
+        @Column(name = &quot;consignee&quot;, length = 100)
+<span class="nc" id="L72">        private String consignee;</span>
+
+        @Column(name = &quot;consignees_address&quot;, length = 300)
+<span class="nc" id="L75">        private String consigneeAddress;</span>
+
+        @Column(name = &quot;notify_party&quot;, length = 100)
+<span class="nc" id="L78">        private String notifyParty;</span>
+
+        @Column(name = &quot;notify_address&quot;, length = 300)
+<span class="nc" id="L81">        private String notifyPartyAddress;</span>
+
+        @Column(name = &quot;bill_lading_no&quot;, length = 300)
+<span class="nc" id="L84">        private String billLadingNo;</span>
+
+        @Column(name = &quot;export_reference&quot;, length = 300)
+<span class="nc" id="L87">        private String exportReference;</span>
+
+        @Column(name = &quot;forwarder_agent&quot;, length = 100)
+<span class="nc" id="L90">        private String forwarderAgent;</span>
+
+        @Column(name = &quot;forwarder_agent_address&quot;, length = 300)
+<span class="nc" id="L93">        private String forwarderAgentAddress;</span>
+
+        @Column(name = &quot;ftz_no&quot;, length = 100)
+<span class="nc" id="L96">        private String FTZNo;</span>
+
+        @Column(name = &quot;export_instruction&quot;, length = 300)
+<span class="nc" id="L99">        private String exportInstruction;</span>
+
+        @Column(name = &quot;ocean_carrier&quot;, length = 300)
+<span class="nc" id="L102">        private String oceanCarrier;</span>
+
+        @Column(name = &quot;terminal&quot;, length = 300)
+<span class="nc" id="L105">        private String terminal;</span>
+
+        @Column(name = &quot;pre_carriage&quot;)
+<span class="nc" id="L108">        private Long preCarriage;</span>
+
+       @Column(name = &quot;pre_carrier&quot;, length = 300)
+<span class="nc" id="L111">       private String preCarrier;</span>
+
+        @Column(name = &quot;place_of_receipt_id&quot;)
+<span class="nc" id="L114">        private Long placeOfReceiptId;</span>
+
+        @Column(name = &quot;place_of_receipt_name&quot;, length = 300)
+<span class="nc" id="L117">        private String placeOfReceiptName;</span>
+
+        @Column(name = &quot;vessel_id&quot;)
+<span class="nc" id="L120">        private Long vesselId;</span>
+
+        @Column(name = &quot;vessel_name&quot;,length = 300)
+<span class="nc" id="L123">        private String vesselName;</span>
+
+        @Column(name = &quot;voyage_number&quot;, length = 20)
+<span class="nc" id="L126">        private String voyageNumber;</span>
+
+        @Column(name = &quot;port_of_loading_id&quot;)
+<span class="nc" id="L129">        private Long portOfLoadingId;</span>
+
+        @Column(name = &quot;port_of_loading_name&quot;)
+<span class="nc" id="L132">        private String portOfLoadingName;</span>
+
+        @Column(name = &quot;port_of_discharge_id&quot;)
+<span class="nc" id="L135">        private Long portOfDischargeId;</span>
+
+        @Column(name = &quot;port_of_discharge_name&quot;)
+<span class="nc" id="L138">        private String portOfDischargeName;</span>
+
+        @Column(name = &quot;place_of_delivery_id&quot;)
+<span class="nc" id="L141">        private Long placeOfDeliveryId;</span>
+
+        @Column(name = &quot;place_of_delivery_name&quot;)
+<span class="nc" id="L144">        private String placeOfDeliveryName;</span>
+
+        @Column(name = &quot;internal_reference&quot;)
+<span class="nc" id="L147">        private String internalReference;</span>
+
+        @Column(name = &quot;marks_and_no&quot;, length = 1000)
+<span class="nc" id="L150">        private String marksAndNumbers;</span>
+
+        @Column(name = &quot;description_of_package&quot;, length = 1000)
+<span class="nc" id="L153">        private String descriptionOfPackage;</span>
+
+        @Column(name = &quot;field_one&quot;)
+<span class="nc" id="L156">        private String fieldOne;</span>
+
+        @Column(name = &quot;field_two&quot;)
+<span class="nc" id="L159">        private String fieldTwo;</span>
+
+        @Column(name = &quot;field_three&quot;)
+<span class="nc" id="L162">        private String fieldThree;</span>
+
+        @Column(name = &quot;freight&quot;, nullable = false, length = 7)
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L166">        private Freight freight;</span>
+
+        @Column(name = &quot;company&quot;)
+<span class="nc" id="L169">        private String company;</span>
+
+        @Column(name = &quot;place_of_issue_id&quot;)
+<span class="nc" id="L172">        private Long placeOfIssueId;</span>
+
+        @Column(name = &quot;place_of_issue_name&quot;)
+<span class="nc" id="L175">        private String placeOfIssueName;</span>
+
+        @Column(name = &quot;issue_date&quot;)
+<span class="nc" id="L178">        private Date issueDate;</span>
+
+        @Column(name = &quot;aes_number&quot;, length = 20)
+<span class="nc" id="L181">        private String aesNumber;</span>
+
+        @Column(name = &quot;status&quot;, nullable = true, length = 50)
+        @Enumerated(EnumType.STRING)
+<span class="nc" id="L185">        private HawbStatus hblStatus;</span>
+
+        @Column(name = &quot;date&quot;)
+<span class="nc" id="L188">        private Date date;</span>
+
+
+        @Column(name = &quot;move&quot;)
+<span class="nc" id="L192">        private String move;</span>
+
+<span class="nc" id="L194">        @OneToMany(mappedBy = &quot;masterTransportDocumentOcean&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L195">        private List&lt;TransportDocumentDetails&gt;  transportDocumentDetails = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L197">        @OneToMany(mappedBy = &quot;masterTransportDocumentOcean&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L198">        private List&lt;TransportDocumentOtherCharges&gt; hblChargeDetails = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L200">        @OneToMany(mappedBy = &quot;masterTransportDocumentOcean&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L201">        private List&lt;TransportDocumentContainerDetails&gt; hblContainerDetails = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L203">        @OneToMany(mappedBy = &quot;masterTransportDocumentOcean&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L204">        private List&lt;TransportDocumentLogHistory&gt; hblHistoryLogs = new ArrayList&lt;&gt;();</span>
+    }
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

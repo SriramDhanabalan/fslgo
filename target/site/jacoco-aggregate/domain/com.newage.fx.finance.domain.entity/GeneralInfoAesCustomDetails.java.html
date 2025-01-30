@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>GeneralInfoAesCustomDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">GeneralInfoAesCustomDetails.java</span></div><h1>GeneralInfoAesCustomDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.AesFillingType;
+import com.newage.fx.finance.domain.enums.FilingOption;
+import com.newage.fx.finance.domain.enums.UsTransportMode;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L21">@Setter</span>
+<span class="nc" id="L22">@NoArgsConstructor</span>
+<span class="nc" id="L23">@AllArgsConstructor</span>
+@Table(name = &quot;us_custom_general_info&quot;)
+public class GeneralInfoAesCustomDetails extends Auditable&lt;String&gt; {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L29">    private Long id;</span>
+
+    @Column(name = &quot;tenant_id&quot;)
+<span class="nc" id="L32">    private String tenantId;</span>
+
+    @Column(name = &quot;branch&quot;)
+<span class="nc" id="L35">    private String branch;</span>
+
+    @Column(name = &quot;company&quot;)
+<span class="nc" id="L38">    private String company;</span>
+
+    @Column(name = &quot;filing_option&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L42">    private FilingOption filingOption;</span>
+
+    @Column(name = &quot;mawb_no&quot;)
+<span class="nc" id="L45">    private String mawbNo;</span>
+
+    @Column(name = &quot;hawb_no&quot;)
+<span class="nc" id="L48">    private String hawbNo;</span>
+
+    @Column(name = &quot;us_transport_mode&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L52">    private UsTransportMode transportMode;</span>
+
+    @Column(name = &quot;origin_state_id&quot;)
+<span class="nc" id="L55">    private Long originStateId;</span>
+
+    @Column(name = &quot;country_of_destination_id&quot;)
+<span class="nc" id="L58">    private Long countryOfDestinationId;</span>
+
+    @Column(name = &quot;port_of_exportation_id&quot;)
+<span class="nc" id="L61">    private Long portOfExportationId;</span>
+
+    @Column(name = &quot;port_of_unlading_id&quot;)
+<span class="nc" id="L64">    private Long portOfUnladingId;</span>
+
+    @Column(name = &quot;etd&quot;)
+<span class="nc" id="L67">    private Date etd;</span>
+
+    @Column(name = &quot;scas_iata_code_id&quot;)
+<span class="nc" id="L70">    private Long scasAndIataCodeId;</span>
+
+    @Column(name = &quot;vessel_id&quot;)
+<span class="nc" id="L73">    private Long vesselId;</span>
+
+    @Column(name = &quot;routed_transaction&quot;)
+<span class="nc" id="L76">    private Boolean routedTransaction;</span>
+
+    @Column(name = &quot;usppi_ultimate_consignee_related&quot;)
+<span class="nc" id="L79">    private Boolean usppiAndUltimateConsigneeRelated;</span>
+
+    @Column(name = &quot;is_hazardous_cargo&quot;)
+<span class="nc" id="L82">    private Boolean isHazardousCargo;</span>
+
+    @Column(name = &quot;inbound_type_id&quot;)
+<span class="nc" id="L85">    private Long inboundTypeId;</span>
+
+    @Column(name = &quot;import_entry_no&quot;)
+<span class="nc" id="L88">    private Long importEntryNo;</span>
+
+    @Column(name = &quot;foreign_trade_zone&quot;)
+<span class="nc" id="L91">    private Long foreignTradeZone;</span>
+
+    @OneToOne(mappedBy = &quot;generalInfo&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L94">    private UsppiAesCustomDetails usppiAesCustom;</span>
+
+    @OneToOne(mappedBy = &quot;generalInfo&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L97">    private ConsigneeDetails consigneeDetails;</span>
+
+    @OneToOne(mappedBy = &quot;generalInfo&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L100">    private FreightForwarderDetails freightForwarder;</span>
+
+<span class="nc" id="L102">    @OneToMany(mappedBy = &quot;generalInfo&quot;,cascade = CascadeType.ALL,orphanRemoval = true)</span>
+    @JsonManagedReference
+<span class="nc" id="L104">    private List&lt;CommodityDetails&gt; aesCommodityList= new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L106">    @OneToMany(mappedBy = &quot;generalInfo&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L107">    private List&lt;EquipmentDetails&gt; aesEquipmentDetails= new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_ID&quot;))
+<span class="nc" id="L111">    private ShipmentHeader shipmentHeader;</span>
+
+    @Column(name = &quot;master_id&quot;)
+<span class="nc" id="L114">    private Long masterId;</span>
+
+    @Column(name=&quot;correlation_id&quot;)
+<span class="nc" id="L117">    private String correlationId;</span>
+
+    @Column(name = &quot;aes_filing_type&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L121">    private AesFillingType aesFillingType;</span>
+
+/*    @Column(name = &quot;userName&quot;)
+    private String userName;*/
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

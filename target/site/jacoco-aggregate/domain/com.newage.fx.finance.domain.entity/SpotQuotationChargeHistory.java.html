@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SpotQuotationChargeHistory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">SpotQuotationChargeHistory.java</span></div><h1>SpotQuotationChargeHistory.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.QuoteProcess;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+<span class="nc" id="L19">@AllArgsConstructor</span>
+@Table(name = &quot;spotquote_charge_history&quot;)
+public class SpotQuotationChargeHistory extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L26">    private Long id;</span>
+
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L36">    private Long branchId;</span>
+
+    @NotNull
+    @Column(name = &quot;charge_id&quot;, nullable = false)
+<span class="nc" id="L40">   private Long chargeId;</span>
+
+    @NotNull(message = &quot;Accepted Values (Inserted, Updated, Deleted)&quot;)
+    @Column(name = &quot;process&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L45">    private QuoteProcess process;</span>
+
+    @Column(name = &quot;charge_name&quot;)
+<span class="nc" id="L48">    private String chargeName;</span>
+
+    @Column(name = &quot;charge_code&quot;)
+<span class="nc" id="L51">    private String chargeCode;</span>
+
+    @NotNull
+    @Column(name = &quot;currency_id&quot;, nullable = false)
+<span class="nc" id="L55">    private Long currencyId;</span>
+
+    @Column(name = &quot;currency_code&quot;)
+<span class="nc" id="L58">    private String currencyCode;</span>
+
+    @Column(name = &quot;unit_id&quot;, nullable = false)
+<span class="nc" id="L61">    private String unit;</span>
+
+    @Column(name = &quot;unit_code&quot;)
+<span class="nc" id="L64">    private String unitCode;</span>
+
+    @Column(name = &quot;unit_master_id&quot;)
+<span class="nc" id="L67">    private Long unitId;</span>
+
+    @NotNull
+    @Column(name = &quot;no_of_units&quot;, nullable = false)
+<span class="nc" id="L71">    Double noOfUnit;</span>
+
+    @Column(name = &quot;rate_of_exchange&quot;)
+<span class="nc" id="L74">    private Double roe;</span>
+
+    @Column(name = &quot;min_amount&quot;)
+<span class="nc" id="L77">    private Double minAmount;</span>
+
+    @Column(name = &quot;sell_per_unit&quot;, length = 20)
+<span class="nc" id="L80">    Double sellPerUnit;</span>
+
+    @Column(name = &quot;currency_amount&quot;)
+<span class="nc" id="L83">    private Double currencyAmount;</span>
+
+    @Column(name = &quot;min_cost_amount&quot;)
+<span class="nc" id="L86">    private Double minCostAmount;</span>
+
+    @NotNull
+    @Column(name = &quot;valid_upto&quot;, nullable = false)
+<span class="nc" id="L90">    private Date validUpTo;</span>
+
+    @Column(name = &quot;cost_per_unit&quot;, length = 20)
+<span class="nc" id="L93">    private Double costPerUnit;</span>
+
+    @Column(name = &quot;vendor_id&quot;, length = 20)
+<span class="nc" id="L96">    private Long vendorId;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L100">    private Long version;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;enquiry_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CHARGE_HISTORY_SPOT_QUOTATION_ID&quot;))
+<span class="nc" id="L104">    EnquiryHeader enquiryHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

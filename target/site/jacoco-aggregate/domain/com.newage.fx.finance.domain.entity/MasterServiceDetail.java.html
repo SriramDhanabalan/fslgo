@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterServiceDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterServiceDetail.java</span></div><h1>MasterServiceDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;master_service_detail&quot;)
+public class MasterServiceDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L27">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long branchId;</span>
+
+    @Column(name = &quot;master_service_uid&quot;, nullable = false)
+<span class="nc" id="L36">    private String serviceUid;</span>
+
+    @Column(name = &quot;service_transport_mode&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L40">    private TransportMode serviceTransportMode;</span>
+
+    @Column(name = &quot;service_date&quot;)
+<span class="nc" id="L43">    private Date serviceDate;</span>
+
+    @Column(name = &quot;service_type&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L47">    private Service serviceType;</span>
+
+    @Column(name = &quot;service_trade&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L51">    private ImportExport serviceTrade;</span>
+
+    @Column(name = &quot;service_id&quot;)
+<span class="nc" id="L54">    private Long serviceId;</span>
+
+    @Column(name = &quot;product_code&quot;)
+<span class="nc" id="L57">    private String productCode;</span>
+
+    @Column(name = &quot;service_mode&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L61">    private ServiceMode serviceMode;</span>
+
+    @Column(name = &quot;business_type&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L65">    private ServiceType businessType;</span>
+
+    @Column(name = &quot;service_division&quot;)
+<span class="nc" id="L68">    private String serviceDivision;</span>
+
+    @Column(name = &quot;service_status&quot;)
+<span class="nc" id="L71">    private ShipmentMasterStatus serviceStatus;</span>
+
+    @Column(name = &quot;agent_id&quot;)
+<span class="nc" id="L74">    private Long agentId;</span>
+
+    @OneToOne(mappedBy = &quot;masterServiceDetail&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L77">    private MasterServiceAddlDetail masterServiceAddlDetail;</span>
+
+    @OneToMany(mappedBy = &quot;masterServiceDetail&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L80">    private List&lt;MasterRatesDetail&gt; masterRatesDetail;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L84">    public MasterHeader masterHeader;</span>
+
+<span class="nc" id="L86">    @OneToMany(mappedBy = &quot;masterServiceDetail&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L87">    private List&lt;MasterServiceLinkDetail&gt; linkDetailList = new ArrayList&lt;&gt;();</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L91">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

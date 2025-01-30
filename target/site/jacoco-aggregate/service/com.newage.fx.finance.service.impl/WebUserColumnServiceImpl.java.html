@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>WebUserColumnServiceImpl.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">application</a> &gt; <a href="../index.html" class="el_bundle">service</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.service.impl</a> &gt; <span class="el_source">WebUserColumnServiceImpl.java</span></div><h1>WebUserColumnServiceImpl.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.service.impl;
+
+
+import com.google.gson.Gson;
+import com.newage.fx.finance.domain.convertor.GsonUtil;
+import com.newage.fx.finance.domain.entity.WebUserColumn;
+import com.newage.fx.finance.domain.repository.WebUserColumnRepository;
+import com.newage.fx.finance.service.WebUserColumnService;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.ArrayList;
+import java.util.List;
+
+<span class="nc" id="L16">@Log4j2</span>
+@Service
+
+public class WebUserColumnServiceImpl implements WebUserColumnService {
+
+    private final WebUserColumnRepository webUserColumnRepository;
+
+<span class="nc" id="L23">    public WebUserColumnServiceImpl(WebUserColumnRepository webUserColumnRepository) {</span>
+<span class="nc" id="L24">        this.webUserColumnRepository = webUserColumnRepository;</span>
+<span class="nc" id="L25">    }</span>
+
+    @Override
+    @Transactional
+    public WebUserColumn saveOrUpdateUserPreferences(Long serialno, String selectcolumn) {
+<span class="nc" id="L30">        log.info(&quot;Method saveOrUpdateUserPreferences called for serialno: {}&quot;, serialno);</span>
+
+        // Convert comma-separated string to a list of columns
+<span class="nc" id="L33">        String[] columns = selectcolumn.split(&quot;,&quot;);</span>
+<span class="nc" id="L34">        List&lt;String&gt; columnList = new ArrayList&lt;&gt;();</span>
+<span class="nc bnc" id="L35" title="All 2 branches missed.">        for (String column : columns) {</span>
+<span class="nc" id="L36">            columnList.add(column.trim());</span>
+        }
+
+        // Serialize the list of columns to a JSON string
+<span class="nc" id="L40">        Gson gson = GsonUtil.getGson();</span>
+<span class="nc" id="L41">        String jsonPreferences = gson.toJson(columnList);  // Serialize to JSON string</span>
+
+<span class="nc" id="L43">        log.info(&quot;Serialized JSON Preferences: {}&quot;, jsonPreferences);</span>
+
+        // Check if a record with the given serialno exists
+<span class="nc" id="L46">        WebUserColumn existingRecord = webUserColumnRepository.findBySlNo(serialno);</span>
+<span class="nc bnc" id="L47" title="All 2 branches missed.">        if (existingRecord != null) {</span>
+            // If the record exists, update the columnPreferences field
+<span class="nc" id="L49">            log.info(&quot;Updating existing record for serialno: {}&quot;, serialno);</span>
+<span class="nc" id="L50">            existingRecord.setColumnPreferences(jsonPreferences);</span>
+<span class="nc" id="L51">            return webUserColumnRepository.save(existingRecord);</span>
+        } else {
+            // If no record exists, create a new one
+<span class="nc" id="L54">            log.info(&quot;Creating new record for serialno: {}&quot;, serialno);</span>
+<span class="nc" id="L55">            WebUserColumn newRecord = new WebUserColumn();</span>
+<span class="nc" id="L56">            newRecord.setSlNo(serialno);</span>
+<span class="nc" id="L57">            newRecord.setColumnPreferences(jsonPreferences);</span>
+<span class="nc" id="L58">            return webUserColumnRepository.save(newRecord);</span>
+        }
+    }
+    @Override
+    @Transactional(readOnly = true)
+    public WebUserColumn getUserPreferences(Long slNo) {
+<span class="nc" id="L64">        log.info(&quot;Method getUserPreferences called for slNo: {}&quot;, slNo);</span>
+
+<span class="nc" id="L66">        WebUserColumn userColumn = webUserColumnRepository.findBySlNo(slNo);</span>
+<span class="nc bnc" id="L67" title="All 4 branches missed.">        if (userColumn != null &amp;&amp; userColumn.getColumnPreferences() != null) {</span>
+            try {
+                // Deserialize JSON to List for validation (optional check)
+<span class="nc" id="L70">                Gson gson = GsonUtil.getGson();</span>
+<span class="nc" id="L71">                List&lt;String&gt; preferences = gson.fromJson(userColumn.getColumnPreferences(), List.class);</span>
+
+                // Set the preferences list into columnPreferencesList
+<span class="nc" id="L74">                userColumn.setColumnPreferencesList(preferences);</span>
+
+                // Convert the list back to a comma-separated string
+<span class="nc" id="L77">                String columnPreferencesFormatted = String.join(&quot;,&quot;, preferences);</span>
+
+                // Set the newly formatted string as the columnPreferences value
+<span class="nc" id="L80">                userColumn.setColumnPreferences(columnPreferencesFormatted);</span>
+
+<span class="nc" id="L82">            } catch (Exception e) {</span>
+<span class="nc" id="L83">                log.error(&quot;Error processing column preferences&quot;, e);</span>
+<span class="nc" id="L84">            }</span>
+        }
+<span class="nc" id="L86">        return userColumn;</span>
+    }
+
+//    @Override
+//    @Transactional(readOnly = true)
+//    public WebUserColumn getUserPreferences(Long slNo) {
+//        log.info(&quot;Method getUserPreferences called for slNo: {}&quot;, slNo);
+//
+//        WebUserColumn userColumn = webUserColumnRepository.findBySlNo(slNo);
+//        if (userColumn != null &amp;&amp; userColumn.getColumnPreferences() != null) {
+//            try {
+//                // Deserialize JSON to List for validation (optional check)
+//                Gson gson = GsonUtil.getGson();
+//                List&lt;String&gt; preferences = gson.fromJson(userColumn.getColumnPreferences(), List.class);
+//
+//                // Re-serialize to ensure valid JSON format
+////                String jsonPreferences = gson.toJson(preferences);
+////                log.info(&quot;Validated Preferences JSON: {}&quot;, jsonPreferences);
+////
+////                // Set JSON string back to the response format
+//                userColumn.setColumnPreferencesList(preferences);
+//            } catch (Exception e) {
+//                log.error(&quot;Error processing column preferences&quot;, e);
+//            }
+//        }
+//        return userColumn;
+    }
+
+
+
+
+
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

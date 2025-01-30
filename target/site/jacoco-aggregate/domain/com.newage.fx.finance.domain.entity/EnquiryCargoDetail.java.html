@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EnquiryCargoDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">EnquiryCargoDetail.java</span></div><h1>EnquiryCargoDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+@Table(name = &quot;enquiry_service_cargo_detail&quot;)
+public class EnquiryCargoDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L21">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L25">    private Long version;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L28">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L34">    private Long branchId;</span>
+
+    @Column(name = &quot;enquiry_id&quot;, length = 100,nullable = true)
+<span class="nc" id="L37">    private Long enquiryId;</span>
+
+    @Column(name = &quot;enquiry_no&quot;, nullable = true, length = 20)
+<span class="nc" id="L40">    private String enquiryNo;</span>
+
+    @Column(name = &quot;hazardous&quot;, nullable = false, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L44">    private YesNo hazardous;</span>
+
+    @Column(name = &quot;stackable&quot;, nullable = false, length = 3)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L48">    private YesNo stackable;</span>
+
+    /* cargoReadyDate */
+    @Column(name = &quot;cargo_ready_date&quot;, nullable = false, length = 10)
+<span class="nc" id="L52">    private Date cargoReadyDate;</span>
+
+    /* zone name */
+    @Column(name = &quot;expected_delivery_date&quot;, nullable = false, length = 10)
+<span class="nc" id="L56">    private Date expectedDeliveryDate;</span>
+
+
+
+//    @OneToMany(mappedBy = &quot;cargoDetails&quot;, cascade = CascadeType.ALL)
+//    private List&lt;EnquiryDimensionDetails&gt; dimensionDetails;
+//
+//    @OneToMany(mappedBy = &quot;cargoDetails&quot;, cascade = CascadeType.ALL)
+//    private List&lt;EnquiryContainerDetails&gt; containerDetails;
+//
+//    @OneToOne(mappedBy = &quot;cargoDetails&quot;, cascade = CascadeType.ALL)
+//    EnquiryPackageDetails packageDetails;
+
+    @Column(name = &quot;commodity_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L70">    private Long commodityId;</span>
+
+    @Column(name = &quot;commodity_name&quot;, nullable = true, length = 100)
+<span class="nc" id="L73">    private String commodityName;</span>
+
+    @Column(name = &quot;commodity_description&quot;,nullable = true,length = 200)
+<span class="nc" id="L76">    private String commodityDescription;</span>
+
+    @Column(name = &quot;pack_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L79">    private Long packId;</span>
+
+    @Column(name = &quot;no_of_packages&quot;, nullable = true, length = 20)
+<span class="nc" id="L82">    private Integer noOfPackages;</span>
+
+    @Column(name = &quot;gross_weight_kgs&quot;, nullable = false, length = 20)
+<span class="nc" id="L85">    private Double grossWeightKg;</span>
+
+    @Column(name = &quot;gross_weight_lbs&quot;, nullable = false, length = 20)
+<span class="nc" id="L88">    private Double grossWeightLbs;</span>
+
+    @Column(name = &quot;volume_in_cbm&quot;, nullable = false, length = 20)
+<span class="nc" id="L91">    private Double volumeInCbm;</span>
+
+    @Column(name = &quot;volume_in_cft&quot;, nullable = true, length = 20)
+<span class="nc" id="L94">    private Double volumeInCft;</span>
+
+    @Column(name = &quot;volume_weight_kgs&quot;, nullable = true, length = 20)
+<span class="nc" id="L97">    private Double volWeightKg;</span>
+
+    @Column(name = &quot;chargeable_unit&quot;, nullable = true, length = 20)
+<span class="nc" id="L100">    private Double chargeableUnit;</span>
+
+    @Column(name = &quot;chargeable_volume_cbm&quot;, nullable = true, length = 20)
+<span class="nc" id="L103">    private Double chargeableVolumeCbm;</span>
+
+    @Column(name = &quot;chargeable_weight&quot;, nullable = true, length = 20)
+<span class="nc" id="L106">    private Double chargeableWeightKg;</span>
+
+    @Column(name = &quot;marks_and_numbers&quot;, nullable = true, length = 200)
+<span class="nc" id="L109">    private String marksAndNumbers;</span>
+
+    @Column(name = &quot;notes&quot; , nullable = true)
+<span class="nc" id="L112">    private String notes;</span>
+
+    //CRT
+    @Column(name = &quot;vehicle_type_id&quot; )
+<span class="nc" id="L116">    private Long vehicleTypeId;</span>
+
+    @Column(name = &quot;vehicle_type_name&quot;)
+<span class="nc" id="L119">    private String vehicleTypeName;</span>
+
+    @Column(name = &quot;expected_date&quot;)
+<span class="nc" id="L122">    private Date expectedArrivalTime;</span>
+
+    @Column(name = &quot;planned_date&quot;)
+<span class="nc" id="L125">    private Date plannedArrivalTime;</span>
+
+    @Column(name = &quot;time_slot&quot;)
+<span class="nc" id="L128">    private String timeSlot;</span>
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL )
+    @JoinColumn(name = &quot;enquiry_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SERVICE_ENQCARGOID&quot;))
+<span class="nc" id="L132">    private EnquiryHeader enquiryDetail;</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

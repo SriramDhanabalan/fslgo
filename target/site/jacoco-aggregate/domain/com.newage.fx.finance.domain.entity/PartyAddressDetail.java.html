@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>PartyAddressDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">PartyAddressDetail.java</span></div><h1>PartyAddressDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.SourceType;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;party_address_detail&quot;)
+public class PartyAddressDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L27">    private Long version;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L36">    private Long branchId;</span>
+
+    @Column(name = &quot;source_type&quot;, length = 100)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L40">    private SourceType sourceType;</span>
+
+//    @Column(name = &quot;source_id&quot;, length = 100)
+//    private String sourceId;
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L46">    private Long slNo;</span>
+
+    //size changed
+    @Column(name = &quot;party_type&quot;, length = 45)
+<span class="nc" id="L50">    private String partyType;</span>
+
+    @Column(name = &quot;address_line_1&quot;, length = 100)
+<span class="nc" id="L53">    private String addressLine1;</span>
+
+    @Column(name = &quot;address_line_2&quot;, length = 100)
+<span class="nc" id="L56">    private String addressLine2;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;building_no&quot;, nullable = false, length = 100)
+<span class="nc" id="L60">    private String buildingNoName;</span>
+
+
+    @Column(name = &quot;street_name&quot;, length = 100)
+<span class="nc" id="L64">    private String streetName;</span>
+
+
+    @Column(name = &quot;state_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L68">    private Long stateId;</span>
+
+    @Column(name = &quot;state_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L71">    private String stateName;</span>
+
+    @Column(name = &quot;city_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L74">    private Long cityId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;city_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L78">    private String cityName;</span>
+
+    @Column(name = &quot;country_id&quot;, length = 20)
+<span class="nc" id="L81">    private Long countryId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;country_name&quot;, length = 100)
+<span class="nc" id="L85">    private String countryName;</span>
+
+    @Column(name = &quot;po_box&quot;,  length = 20)
+<span class="nc" id="L88">    private String poBox;</span>
+
+    @Column(name = &quot;pickup_place_or_zipcode&quot;, length = 45)
+<span class="nc" id="L91">    private String pickupplaceOrZipcode;</span>
+
+    @Column(name = &quot;contact_details&quot;, length = 100)
+<span class="nc" id="L94">    private String contactDetail;</span>
+
+    @Column(name = &quot;email&quot;, length = 100)
+//    @Email --- handling from front end
+//    @Pattern(regexp = &quot;^[a-zA-Z0-9@.-]*$&quot;, message = &quot;Special characters are not allowed in email.&quot;)
+<span class="nc" id="L99">    private String email;</span>
+
+    @Column(name = &quot;mobile&quot;, length = 20)
+<span class="nc" id="L102">    private String mobile;</span>
+
+    @Column(name = &quot;pre_mobile_no&quot;, length = 10)
+<span class="nc" id="L105">    private String preMobileNo;</span>
+
+    @Column(name = &quot;phone&quot;, length = 20)
+<span class="nc" id="L108">    private String phone;</span>
+
+    @Column(name = &quot;pre_phone_no&quot;, length = 10)
+<span class="nc" id="L111">    private String prePhoneNo;</span>
+
+    @Column(name = &quot;status&quot;, length = 100)
+<span class="nc" id="L114">    private String status;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L118">    private String notes;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_EVENT_SHIPMENT_ID&quot;))
+<span class="nc" id="L122">    public ShipmentPartyDetail partyDetail;</span>
+
+    //will add in time of master creation
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn(name = &quot;source_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_EVENT_SHIPMENT_ID&quot;), insertable = false, updatable = false)
+//    public ShipmentGenerationMasterDetails generationMasterDetails;
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

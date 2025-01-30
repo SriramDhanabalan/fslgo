@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QFreightForwarderDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QFreightForwarderDetails.java</span></div><h1>QFreightForwarderDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QFreightForwarderDetails is a Querydsl query type for FreightForwarderDetails
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QFreightForwarderDetails extends EntityPathBase&lt;FreightForwarderDetails&gt; {
+
+    private static final long serialVersionUID = 979738724L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QFreightForwarderDetails freightForwarderDetails = new QFreightForwarderDetails(&quot;freightForwarderDetails&quot;);</span>
+
+    public final QUsCustomContactInfoDetails forwarderContactInfo;
+
+<span class="nc" id="L27">    public final StringPath forwarderIdNumber = createString(&quot;forwarderIdNumber&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath forwarderIdType = createString(&quot;forwarderIdType&quot;);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; freightForwarderid = createNumber(&quot;freightForwarderid&quot;, Long.class);</span>
+
+    public final QGeneralInfoAesCustomDetails generalInfo;
+
+<span class="nc" id="L35">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+    public QFreightForwarderDetails(String variable) {
+<span class="nc" id="L38">        this(FreightForwarderDetails.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L39">    }</span>
+
+    public QFreightForwarderDetails(Path&lt;? extends FreightForwarderDetails&gt; path) {
+<span class="nc" id="L42">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L43">    }</span>
+
+    public QFreightForwarderDetails(PathMetadata metadata) {
+<span class="nc" id="L46">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L47">    }</span>
+
+    public QFreightForwarderDetails(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L50">        this(FreightForwarderDetails.class, metadata, inits);</span>
+<span class="nc" id="L51">    }</span>
+
+    public QFreightForwarderDetails(Class&lt;? extends FreightForwarderDetails&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L54">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L55" title="All 2 branches missed.">        this.forwarderContactInfo = inits.isInitialized(&quot;forwarderContactInfo&quot;) ? new QUsCustomContactInfoDetails(forProperty(&quot;forwarderContactInfo&quot;)) : null;</span>
+<span class="nc bnc" id="L56" title="All 2 branches missed.">        this.generalInfo = inits.isInitialized(&quot;generalInfo&quot;) ? new QGeneralInfoAesCustomDetails(forProperty(&quot;generalInfo&quot;), inits.get(&quot;generalInfo&quot;)) : null;</span>
+<span class="nc" id="L57">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

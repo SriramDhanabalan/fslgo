@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterCargoDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterCargoDetail.java</span></div><h1>MasterCargoDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+@Table(name = &quot;master_cargo_detail&quot;)
+public class MasterCargoDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L21">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L24">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L27">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L33">    private Long slNo;</span>
+
+    @Column(name = &quot;hazardous&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L37">    private YesNo hazardous;</span>
+
+    @Column(name = &quot;stackable&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L41">    private YesNo stackable;</span>
+
+    @Column(name = &quot;commodity_id&quot;)
+<span class="nc" id="L44">    private Long commodityId;</span>
+
+    @Column(name = &quot;commodity_name&quot;)
+<span class="nc" id="L47">    private String commodityName;</span>
+
+    @Column(name = &quot;commodity_description&quot;)
+<span class="nc" id="L50">    private String commodityDescription;</span>
+
+    @Column(name = &quot;pack_id&quot;)
+<span class="nc" id="L53">    private Long packId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;no_of_pieces&quot;)
+<span class="nc" id="L57">    private Integer noOfPieces;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;gross_weight_kgs&quot;)
+<span class="nc" id="L61">    private Double grossWeightKgs;</span>
+
+    @Column(name = &quot;gross_weight_lbs&quot;)
+<span class="nc" id="L64">    private Double grossWeightLbs;</span>
+
+    @Column(name = &quot;volume_in_cbm&quot;)
+<span class="nc" id="L67">    private Double volumeInCbm;</span>
+
+    @Column(name = &quot;volume_in_cft&quot;)
+<span class="nc" id="L70">    private Double volumeInCft;</span>
+
+    @Column(name = &quot;volume_weight&quot;)
+<span class="nc" id="L73">    private Double volumeWeight;</span>
+
+    @Column(name = &quot;chargeable_unit&quot;)
+<span class="nc" id="L76">    private Double chargeableUnit;</span>
+
+    @Column(name = &quot;marks_and_numbers&quot;)
+<span class="nc" id="L79">    private String markNo;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L82">    private String notes;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L86">    public MasterHeader masterHeader;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L90">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>WebReport.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">WebReport.java</span></div><h1>WebReport.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Date;
+
+<span class="nc bnc" id="L12" title="All 256 branches missed.">@EqualsAndHashCode(callSuper = true)</span>
+@Entity
+<span class="nc" id="L14">@Data</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+<span class="nc" id="L16">@AllArgsConstructor</span>
+@Table(name = &quot;web_report&quot;)
+public class WebReport extends Auditable&lt;String&gt;{
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = &quot;user_id&quot;)
+<span class="nc" id="L25">    private String userId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L28">    private Integer slNo;</span>
+
+    @Column(name = &quot;report_id&quot;)
+<span class="nc" id="L31">    private String reportId;</span>
+
+    @Column(name = &quot;report_name&quot;)
+<span class="nc" id="L34">    private String reportName;</span>
+
+    @Column(name = &quot;run_date&quot;)
+<span class="nc" id="L37">    private Date runDate;</span>
+
+    @Column(name = &quot;daily&quot;)
+<span class="nc" id="L40">    private String daily;</span>
+
+    @Column(name = &quot;weekly&quot;)
+<span class="nc" id="L43">    private String weekly;</span>
+
+    @Column(name = &quot;monthly&quot;)
+<span class="nc" id="L46">    private String monthly;</span>
+
+    @Column(name = &quot;filter&quot;)
+<span class="nc" id="L49">    private String filter;</span>
+
+    @Column(name = &quot;days&quot;)
+<span class="nc" id="L52">    private String days;</span>
+
+    @Column(name = &quot;days_flag&quot;)
+<span class="nc" id="L55">    private String daysFlag;</span>
+
+    @Column(name = &quot;status&quot;)
+<span class="nc" id="L58">    private String status;</span>
+
+    @Column(name = &quot;email&quot;)
+<span class="nc" id="L61">    private String email;</span>
+
+    @Column(name = &quot;export_import&quot;)
+<span class="nc" id="L64">    private String exportImport;</span>
+
+    @Column(name = &quot;transport_mode&quot;)
+<span class="nc" id="L67">    private String transportMode;</span>
+
+    @Column(name = &quot;report_type&quot;)
+<span class="nc" id="L70">    private String reportType;</span>
+
+    @Column(name = &quot;email_bcc&quot;)
+<span class="nc" id="L73">    private String emailBcc;</span>
+
+    @Column(name = &quot;filter_override&quot;)
+<span class="nc" id="L76">    private String filterOverride;</span>
+
+    @Column(name = &quot;stage&quot;)
+<span class="nc" id="L79">    private String stage;</span>
+
+    @Column(name = &quot;shipment_status&quot;)
+<span class="nc" id="L82">    private String shipmentStatus;</span>
+
+    @Column(name = &quot;filter_addon&quot;)
+<span class="nc" id="L85">    private String filterAddon;</span>
+
+    @Column(name = &quot;lcl_fcl_air&quot;)
+<span class="nc" id="L88">    private String lclFclAir;</span>
+
+    @Column(name = &quot;registration_no&quot;)
+<span class="nc" id="L91">    private String registrationNo;</span>
+
+    @Column(name = &quot;is_default&quot;)
+<span class="nc" id="L94">    private String isDefault;</span>
+
+    @Column(name = &quot;auto_report_type&quot;)
+<span class="nc" id="L97">    private String autoReportType;</span>
+
+    @Column(name = &quot;chart_type&quot;)
+<span class="nc" id="L100">    private String chartType;</span>
+
+    @Column(name = &quot;graph_counts&quot;)
+<span class="nc" id="L103">    private Integer graphCounts;</span>
+
+    @Column(name = &quot;menu_type&quot;)
+<span class="nc" id="L106">    private String menuType;</span>
+
+    @Column(name = &quot;menu_lov_status&quot;)
+<span class="nc" id="L109">    private String menuLovStatus;</span>
+
+    @Column(name = &quot;default_value&quot;)
+<span class="nc" id="L112">    private String defaultValue;</span>
+
+    @Column(name = &quot;preset_name&quot;)
+<span class="nc" id="L115">    private String presetName;</span>
+
+
+
+
+//    @ManyToOne
+//    @JoinColumn(name = &quot;registration_no&quot;, foreignKey = @ForeignKey(name = &quot;FK_USER_MASTER_ID&quot;))
+//    public UserMaster userMaster;
+//
+//    @OneToMany(mappedBy = &quot;webUserDetail&quot;, cascade = CascadeType.ALL)
+//    private List&lt;ShipmentHeader&gt; shipmentHeaderList = new ArrayList&lt;&gt;();
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

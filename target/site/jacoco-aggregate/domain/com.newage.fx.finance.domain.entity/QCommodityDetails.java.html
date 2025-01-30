@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QCommodityDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QCommodityDetails.java</span></div><h1>QCommodityDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCommodityDetails is a Querydsl query type for CommodityDetails
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QCommodityDetails extends EntityPathBase&lt;CommodityDetails&gt; {
+
+    private static final long serialVersionUID = 1188203556L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QCommodityDetails commodityDetails = new QCommodityDetails(&quot;commodityDetails&quot;);</span>
+
+<span class="nc" id="L25">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.Action&gt; action = createEnum(&quot;action&quot;, com.newage.fx.finance.domain.enums.Action.class);</span>
+
+<span class="nc" id="L27">    public final StringPath commodityDescription = createString(&quot;commodityDescription&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath eccn = createString(&quot;eccn&quot;);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; exportCodeId = createNumber(&quot;exportCodeId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final StringPath exportLicNo = createString(&quot;exportLicNo&quot;);</span>
+
+    public final QGeneralInfoAesCustomDetails generalInfo;
+
+<span class="nc" id="L37">    public final NumberPath&lt;Double&gt; grossWeight = createNumber(&quot;grossWeight&quot;, Double.class);</span>
+
+<span class="nc" id="L39">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L41">    public final StringPath idType = createString(&quot;idType&quot;);</span>
+
+<span class="nc" id="L43">    public final StringPath isUsedVehicle = createString(&quot;isUsedVehicle&quot;);</span>
+
+<span class="nc" id="L45">    public final NumberPath&lt;Long&gt; licenseTypeId = createNumber(&quot;licenseTypeId&quot;, Long.class);</span>
+
+<span class="nc" id="L47">    public final StringPath licenseValue = createString(&quot;licenseValue&quot;);</span>
+
+<span class="nc" id="L49">    public final StringPath originOfGoods = createString(&quot;originOfGoods&quot;);</span>
+
+<span class="nc" id="L51">    public final StringPath quantatity1UnitCode = createString(&quot;quantatity1UnitCode&quot;);</span>
+
+<span class="nc" id="L53">    public final StringPath quantatity2UnitCode = createString(&quot;quantatity2UnitCode&quot;);</span>
+
+<span class="nc" id="L55">    public final NumberPath&lt;Long&gt; quantity1 = createNumber(&quot;quantity1&quot;, Long.class);</span>
+
+<span class="nc" id="L57">    public final NumberPath&lt;Long&gt; quantity2 = createNumber(&quot;quantity2&quot;, Long.class);</span>
+
+<span class="nc" id="L59">    public final NumberPath&lt;Long&gt; scheduleBHTSCodeId = createNumber(&quot;scheduleBHTSCodeId&quot;, Long.class);</span>
+
+<span class="nc" id="L61">    public final NumberPath&lt;Long&gt; value = createNumber(&quot;value&quot;, Long.class);</span>
+
+<span class="nc" id="L63">    public final StringPath vehicleTitleNo = createString(&quot;vehicleTitleNo&quot;);</span>
+
+<span class="nc" id="L65">    public final NumberPath&lt;Long&gt; vehicleTitleStateId = createNumber(&quot;vehicleTitleStateId&quot;, Long.class);</span>
+
+<span class="nc" id="L67">    public final StringPath VinProductId = createString(&quot;VinProductId&quot;);</span>
+
+    public QCommodityDetails(String variable) {
+<span class="nc" id="L70">        this(CommodityDetails.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L71">    }</span>
+
+    public QCommodityDetails(Path&lt;? extends CommodityDetails&gt; path) {
+<span class="nc" id="L74">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L75">    }</span>
+
+    public QCommodityDetails(PathMetadata metadata) {
+<span class="nc" id="L78">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L79">    }</span>
+
+    public QCommodityDetails(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L82">        this(CommodityDetails.class, metadata, inits);</span>
+<span class="nc" id="L83">    }</span>
+
+    public QCommodityDetails(Class&lt;? extends CommodityDetails&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L86">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L87" title="All 2 branches missed.">        this.generalInfo = inits.isInitialized(&quot;generalInfo&quot;) ? new QGeneralInfoAesCustomDetails(forProperty(&quot;generalInfo&quot;), inits.get(&quot;generalInfo&quot;)) : null;</span>
+<span class="nc" id="L88">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

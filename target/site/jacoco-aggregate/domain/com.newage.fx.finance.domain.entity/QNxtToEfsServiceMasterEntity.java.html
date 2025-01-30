@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QNxtToEfsServiceMasterEntity.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QNxtToEfsServiceMasterEntity.java</span></div><h1>QNxtToEfsServiceMasterEntity.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QNxtToEfsServiceMasterEntity is a Querydsl query type for NxtToEfsServiceMasterEntity
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QNxtToEfsServiceMasterEntity extends EntityPathBase&lt;NxtToEfsServiceMasterEntity&gt; {
+
+    private static final long serialVersionUID = -267783138L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QNxtToEfsServiceMasterEntity nxtToEfsServiceMasterEntity = new QNxtToEfsServiceMasterEntity(&quot;nxtToEfsServiceMasterEntity&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L31">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L34">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L36">    public final StringPath efsBranchCode = createString(&quot;efsBranchCode&quot;);</span>
+
+<span class="nc" id="L38">    public final StringPath efsCompanyCode = createString(&quot;efsCompanyCode&quot;);</span>
+
+<span class="nc" id="L40">    public final StringPath efsJobId = createString(&quot;efsJobId&quot;);</span>
+
+<span class="nc" id="L42">    public final StringPath efsJobNo = createString(&quot;efsJobNo&quot;);</span>
+
+<span class="nc" id="L44">    public final StringPath efsLocationCode = createString(&quot;efsLocationCode&quot;);</span>
+
+<span class="nc" id="L46">    public final StringPath efsSegmentCode = createString(&quot;efsSegmentCode&quot;);</span>
+
+<span class="nc" id="L48">    public final StringPath errorNote = createString(&quot;errorNote&quot;);</span>
+
+<span class="nc" id="L50">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L52">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L54">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.JobCompletedStatus&gt; jobCompletedStatus = createEnum(&quot;jobCompletedStatus&quot;, com.newage.fx.finance.domain.enums.JobCompletedStatus.class);</span>
+
+<span class="nc" id="L56">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L59">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L61">    public final StringPath nxtJobId = createString(&quot;nxtJobId&quot;);</span>
+
+<span class="nc" id="L63">    public final StringPath sassId = createString(&quot;sassId&quot;);</span>
+
+<span class="nc" id="L65">    public final StringPath serviceCode = createString(&quot;serviceCode&quot;);</span>
+
+<span class="nc" id="L67">    public final NumberPath&lt;Long&gt; serviceMasterId = createNumber(&quot;serviceMasterId&quot;, Long.class);</span>
+
+    public final QShipmentHeader shipmentHeader;
+
+<span class="nc" id="L71">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QNxtToEfsServiceMasterEntity(String variable) {
+<span class="nc" id="L74">        this(NxtToEfsServiceMasterEntity.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L75">    }</span>
+
+    public QNxtToEfsServiceMasterEntity(Path&lt;? extends NxtToEfsServiceMasterEntity&gt; path) {
+<span class="nc" id="L78">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L79">    }</span>
+
+    public QNxtToEfsServiceMasterEntity(PathMetadata metadata) {
+<span class="nc" id="L82">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L83">    }</span>
+
+    public QNxtToEfsServiceMasterEntity(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L86">        this(NxtToEfsServiceMasterEntity.class, metadata, inits);</span>
+<span class="nc" id="L87">    }</span>
+
+    public QNxtToEfsServiceMasterEntity(Class&lt;? extends NxtToEfsServiceMasterEntity&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L90">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L91" title="All 2 branches missed.">        this.shipmentHeader = inits.isInitialized(&quot;shipmentHeader&quot;) ? new QShipmentHeader(forProperty(&quot;shipmentHeader&quot;), inits.get(&quot;shipmentHeader&quot;)) : null;</span>
+<span class="nc" id="L92">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

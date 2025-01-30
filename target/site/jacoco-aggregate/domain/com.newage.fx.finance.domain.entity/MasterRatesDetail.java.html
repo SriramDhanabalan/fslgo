@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterRatesDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterRatesDetail.java</span></div><h1>MasterRatesDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.Freight;
+import com.newage.fx.finance.domain.enums.MAWBCharges;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+@Table(name = &quot;master_rates_detail&quot;)
+public class MasterRatesDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L25">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L28">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L34">    private Long slNo;</span>
+
+    @Column(name = &quot;charge_id&quot;)
+<span class="nc" id="L37">    private Long chargeId;</span>
+
+    @Column(name = &quot;charge_name&quot;)
+<span class="nc" id="L40">    private String chargeName;</span>
+
+    @Column(name = &quot;unit_id&quot;)
+//    @Column(name = &quot;sell_unit_id&quot;)
+<span class="nc" id="L44">    private Long unitId;</span>
+
+    @Column(name = &quot;term&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L48">    private Freight term;</span>
+
+    @Column(name = &quot;currency_id&quot;)
+<span class="nc" id="L51">    private Long currencyId;</span>
+
+    @Column(name = &quot;currency_rate_of_exchange&quot;)
+<span class="nc" id="L54">    private Double currencyRoe;</span>
+
+    @Column(name = &quot;no_of_unit&quot;)
+<span class="nc" id="L57">    private Double noOfUnit;</span>
+
+    @Column(name = &quot;amount_per_unit&quot;)
+<span class="nc" id="L60">    private Double costRatePerUnit;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;amount&quot;)
+<span class="nc" id="L64">    private Double amount;</span>
+
+
+    @Column(name = &quot;due&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L69">    private MAWBCharges due;</span>
+
+    @Column(name = &quot;vendor_id&quot;)
+//    @Column(name = &quot;cost_to_vendor_id&quot;)
+<span class="nc" id="L73">    private Long vendorId;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L76">    private String notes;</span>
+
+
+//
+//    @Column(name = &quot;sell_amount_min&quot;)
+//    private Double sellAmountMin;
+//
+//    @Column(name = &quot;cost_rate_per_unit&quot;)
+//    private Double costRatePerUnit;
+//
+//    @Column(name = &quot;cost_amount&quot;)
+//    private Double costAmount;
+//
+//    @Column(name = &quot;bill_to_customer_id&quot;)
+//    private Long billToCustomerId;
+//
+
+//
+//    @Column(name = &quot;declrated_sell_rate&quot;)
+//    private Double declaredSellRate;
+//
+//    @Column(name = &quot;declrated_sell_min&quot;)
+//    private Double declaredSellMin;
+//
+//    @Column(name = &quot;rate_type&quot;, nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private RateTypes rateType;
+//
+//    @Column(name = &quot;rate_reference_type&quot;, nullable = false)
+//    @Enumerated(EnumType.STRING)
+//    private RateReferenceTypes rateReferenceType;
+//
+//    @Column(name = &quot;rate_reference_id&quot;)
+//    private Long rateReferenceId;
+//
+//    @Column(name = &quot;rate_reference_sl_no&quot;)
+//    private Long rateReferenceSlNo;
+//
+//    @Column(name = &quot;rate_reference_amount&quot;)
+//    private Double rateReferenceAmount;
+//
+//
+//    @Column(name = &quot;unit_from&quot;)
+//    private Long unitFrom;
+//
+//    @Column(name = &quot;unit_to&quot;)
+//    private Long unitTo;
+//
+//    @Column(name = &quot;cost_unit_id&quot;)
+//    private Long costUnitId;
+//
+//    @Column(name = &quot;cost_unit&quot;)
+//    private Double costUnit;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L132">    public MasterHeader masterHeader;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_service_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_SERVICE_DETAIL_ID&quot;))
+<span class="nc" id="L136">    public MasterServiceDetail masterServiceDetail;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L140">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

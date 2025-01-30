@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SailingDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">SailingDetails.java</span></div><h1>SailingDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+<span class="nc" id="L17">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_schedule_details&quot;)
+public class SailingDetails extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Column(name = &quot;service&quot;, length = 30)
+<span class="nc" id="L26">    private String service;</span>
+
+    @Column(name = &quot;origin_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L29">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L32">    private String originName;</span>
+
+    @Column(name = &quot;origin_cutoff_date&quot;, length = 100)
+<span class="nc" id="L35">    private Date originCutOffDate;</span>
+
+    @Column(name = &quot;origin_cutoff_time&quot;, length = 100)
+<span class="nc" id="L38">    private String originCutOffTime;</span>
+
+    @Column(name = &quot;est_loading_Date&quot;, length = 100)
+<span class="nc" id="L41">    private Date estLoadingDate;</span>
+
+    @NotNull
+    @Column(name = &quot;port_of_loading_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L45">    private Long portOfLoadingId;</span>
+
+    @NotNull
+    @Column(name = &quot;port_of_loading&quot;, nullable = false, length = 20)
+<span class="nc" id="L49">    private String portOfLoading;</span>
+
+    @NotNull
+    @Column(name = &quot;etd&quot;, nullable = false, length = 100)
+<span class="nc" id="L53">    private Date etd;</span>
+
+    @NotNull
+    @Column(name = &quot;port_of_discharge_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L57">    private Long portOfDischargeId;</span>
+
+    @NotNull
+    @Column(name = &quot;port_of_discharge&quot;, nullable = false, length = 20)
+<span class="nc" id="L61">    private String portOfdischarge;</span>
+
+    @Column(name = &quot;destination_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L64">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L67">    private String destinationName;</span>
+
+    @NotNull
+    @Column(name = &quot;eta&quot;, nullable = false, length = 100)
+<span class="nc" id="L71">    private Date eta;</span>
+
+    @NotNull
+    @Column(name = &quot;carrier_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L75">    private Long carrierId;</span>
+
+    @NotNull
+    @Column(name = &quot;carrier_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L79">    private String carrierName;</span>
+
+    @Column(name = &quot;cfs_id&quot;, length = 20)
+<span class="nc" id="L82">    private Long cfsId;</span>
+
+    @Column(name = &quot;cfs_name&quot;, length = 100)
+<span class="nc" id="L85">    private String cfsName;</span>
+
+    @Column(name = &quot;co_Loader_id&quot;, length = 20)
+<span class="nc" id="L88">    private Long coLoaderId;</span>
+
+    @Column(name = &quot;co_loader_name&quot;, length = 100)
+<span class="nc" id="L91">    private String coLoaderName;</span>
+
+    @Column(name = &quot;transit_LRD_to_port&quot;, length = 3)
+<span class="nc" id="L94">    private String transitLrdToPort;</span>
+
+    @Column(name = &quot;transit_port_to_port&quot;, length = 3)
+<span class="nc" id="L97">    private String transitPortToPort;</span>
+
+   // @Enumerated(EnumType.STRING)
+    //@Column(name = &quot;sailing_Schedule_Status&quot;, length = 20)
+    // private SailingScheduleStatus sailingScheduleStatus;
+
+    @Column(name = &quot;note&quot;, length = 500)
+<span class="nc" id="L104">    private String note;</span>
+
+    @NotNull
+    @Column(name = &quot;schedule_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L108">    private String scheduleId;</span>
+
+    @Column(name = &quot;division_id&quot;, length = 20)
+<span class="nc" id="L111">    private Long divisionId;</span>
+
+    @Column(name = &quot;division_name&quot;, length = 100)
+<span class="nc" id="L114">    private String divisionName;</span>
+
+    @Column(name = &quot;aes_cut_off_date&quot;, length = 100)
+<span class="nc" id="L117">    private Date aesCutOffDate;</span>
+
+    @Column(name = &quot;aes_cut_off_time&quot;, length = 100)
+<span class="nc" id="L120">    private String aesCutOffTime;</span>
+
+    @Column(name = &quot;imo_number&quot;, length = 100)
+<span class="nc" id="L123">    private String imoNumber;</span>
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = &quot;cfs_cut_off_date_time&quot;)
+<span class="nc" id="L127">    private Date cfsCutOffDateTime;</span>
+
+    @Column(name = &quot;vessel_id&quot;, length = 20)
+<span class="nc" id="L130">    private Long vesselId;</span>
+
+    @Column(name = &quot;vessel_name&quot;, length = 20)
+<span class="nc" id="L133">    private String vesselName;</span>
+
+    @Column(name = &quot;voyage_number&quot;, length = 20)
+<span class="nc" id="L136">    private String voyageNumber;</span>
+
+    @Column(name = &quot;rotation_number&quot;, length = 20)
+<span class="nc" id="L139">    private String rotationNumber;</span>
+
+    @Column(name = &quot;rotation_date&quot;)
+<span class="nc" id="L142">    private Date rotationDate;</span>
+
+    @Column(name = &quot;via_number&quot;, length = 20)
+<span class="nc" id="L145">    private String viaNumber;</span>
+
+    @Column(name = &quot;group_company_id&quot;)
+<span class="nc" id="L148">    private Long groupCompanyId;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

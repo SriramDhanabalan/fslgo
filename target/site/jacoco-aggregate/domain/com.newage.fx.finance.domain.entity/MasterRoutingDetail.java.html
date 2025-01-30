@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterRoutingDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterRoutingDetail.java</span></div><h1>MasterRoutingDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ServiceMode;
+import com.newage.fx.finance.domain.enums.TransportMode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;master_routing_detail&quot;)
+public class MasterRoutingDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L27">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L36">    private Long slNo;</span>
+
+
+    @Column(name = &quot;from_id&quot;)
+<span class="nc" id="L40">    private Long fromPortId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;from_name&quot;)
+<span class="nc" id="L44">    private String fromPortName;</span>
+
+    @Column(name = &quot;to_id&quot;)
+<span class="nc" id="L47">    private Long toPortId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;to_name&quot;)
+<span class="nc" id="L51">    private String toPortName;</span>
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+
+    @Column(name = &quot;etd&quot;, nullable = true)
+<span class="nc" id="L55">    private Date etd;</span>
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;eta&quot;, nullable = true)
+<span class="nc" id="L58">    private Date eta;</span>
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;atd&quot;, nullable = true)
+<span class="nc" id="L61">    private Date atd;</span>
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;ata&quot;, nullable = true)
+<span class="nc" id="L64">    private Date ata;</span>
+
+    @Column(name = &quot;transporter_mode&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L68">    private TransportMode transportMode;</span>
+
+    @Column(name = &quot;transporter_id&quot;)
+<span class="nc" id="L71">    private Long transporterId;</span>
+
+    @Column(name = &quot;transporter_name&quot;)
+<span class="nc" id="L74">    private String transporterName;</span>
+
+    @Column(name = &quot;transport_route_no&quot;)
+<span class="nc" id="L77">    private String transporterRouteNo;</span>
+
+    @Column(name = &quot;status&quot;)
+<span class="nc" id="L80">    private String status;</span>
+
+    @Column(name = &quot;routing_mode&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L84">    private ServiceMode routingMode;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L87">    private String notes;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L91">    public MasterHeader masterHeader;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L95">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

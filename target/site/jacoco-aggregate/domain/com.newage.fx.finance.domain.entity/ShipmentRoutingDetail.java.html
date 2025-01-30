@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentRoutingDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentRoutingDetail.java</span></div><h1>ShipmentRoutingDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ShipmentConnectionsStatus;
+import com.newage.fx.finance.domain.enums.TransportMode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_routing_detail&quot;)
+public class ShipmentRoutingDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L24">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L28">    private Long version;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L34">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L37">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L40">    private Long slNo;</span>
+
+    @NotNull
+    @Column(name = &quot;from_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L44">    private Long fromPortId;</span>
+
+    @NotNull
+    @Column(name = &quot;from_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L48">    private String fromPortName;</span>
+
+    @NotNull
+    @Column(name = &quot;to_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L52">    private Long toPortId;</span>
+
+    @NotNull
+    @Column(name = &quot;to_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L56">    private String toPortName;</span>
+
+    @NotNull
+    @Column(name = &quot;etd&quot;, nullable = false)
+<span class="nc" id="L60">    private Date etd;</span>
+
+    @NotNull
+    @Column(name = &quot;eta&quot;, nullable = false)
+<span class="nc" id="L64">    private Date eta;</span>
+
+    @Column(name = &quot;atd&quot;, nullable = true)
+<span class="nc" id="L67">    private Date atd;</span>
+
+    @Column(name = &quot;ata&quot;, nullable = true)
+<span class="nc" id="L70">    private Date ata;</span>
+
+    @NotNull
+    @Column(name = &quot;transporter_mode&quot;, nullable = false, length = 20)
+<span class="nc" id="L74">    private TransportMode move ;</span>
+
+    @Column(name = &quot;transporter_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L77">    private Long carrierOrVesselId;</span>
+
+
+    @Column(name = &quot;transporter_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L81">    private String carrierOrVesselName;</span>
+
+
+    @Column(name = &quot;transport_route_no&quot;, nullable = false, length = 20)
+<span class="nc" id="L85">    private String voyageOrflightNo;</span>
+
+
+    @Column(name = &quot;vehicle_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L89">    private Long vehicleId;</span>
+
+
+    @Column(name = &quot;vehicle_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L93">    private String vehicleName;</span>
+
+
+    @Column(name = &quot;driver_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L97">    private Long driverId;</span>
+
+
+    @Column(name = &quot;driver_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L101">    private String driverName;</span>
+
+    @NotNull
+    @Column(name = &quot;status&quot;, nullable = false, length = 20)
+<span class="nc" id="L105">    private ShipmentConnectionsStatus status;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L109">    private String notes;</span>
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHP_DETAILS_SHIPMENT_ID&quot;))
+<span class="nc" id="L113">    public ShipmentHeader shipmentHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

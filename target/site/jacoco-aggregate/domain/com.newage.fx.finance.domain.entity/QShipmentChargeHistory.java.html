@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QShipmentChargeHistory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QShipmentChargeHistory.java</span></div><h1>QShipmentChargeHistory.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QShipmentChargeHistory is a Querydsl query type for ShipmentChargeHistory
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QShipmentChargeHistory extends EntityPathBase&lt;ShipmentChargeHistory&gt; {
+
+    private static final long serialVersionUID = -982809769L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QShipmentChargeHistory shipmentChargeHistory = new QShipmentChargeHistory(&quot;shipmentChargeHistory&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; billToCustomerId = createNumber(&quot;billToCustomerId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; chargeId = createNumber(&quot;chargeId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final StringPath chargeName = createString(&quot;chargeName&quot;);</span>
+
+<span class="nc" id="L35">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L37">    public final NumberPath&lt;Double&gt; costAmount = createNumber(&quot;costAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L39">    public final NumberPath&lt;Double&gt; costRatePerUnit = createNumber(&quot;costRatePerUnit&quot;, Double.class);</span>
+
+<span class="nc" id="L41">    public final NumberPath&lt;Long&gt; costToVendorId = createNumber(&quot;costToVendorId&quot;, Long.class);</span>
+
+<span class="nc" id="L43">    public final NumberPath&lt;Double&gt; costUnit = createNumber(&quot;costUnit&quot;, Double.class);</span>
+
+<span class="nc" id="L45">    public final NumberPath&lt;Long&gt; costUnitId = createNumber(&quot;costUnitId&quot;, Long.class);</span>
+
+<span class="nc" id="L47">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L50">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L52">    public final NumberPath&lt;Long&gt; currencyId = createNumber(&quot;currencyId&quot;, Long.class);</span>
+
+<span class="nc" id="L54">    public final NumberPath&lt;Double&gt; declratedSellMinimum = createNumber(&quot;declratedSellMinimum&quot;, Double.class);</span>
+
+<span class="nc" id="L56">    public final NumberPath&lt;Double&gt; declratedSellRate = createNumber(&quot;declratedSellRate&quot;, Double.class);</span>
+
+<span class="nc" id="L58">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L60">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L62">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L65">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L67">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.QuoteProcess&gt; process = createEnum(&quot;process&quot;, com.newage.fx.finance.domain.enums.QuoteProcess.class);</span>
+
+<span class="nc" id="L69">    public final NumberPath&lt;Double&gt; roe = createNumber(&quot;roe&quot;, Double.class);</span>
+
+<span class="nc" id="L71">    public final NumberPath&lt;Double&gt; sellAmount = createNumber(&quot;sellAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L73">    public final NumberPath&lt;Double&gt; sellAmountMinimum = createNumber(&quot;sellAmountMinimum&quot;, Double.class);</span>
+
+<span class="nc" id="L75">    public final NumberPath&lt;Double&gt; sellRatePerUnit = createNumber(&quot;sellRatePerUnit&quot;, Double.class);</span>
+
+    public final QShipmentHeader shipmentHeader;
+
+<span class="nc" id="L79">    public final NumberPath&lt;Long&gt; shipmentRateId = createNumber(&quot;shipmentRateId&quot;, Long.class);</span>
+
+<span class="nc" id="L81">    public final NumberPath&lt;Long&gt; unitId = createNumber(&quot;unitId&quot;, Long.class);</span>
+
+<span class="nc" id="L83">    public final StringPath unitName = createString(&quot;unitName&quot;);</span>
+
+<span class="nc" id="L85">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QShipmentChargeHistory(String variable) {
+<span class="nc" id="L88">        this(ShipmentChargeHistory.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L89">    }</span>
+
+    public QShipmentChargeHistory(Path&lt;? extends ShipmentChargeHistory&gt; path) {
+<span class="nc" id="L92">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L93">    }</span>
+
+    public QShipmentChargeHistory(PathMetadata metadata) {
+<span class="nc" id="L96">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L97">    }</span>
+
+    public QShipmentChargeHistory(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L100">        this(ShipmentChargeHistory.class, metadata, inits);</span>
+<span class="nc" id="L101">    }</span>
+
+    public QShipmentChargeHistory(Class&lt;? extends ShipmentChargeHistory&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L104">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L105" title="All 2 branches missed.">        this.shipmentHeader = inits.isInitialized(&quot;shipmentHeader&quot;) ? new QShipmentHeader(forProperty(&quot;shipmentHeader&quot;), inits.get(&quot;shipmentHeader&quot;)) : null;</span>
+<span class="nc" id="L106">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

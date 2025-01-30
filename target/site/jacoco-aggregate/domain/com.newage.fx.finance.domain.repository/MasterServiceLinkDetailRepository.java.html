@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterServiceLinkDetailRepository.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.repository</a> &gt; <span class="el_source">MasterServiceLinkDetailRepository.java</span></div><h1>MasterServiceLinkDetailRepository.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.repository;
+
+import com.newage.fx.finance.domain.entity.MasterHeader;
+import com.newage.fx.finance.domain.entity.MasterServiceLinkDetail;
+import com.newage.fx.finance.domain.entity.QMasterServiceLinkDetail;
+import com.newage.fx.finance.domain.entity.ShipmentHeader;
+import com.querydsl.core.types.dsl.StringExpression;
+import com.querydsl.core.types.dsl.StringPath;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.querydsl.QuerydslPredicateExecutor;
+import org.springframework.data.querydsl.binding.QuerydslBinderCustomizer;
+import org.springframework.data.querydsl.binding.QuerydslBindings;
+import org.springframework.data.querydsl.binding.SingleValueBinding;
+
+import java.util.List;
+import java.util.Optional;
+
+public interface MasterServiceLinkDetailRepository extends JpaRepository&lt;MasterServiceLinkDetail, Long&gt;,
+        QuerydslPredicateExecutor&lt;MasterServiceLinkDetail&gt;, QuerydslBinderCustomizer&lt;QMasterServiceLinkDetail&gt; {
+
+//    @Query(&quot;SELECT h.id FROM MasterServiceLinkDetail AS l&quot; +
+//            &quot;LEFT JOIN ShipmentHeader AS h ON l.shipmentId = h.id\n&quot; +
+//            &quot;WHERE l.masterHeaderId = :masterId AND l.branchId = :branchId\n&quot;)
+     @Query(&quot;select h from MasterServiceLinkDetail as l\n&quot; +
+             &quot;LEFT JOIN ShipmentHeader as h ON h.id = l.shipmentId\n&quot; +
+             &quot;WHERE l.masterHeaderId = :masterId AND l.branchId = :branchId\n&quot;)
+    List&lt;ShipmentHeader&gt; findShipmentLinkedByMasterId(Long masterId, Long branchId);
+
+    Optional&lt;List&lt;MasterServiceLinkDetail&gt;&gt; findByMasterHeaderId(Long materId);
+
+    Optional&lt;List&lt;MasterServiceLinkDetail&gt;&gt; findByShipmentId(Long shipmentId);
+
+    @Query(&quot;select master from MasterHeader as master\n&quot; +
+            &quot;left join MasterServiceLinkDetail as l on master.id = l.masterHeaderId\n&quot; +
+            &quot;left join ShipmentHeader as h on h.id = l.shipmentId\n&quot; +
+            &quot;where h.shipmentUid= :ShipmentUid&quot;)
+    List&lt;MasterHeader&gt; findLinkedMasterByShipmentUid(String ShipmentUid);
+
+    @Override
+    default void customize(QuerydslBindings bindings, QMasterServiceLinkDetail root) {
+<span class="nc" id="L42">        bindings.excludeUnlistedProperties(true);</span>
+<span class="nc" id="L43">        bindings.including(root.id);</span>
+<span class="nc" id="L44">        bindings.including(root.shipmentService);</span>
+<span class="nc" id="L45">        bindings.including(root.shipmentId);</span>
+<span class="nc" id="L46">        bindings.including(root.masterServiceDetail);</span>
+<span class="nc" id="L47">        bindings.including(root.masterHeaderId);</span>
+<span class="nc" id="L48">        bindings.bind(String.class).first((SingleValueBinding&lt;StringPath, String&gt;) StringExpression::containsIgnoreCase);</span>
+<span class="nc" id="L49">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>SpotQuotationRejectToResubmitLogHistory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">SpotQuotationRejectToResubmitLogHistory.java</span></div><h1>SpotQuotationRejectToResubmitLogHistory.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.EnquiryStatus;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+
+@Entity
+<span class="nc" id="L15">@Setter</span>
+@Getter
+<span class="nc" id="L17">@AllArgsConstructor</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+@Table(name = &quot;spotquote_log_history&quot;)
+public class SpotQuotationRejectToResubmitLogHistory extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L25">    private Long id;</span>
+
+    @Column(name = &quot;reason_id&quot;,nullable = false)
+<span class="nc" id="L28">    private Long reasonId;</span>
+
+    @NotNull
+    @Column(name = &quot;status&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L33">    private EnquiryStatus status;</span>
+
+    @Column(name = &quot;reason_to_resubmit&quot;, length = 2000)
+<span class="nc" id="L36">    private String reasonToResubmit;</span>
+
+    @Column(name = &quot;reason_note&quot;, length = 200)
+<span class="nc" id="L39">    private String reasonNote;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L43">    private Long version;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;enquiry_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_LOG_SPOT_QUOTATION_ID&quot;))
+<span class="nc" id="L47">    public EnquiryHeader enquiryDetail;</span>
+
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

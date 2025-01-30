@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QCustomShipmentDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QCustomShipmentDetails.java</span></div><h1>QCustomShipmentDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCustomShipmentDetails is a Querydsl query type for CustomShipmentDetails
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QCustomShipmentDetails extends EntityPathBase&lt;CustomShipmentDetails&gt; {
+
+    private static final long serialVersionUID = -117184728L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QCustomShipmentDetails customShipmentDetails = new QCustomShipmentDetails(&quot;customShipmentDetails&quot;);</span>
+
+<span class="nc" id="L25">    public final StringPath blReleased = createString(&quot;blReleased&quot;);</span>
+
+<span class="nc" id="L27">    public final StringPath cargoMovement = createString(&quot;cargoMovement&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath commodityDescription = createString(&quot;commodityDescription&quot;);</span>
+
+<span class="nc" id="L31">    public final StringPath currency = createString(&quot;currency&quot;);</span>
+
+<span class="nc" id="L33">    public final NumberPath&lt;Long&gt; currencyId = createNumber(&quot;currencyId&quot;, Long.class);</span>
+
+<span class="nc" id="L35">    public final StringPath currencyRate = createString(&quot;currencyRate&quot;);</span>
+
+    public final QCustomHouseDetails customHouseDetails;
+
+<span class="nc" id="L39">    public final DateTimePath&lt;java.util.Date&gt; docDate = createDateTime(&quot;docDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L41">    public final StringPath docNo = createString(&quot;docNo&quot;);</span>
+
+<span class="nc" id="L43">    public final StringPath docSiteId = createString(&quot;docSiteId&quot;);</span>
+
+<span class="nc" id="L45">    public final StringPath docType = createString(&quot;docType&quot;);</span>
+
+<span class="nc" id="L47">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; freeZone = createEnum(&quot;freeZone&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L49">    public final NumberPath&lt;Double&gt; grossWeight = createNumber(&quot;grossWeight&quot;, Double.class);</span>
+
+<span class="nc" id="L51">    public final NumberPath&lt;Long&gt; hsCodeId = createNumber(&quot;hsCodeId&quot;, Long.class);</span>
+
+<span class="nc" id="L53">    public final StringPath hsPackCode = createString(&quot;hsPackCode&quot;);</span>
+
+<span class="nc" id="L55">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L57">    public final StringPath imdgCode = createString(&quot;imdgCode&quot;);</span>
+
+<span class="nc" id="L59">    public final StringPath invoice = createString(&quot;invoice&quot;);</span>
+
+<span class="nc" id="L61">    public final StringPath invoiceTo = createString(&quot;invoiceTo&quot;);</span>
+
+<span class="nc" id="L63">    public final StringPath irnNo = createString(&quot;irnNo&quot;);</span>
+
+<span class="nc" id="L65">    public final StringPath itemType = createString(&quot;itemType&quot;);</span>
+
+<span class="nc" id="L67">    public final StringPath marksAndNumber = createString(&quot;marksAndNumber&quot;);</span>
+
+<span class="nc" id="L69">    public final StringPath natureOfCargo = createString(&quot;natureOfCargo&quot;);</span>
+
+<span class="nc" id="L71">    public final StringPath noOfHsPack = createString(&quot;noOfHsPack&quot;);</span>
+
+<span class="nc" id="L73">    public final StringPath note = createString(&quot;note&quot;);</span>
+
+<span class="nc" id="L75">    public final StringPath packCode = createString(&quot;packCode&quot;);</span>
+
+<span class="nc" id="L77">    public final NumberPath&lt;Long&gt; packId = createNumber(&quot;packId&quot;, Long.class);</span>
+
+<span class="nc" id="L79">    public final StringPath pcin = createString(&quot;pcin&quot;);</span>
+
+<span class="nc" id="L81">    public final StringPath pcinNo = createString(&quot;pcinNo&quot;);</span>
+
+<span class="nc" id="L83">    public final StringPath service = createString(&quot;service&quot;);</span>
+
+<span class="nc" id="L85">    public final StringPath unitOfVolume = createString(&quot;unitOfVolume&quot;);</span>
+
+<span class="nc" id="L87">    public final NumberPath&lt;Long&gt; unitOfVolumeId = createNumber(&quot;unitOfVolumeId&quot;, Long.class);</span>
+
+<span class="nc" id="L89">    public final StringPath unoCode = createString(&quot;unoCode&quot;);</span>
+
+    public QCustomShipmentDetails(String variable) {
+<span class="nc" id="L92">        this(CustomShipmentDetails.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L93">    }</span>
+
+    public QCustomShipmentDetails(Path&lt;? extends CustomShipmentDetails&gt; path) {
+<span class="nc" id="L96">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L97">    }</span>
+
+    public QCustomShipmentDetails(PathMetadata metadata) {
+<span class="nc" id="L100">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L101">    }</span>
+
+    public QCustomShipmentDetails(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L104">        this(CustomShipmentDetails.class, metadata, inits);</span>
+<span class="nc" id="L105">    }</span>
+
+    public QCustomShipmentDetails(Class&lt;? extends CustomShipmentDetails&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L108">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L109" title="All 2 branches missed.">        this.customHouseDetails = inits.isInitialized(&quot;customHouseDetails&quot;) ? new QCustomHouseDetails(forProperty(&quot;customHouseDetails&quot;), inits.get(&quot;customHouseDetails&quot;)) : null;</span>
+<span class="nc" id="L110">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

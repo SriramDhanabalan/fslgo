@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QMasterDimensionDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QMasterDimensionDetail.java</span></div><h1>QMasterDimensionDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QMasterDimensionDetail is a Querydsl query type for MasterDimensionDetail
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QMasterDimensionDetail extends EntityPathBase&lt;MasterDimensionDetail&gt; {
+
+    private static final long serialVersionUID = 466861606L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QMasterDimensionDetail masterDimensionDetail = new QMasterDimensionDetail(&quot;masterDimensionDetail&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L31">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L34">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L36">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.DimensionUnit&gt; dimensionUnit = createEnum(&quot;dimensionUnit&quot;, com.newage.fx.finance.domain.enums.DimensionUnit.class);</span>
+
+<span class="nc" id="L38">    public final StringPath dimensionValue = createString(&quot;dimensionValue&quot;);</span>
+
+<span class="nc" id="L40">    public final NumberPath&lt;Double&gt; grossWeightKgs = createNumber(&quot;grossWeightKgs&quot;, Double.class);</span>
+
+<span class="nc" id="L42">    public final NumberPath&lt;Double&gt; grossWeightLbs = createNumber(&quot;grossWeightLbs&quot;, Double.class);</span>
+
+<span class="nc" id="L44">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L46">    public final NumberPath&lt;Double&gt; height = createNumber(&quot;height&quot;, Double.class);</span>
+
+<span class="nc" id="L48">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L50">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L53">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L55">    public final NumberPath&lt;Double&gt; length = createNumber(&quot;length&quot;, Double.class);</span>
+
+    public final QMasterHeader masterHeader;
+
+<span class="nc" id="L59">    public final NumberPath&lt;Integer&gt; noOfPieces = createNumber(&quot;noOfPieces&quot;, Integer.class);</span>
+
+<span class="nc" id="L61">    public final StringPath notes = createString(&quot;notes&quot;);</span>
+
+<span class="nc" id="L63">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.YesNo&gt; overDimension = createEnum(&quot;overDimension&quot;, com.newage.fx.finance.domain.enums.YesNo.class);</span>
+
+<span class="nc" id="L65">    public final NumberPath&lt;Long&gt; packId = createNumber(&quot;packId&quot;, Long.class);</span>
+
+<span class="nc" id="L67">    public final NumberPath&lt;Long&gt; slNo = createNumber(&quot;slNo&quot;, Long.class);</span>
+
+<span class="nc" id="L69">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+<span class="nc" id="L71">    public final NumberPath&lt;Double&gt; volumeInCbm = createNumber(&quot;volumeInCbm&quot;, Double.class);</span>
+
+<span class="nc" id="L73">    public final NumberPath&lt;Double&gt; volumeInCft = createNumber(&quot;volumeInCft&quot;, Double.class);</span>
+
+<span class="nc" id="L75">    public final NumberPath&lt;Double&gt; volumeWeight = createNumber(&quot;volumeWeight&quot;, Double.class);</span>
+
+<span class="nc" id="L77">    public final NumberPath&lt;Double&gt; width = createNumber(&quot;width&quot;, Double.class);</span>
+
+    public QMasterDimensionDetail(String variable) {
+<span class="nc" id="L80">        this(MasterDimensionDetail.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L81">    }</span>
+
+    public QMasterDimensionDetail(Path&lt;? extends MasterDimensionDetail&gt; path) {
+<span class="nc" id="L84">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L85">    }</span>
+
+    public QMasterDimensionDetail(PathMetadata metadata) {
+<span class="nc" id="L88">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L89">    }</span>
+
+    public QMasterDimensionDetail(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L92">        this(MasterDimensionDetail.class, metadata, inits);</span>
+<span class="nc" id="L93">    }</span>
+
+    public QMasterDimensionDetail(Class&lt;? extends MasterDimensionDetail&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L96">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L97" title="All 2 branches missed.">        this.masterHeader = inits.isInitialized(&quot;masterHeader&quot;) ? new QMasterHeader(forProperty(&quot;masterHeader&quot;), inits.get(&quot;masterHeader&quot;)) : null;</span>
+<span class="nc" id="L98">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

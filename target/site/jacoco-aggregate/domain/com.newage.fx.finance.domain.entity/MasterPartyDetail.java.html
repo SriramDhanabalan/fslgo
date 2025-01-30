@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterPartyDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterPartyDetail.java</span></div><h1>MasterPartyDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+@Table(name = &quot;master_party_detail&quot;)
+public class MasterPartyDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L25">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L28">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L31">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L34">    private Long slNo;</span>
+
+    @Column(name = &quot;shipper_id&quot;)
+<span class="nc" id="L37">    private Long shipperId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;shipper_name&quot;)
+<span class="nc" id="L41">    private String shipperName;</span>
+
+    @Valid
+    @JoinColumn(name = &quot;shipper_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_SHIPPERADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L46">    private PartyAddressDetail shipperAddress;</span>
+
+    @Column(name = &quot;consignee_id&quot;)
+<span class="nc" id="L49">    private Long consigneeId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;consignee_name&quot;)
+<span class="nc" id="L53">    private String consigneeName;</span>
+
+    @Valid
+    @JoinColumn(name = &quot;consignee_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_CONSIGNEEADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L58">    private PartyAddressDetail consigneeAddress;</span>
+
+    @Column(name = &quot;origin_agent_id&quot;)
+<span class="nc" id="L61">    private Long originAgentId;</span>
+
+    @Column(name = &quot;origin_agent_name&quot;)
+<span class="nc" id="L64">    private String originAgentName;</span>
+
+    @JoinColumn(name = &quot;origin_agent_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_ORIGIN_AGENTADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L68">    private PartyAddressDetail originAgentAddress;</span>
+
+    @Column(name = &quot;destination_agent_id&quot;)
+<span class="nc" id="L71">    private Long destinationAgentId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;destination_agent_name&quot;)
+<span class="nc" id="L75">    private String destinationAgentName;</span>
+
+
+    @Valid
+    @JoinColumn(name = &quot;destination_agent_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_DESTINATION_AGENTADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L81">    private PartyAddressDetail destinationAgentAddress;</span>
+
+    @Column(name = &quot;notify_customer_1_id&quot;)
+<span class="nc" id="L84">    private Long notifyOneId;</span>
+
+    @JoinColumn(name = &quot;notify_customer_1_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_NOTIFY1_AGENTADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L88">    private PartyAddressDetail notifyOneAddress;</span>
+
+    @Column(name = &quot;notify_customer_2_id&quot;)
+<span class="nc" id="L91">    private Long notifyTwoId;</span>
+
+    @JoinColumn(name = &quot;notify_customer_2_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_NOTIFY2_AGENTADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L95">    private PartyAddressDetail notifyTwoAddress;</span>
+
+    @Column(name = &quot;forwarder_id&quot;)
+<span class="nc" id="L98">    private Long forwarderId;</span>
+
+    @JoinColumn(name = &quot;forwarder_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_PARTY_DETAIL_FORWARDER_AGENTADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L102">    private PartyAddressDetail forwarderAddress;</span>
+
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L107">    public MasterHeader masterHeader;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L111">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

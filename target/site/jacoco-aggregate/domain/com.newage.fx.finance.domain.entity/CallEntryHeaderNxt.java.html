@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CallEntryHeaderNxt.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CallEntryHeaderNxt.java</span></div><h1>CallEntryHeaderNxt.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L19">@Setter</span>
+<span class="nc" id="L20">@NoArgsConstructor</span>
+<span class="nc" id="L21">@AllArgsConstructor</span>
+@Table(name = &quot;call_entry_header&quot;)
+public class CallEntryHeaderNxt extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L28">    private Long id;</span>
+
+    @NotNull
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L33">    private Long version;</span>
+
+    @NotNull
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L37">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L40">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L43">    private Long branchId;</span>
+
+    @NotNull
+    @Column(name = &quot;call_entry_uid&quot;, length = 100, nullable = false)
+<span class="nc" id="L47">    private String callEntryUid;</span>
+
+    @NotNull
+    @Column(name = &quot;call_date&quot;, nullable = false)
+    @Temporal(TemporalType.TIMESTAMP)
+<span class="nc" id="L52">    private Date date;</span>
+
+    @Enumerated(EnumType.STRING)
+    @NotNull(message = &quot;Accepted values (Scheduled, Completed, Cancelled, Planned)&quot;)
+    @Column(name = &quot;call_status&quot;, length = 100)
+<span class="nc" id="L57">    CallEntryStatus status;</span>
+
+    @NotNull
+    @Column(name = &quot;customer_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L61">    private Long customerId;</span>
+
+    @NotNull
+    @Column(name = &quot;customer_name&quot;, nullable = false, length = 150)
+<span class="nc" id="L65">    private String customerName;</span>
+
+    @NotNull
+    @Column(name = &quot;salesman_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L69">    private Long salesmanId;</span>
+
+    @NotNull
+    @Column(name = &quot;call_owner_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L73">    private Long callOwnerId;</span>
+
+    @NotNull
+    @Column(name = &quot;call_owner_name&quot;, nullable = false, length = 50)
+<span class="nc" id="L77">    private String callOwnerName;</span>
+
+    @Column(name = &quot;call_owner_email&quot;, nullable = false, length = 100)
+<span class="nc" id="L80">    private String callOwnerEmail;</span>
+
+    @NotNull
+    @NotEmpty
+    @Column(name = &quot;call_no&quot;, nullable = false, length = 20)
+<span class="nc" id="L85">    private String callNo;</span>
+
+    @NotNull(message = &quot;Accepted Values (PHONE,VISIT)&quot;)
+    @Column(name = &quot;call_mode&quot;, nullable = false, length = 6)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L90">    private CallMode callMode;</span>
+
+    @NotNull(message = &quot;Accepted values (SPANCO(Suspect, Prospect, Analysis, Negotiation, Conclusion, Order))&quot;)
+    @Column(name = &quot;call_type&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L95">    private CallType callType;</span>
+
+    @NotNull
+    @Column(name = &quot;call_note&quot;, nullable = false)
+<span class="nc" id="L99">    private String callNote;</span>
+
+    @Column(name = &quot;latitude&quot;)
+<span class="nc" id="L102">    private Double latitude;</span>
+
+    @Column(name = &quot;longitude&quot;)
+<span class="nc" id="L105">    private Double longitude;</span>
+
+    @Column(name = &quot;location_name&quot;)
+<span class="nc" id="L108">    private String locationName;</span>
+
+    @Column(name = &quot;status_reason&quot;, length = 100)
+<span class="nc" id="L111">    private String statusReason;</span>
+
+    @NotNull(message = &quot;Accepted values (OCEAN,AIR,LAND,MULTI)&quot;)
+    @Column(name = &quot;routed&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L116">    private CallEntryRouted routed;</span>
+
+    @NotNull(message = &quot;Accepted values (LCL, FCL,AIR, LTL, FTL, SEAAIR)&quot;)
+    @Column(name = &quot;routed_by_id&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L121">    private RoutedService routedById;</span>
+
+    @NotNull(message = &quot;Accepted values (IMPORT, EXPORT, CROSSTRADE)&quot;)
+    @Column(name = &quot;shipment_transport_mode_id&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L126">    private ShipmentTransportMode shipmentTransportId;</span>
+
+    @NotNull
+    @Column(name = &quot;shipment_service_id&quot;, nullable = false)
+<span class="nc" id="L130">    private Long serviceId;</span>
+
+    @NotNull
+    @Column(name = &quot;shipment_trade_id&quot;, nullable = false)
+<span class="nc" id="L134">    private Long tradeId;</span>
+
+    @NotNull
+    @Column(name = &quot;origin_id&quot;, nullable = false)
+<span class="nc" id="L138">    private Long originId;</span>
+
+    @NotNull(message = &quot;Accepted values ( Prepaid,CollectT)&quot;)
+    @Column(name = &quot;destination_id&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L143">    private Freight destinationId;</span>
+
+    @NotNull(message = &quot;Accepted values (MANUAL, AUTO)&quot;)
+    @Column(name = &quot;tos_id&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L148">    private TosStatus tosId;</span>
+
+    @NotNull(message = &quot;Accepted values (TRADE, SERVICE)&quot;)
+    @Column(name = &quot;freight_term&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L153">    private CreationType freightTerm;</span>
+
+    @NotNull(message = &quot;Accepted values (FF, NVO, WMS)&quot;)
+    @Column(name = &quot;creation_mode&quot;, nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L158">    private CallEntryCreationMode creationMode;</span>
+
+    @Column(name = &quot;creation_type&quot;, nullable = false, length = 100)
+<span class="nc" id="L161">    private String creationType;</span>
+
+    @NotNull
+    @Column(name = &quot;division_id&quot;, nullable = false)
+<span class="nc" id="L165">    private Long divisionId;</span>
+
+    @NotNull
+    @Column(name = &quot;notes&quot;, nullable = false)
+<span class="nc" id="L169">    private String notes;</span>
+
+    @Temporal(TemporalType.TIMESTAMP)
+    @Column(name = &quot;schedule_date&quot;)
+<span class="nc" id="L173">    private Date scheduleFollowUpDate;</span>
+
+    @Column(name = &quot;call_completed_date&quot;, nullable = true)
+    @Temporal(TemporalType.TIMESTAMP)
+<span class="nc" id="L177">    private  Date callCompletedDate;</span>
+
+<span class="nc" id="L179">    @OneToMany(mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L180">    private List&lt;AttachmentDetail&gt; callEntryAttachmentDetail = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L182">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+<span class="nc" id="L183">    private List&lt;CallEntryAttendieesNxt&gt; customerContactDetailList = new ArrayList&lt;&gt;();</span>
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L186">    private List&lt;CallEntryFollowupJointCallNxt&gt; jointCallInfoList;</span>
+
+<span class="nc" id="L188">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+<span class="nc" id="L189">    private List&lt;CallEntryQuestionnairesNxt&gt; questionnaireList = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L192">    private CallEntryFollowUpNxt callEntryFollowUpNxt;</span>
+
+<span class="nc" id="L194">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;callEntryHeader&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+<span class="nc" id="L195">    private List&lt;CallEntryCompetitorDetailsNxt&gt; competitorList = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne( fetch = FetchType.LAZY,mappedBy = &quot;callEntry&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L198">    private CallEntryNxtToEfsPosting callEntryNxtToEfsPosting;</span>
+
+    @OneToMany(mappedBy = &quot;callEntryHeader&quot;,cascade = CascadeType.ALL)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L202">    private List&lt;CallEntryFollowUpLogHistory&gt; callEntryFollowUpLogHistories;</span>
+
+    @Column(name = &quot;call_time&quot;)
+<span class="nc" id="L205">    private String time;</span>
+
+    @Column(name = &quot;call_started_date&quot;)
+<span class="nc" id="L208">    private Date callStartDate;</span>
+
+    public void setCustomerContactDetailList(List&lt;CallEntryAttendieesNxt&gt; customerContactDetailList) {
+<span class="nc" id="L211">        this.customerContactDetailList.clear();</span>
+<span class="nc" id="L212">        this.customerContactDetailList.addAll(customerContactDetailList);</span>
+<span class="nc" id="L213">    }</span>
+
+    public void setCompetitorList(List&lt;CallEntryCompetitorDetailsNxt&gt; competitorList) {
+<span class="nc" id="L216">        this.competitorList.clear();</span>
+<span class="nc" id="L217">        this.competitorList.addAll(competitorList);</span>
+<span class="nc" id="L218">    }</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

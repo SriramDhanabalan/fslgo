@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentServiceDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentServiceDetail.java</span></div><h1>ShipmentServiceDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L18">@Setter</span>
+<span class="nc" id="L19">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_service_detail&quot;)
+public class ShipmentServiceDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L25">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L29">    private Long version;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L38">    private Long branchId;</span>
+
+    @Column(name = &quot;branch_name&quot;, length = 100)
+<span class="nc" id="L41">    private String branchName;</span>
+
+    @Column(name = &quot;shipment_service_uid&quot;, length = 100,nullable = false)
+<span class="nc" id="L44">    private String jobId;</span>
+
+    @Column(name = &quot;export_ref&quot;, length = 6)
+<span class="nc" id="L47">    private String exportRef;</span>
+
+    @Column(name = &quot;import_ref&quot;, length = 6)
+<span class="nc" id="L50">    private String importRef;</span>
+
+    @Column(name = &quot;service_transport_mode&quot;, nullable = false, length = 100)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L54">    private TransportMode serviceCode;</span>
+
+    @Column(name = &quot;service_date&quot;, nullable = false)
+<span class="nc" id="L57">    private Date shipmentDate;</span>
+
+    @Column(name = &quot;service_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L60">    private Long serviceId;</span>
+
+    @Column(name = &quot;service_trade&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L64">    private ImportExport tradeCode;</span>
+
+    @Column(name = &quot;product_code&quot;, length = 100,nullable = false)
+<span class="nc" id="L67">    private String serviceName;</span>
+
+    @Column(name = &quot;service_mode&quot;, length = 100,nullable = false)
+<span class="nc" id="L70">    private ShipmentCreationMode serviceMode;</span>
+
+    @Column(name = &quot;service_type&quot;, length = 100,nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L74">    private Service serviceType;</span>
+
+    @Column(name = &quot;business_type&quot;, length = 100,nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L78">    private ServiceType businessType;</span>
+
+    @Column(name = &quot;service_division&quot;, length = 100,nullable = false)
+<span class="nc" id="L81">    private String serviceDivision;</span>
+
+    @Column(name = &quot;service_status&quot;, length = 100,nullable = false)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L85">    private ShipmentStatus serviceStatus;</span>
+
+    @Column(name = &quot;billing_customer_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L88">    private Long billingCustomerId;</span>
+
+    @JoinColumn(name = &quot;billing_customer_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_BILLING_CUSTOMER_ADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L92">    private PartyAddressDetail billingCustomerAddress;</span>
+
+    @Column(name = &quot;cs_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L95">    private Long  csId;</span>
+
+    @Column(name = &quot;other_trade&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L99">    private OtherTrade otherTrade;</span>
+
+    @Column(name = &quot;booking_person&quot;,nullable = true)
+<span class="nc" id="L102">    private String bookingPerson;</span>
+
+    @OneToOne(mappedBy = &quot;serviceDetail&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L105">    private ShipmentServiceAddlDetail serviceAddlDetail;</span>
+
+    @OneToOne(mappedBy = &quot;shipmentService&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+<span class="nc" id="L108">    private MasterServiceLinkDetail linkDetailList;</span>
+
+<span class="nc" id="L110">    @OneToMany(mappedBy = &quot;shipmentService&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L111">    private List&lt;ShipmentCancellationLogHistory&gt;logHistories=new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L113">    @OneToMany(mappedBy = &quot;shipmentService&quot;,cascade = CascadeType.ALL)</span>
+<span class="nc" id="L114">    private List&lt;CfsWareHouseShipmentMap&gt; cfsWareHouseShipmentMaps=new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(mappedBy = &quot;shipmentService&quot;,cascade = CascadeType.ALL)
+<span class="nc" id="L117">    private CfsDeliveryHeaderDetails cfsDeliveryHeaderDetail;</span>
+
+    @ManyToOne
+    @Valid
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SERVICE_SHIPMENT_ID&quot;))
+<span class="nc" id="L122">    public ShipmentHeader shipmentHeader;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

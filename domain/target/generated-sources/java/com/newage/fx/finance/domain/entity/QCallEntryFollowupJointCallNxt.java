@@ -1,0 +1,89 @@
+package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCallEntryFollowupJointCallNxt is a Querydsl query type for CallEntryFollowupJointCallNxt
+ */
+@Generated("com.querydsl.codegen.EntitySerializer")
+public class QCallEntryFollowupJointCallNxt extends EntityPathBase<CallEntryFollowupJointCallNxt> {
+
+    private static final long serialVersionUID = -2079308205L;
+
+    private static final PathInits INITS = PathInits.DIRECT2;
+
+    public static final QCallEntryFollowupJointCallNxt callEntryFollowupJointCallNxt = new QCallEntryFollowupJointCallNxt("callEntryFollowupJointCallNxt");
+
+    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);
+
+    public final NumberPath<Long> branchId = createNumber("branchId", Long.class);
+
+    public final QCallEntryHeaderNxt callEntryHeader;
+
+    public final StringPath callReference = createString("callReference");
+
+    public final NumberPath<Long> companyId = createNumber("companyId", Long.class);
+
+    public final StringPath createdBy = createString("createdBy");
+
+    //inherited
+    public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
+
+    public final StringPath description = createString("description");
+
+    public final StringPath employeeEmail = createString("employeeEmail");
+
+    public final NumberPath<Long> employeeId = createNumber("employeeId", Long.class);
+
+    public final StringPath employeeName = createString("employeeName");
+
+    public final StringPath followUpEmailStatus = createString("followUpEmailStatus");
+
+    public final NumberPath<Long> groupCompanyId = createNumber("groupCompanyId", Long.class);
+
+    public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.JointCallStatus> jointCallStatus = createEnum("jointCallStatus", com.newage.fx.finance.domain.enums.JointCallStatus.class);
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.JointCallType> jointCallType = createEnum("jointCallType", com.newage.fx.finance.domain.enums.JointCallType.class);
+
+    public final StringPath lastModifiedBy = createString("lastModifiedBy");
+
+    //inherited
+    public final DateTimePath<java.util.Date> lastModifiedDate = _super.lastModifiedDate;
+
+    public final NumberPath<Long> slNo = createNumber("slNo", Long.class);
+
+    public final NumberPath<Long> version = createNumber("version", Long.class);
+
+    public QCallEntryFollowupJointCallNxt(String variable) {
+        this(CallEntryFollowupJointCallNxt.class, forVariable(variable), INITS);
+    }
+
+    public QCallEntryFollowupJointCallNxt(Path<? extends CallEntryFollowupJointCallNxt> path) {
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+    }
+
+    public QCallEntryFollowupJointCallNxt(PathMetadata metadata) {
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QCallEntryFollowupJointCallNxt(PathMetadata metadata, PathInits inits) {
+        this(CallEntryFollowupJointCallNxt.class, metadata, inits);
+    }
+
+    public QCallEntryFollowupJointCallNxt(Class<? extends CallEntryFollowupJointCallNxt> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.callEntryHeader = inits.isInitialized("callEntryHeader") ? new QCallEntryHeaderNxt(forProperty("callEntryHeader"), inits.get("callEntryHeader")) : null;
+    }
+
+}
+

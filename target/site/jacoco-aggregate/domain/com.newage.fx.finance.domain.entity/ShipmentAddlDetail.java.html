@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentAddlDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentAddlDetail.java</span></div><h1>ShipmentAddlDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.AesFillingParty;
+import com.newage.fx.finance.domain.enums.YesNo;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_addl_detail&quot;)
+public class ShipmentAddlDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L27">    private Long version;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L30">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L33">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L36">    private Long branchId;</span>
+
+//    @Column(name = &quot;shipment_id&quot;, length = 100,nullable = false)
+//    private String shipmentId;
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L42">    private Long slNo;</span>
+
+    @Column(name = &quot;planned_carrier_id&quot;, length = 20)
+<span class="nc" id="L45">    private Long carrierId;</span>
+
+    @Column(name = &quot;planned_vessel_id&quot;, length = 20)
+<span class="nc" id="L48">    private Long vesselId;</span>
+
+    @Column(name = &quot;planned_route_no&quot;, length = 20)
+<span class="nc" id="L51">    private String voyageOrflightNo;</span>
+
+    @Column(name = &quot;planned_schedule_id&quot;, length = 20)
+<span class="nc" id="L54">    private Long plannedScheduleId;</span>
+
+    @Column(name = &quot;etd&quot;, nullable = true)
+<span class="nc" id="L57">    private Date etd;</span>
+
+    @Column(name = &quot;eta&quot;, nullable = true)
+<span class="nc" id="L60">    private Date eta;</span>
+
+    @Column(name = &quot;etd_time&quot;)
+<span class="nc" id="L63">    private String etdTime;</span>
+
+    @Column(name = &quot;eta_time&quot;)
+<span class="nc" id="L66">    private String etaTime;</span>
+
+    @Column(name = &quot;tab_validation&quot;, nullable = true)
+<span class="nc" id="L69">    private String tabValidation;</span>
+
+    @Column(name = &quot;transport_document_no&quot;, nullable = true)
+<span class="nc" id="L72">    private String transportDocumentNo;</span>
+
+    @Column(name = &quot;lc&quot;, nullable = true)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L76">    private YesNo lc;</span>
+
+    @Column(name = &quot;lc_number&quot;, nullable = true)
+<span class="nc" id="L79">    private String lcNumber;</span>
+
+    @Column(name = &quot;lc_exp_date&quot;, nullable = true)
+<span class="nc" id="L82">    private Date lcExpiryDate;</span>
+
+    @Column(name = &quot;do_number&quot;, nullable = true)
+<span class="nc" id="L85">    private String doNumber;</span>
+
+    @Column(name = &quot;do_date&quot;, nullable = true)
+<span class="nc" id="L88">    private Date doDate;</span>
+
+    @Column(name = &quot;lc_note&quot;, nullable = true)
+<span class="nc" id="L91">    private String lcNote;</span>
+
+    @Column(name = &quot;po_number&quot;, nullable = true, length = 100)
+<span class="nc" id="L94">    private String poNumber;</span>
+
+    @Column(name = &quot;customer_reference_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L97">    private String customerReferenceNo;</span>
+
+    @Column(name = &quot;shipper_ref_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L100">    private String shipperRefNo;</span>
+
+    @Column(name = &quot;invoice_note&quot;,nullable = true, length = 500)
+<span class="nc" id="L103">    private String invoiceNote;</span>
+
+    @Column(name = &quot;reference_number&quot;, nullable = true)
+<span class="nc" id="L106">    private String referenceNumber;</span>
+
+    @Column(name = &quot;item_no&quot;, nullable = true)
+<span class="nc" id="L109">    private Long itemNo;</span>
+
+    @Column(name = &quot;sub_item_no&quot;, nullable = true)
+<span class="nc" id="L112">    private Long subItemNo;</span>
+
+    @Column(name = &quot;tsa_no&quot;, nullable = true,length = 15)
+<span class="nc" id="L115">    private String tsaNo;</span>
+
+    @Column(name = &quot;as_agreed&quot;, nullable = true)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L119">    private YesNo asAgreed;</span>
+
+    @Column(name = &quot;aes_no&quot;, nullable = true,length = 15)
+<span class="nc" id="L122">    private String aesNo;</span>
+
+    @Column(name = &quot;ams_hbl_no&quot;, nullable = true,length = 15)
+<span class="nc" id="L125">    private String amsHblNo;</span>
+
+    @Column(name = &quot;import_file_no&quot;, nullable = true,length = 15)
+<span class="nc" id="L128">    private String importFileNo;</span>
+
+    @Column(name = &quot;it_no&quot;, nullable = true,length = 15)
+<span class="nc" id="L131">    private String itNo;</span>
+
+    @Column(name = &quot;go_date&quot;, nullable = true,length = 15)
+<span class="nc" id="L134">    private Date goDate;</span>
+
+    @Column(name = &quot;it_date&quot;, nullable = true,length = 15)
+<span class="nc" id="L137">    private Date itDate;</span>
+
+    @Column(name = &quot;it_approved_port_id&quot;,nullable = true,length = 15)
+<span class="nc" id="L140">    private Long itApprovedPortId;</span>
+
+    @Column(name = &quot;it_approved_port_name&quot;,nullable = true,length = 15)
+<span class="nc" id="L143">    private String itApprovedPortName;</span>
+
+    @Column(name = &quot;is_service_job&quot;,nullable = true,length = 15)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L147">    private YesNo isServiceJob;</span>
+
+    @Column(name = &quot;is_courier_shipment&quot;,nullable = true,length = 15)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L151">    private YesNo isCourierShipment;</span>
+
+    @Column(name = &quot;vgm_cutoff_date&quot;,nullable = true)
+<span class="nc" id="L154">    private Date vgmCutOffDate;</span>
+
+    @Column(name = &quot;vgm_weight_kgs&quot;, nullable = true)
+<span class="nc" id="L157">    private Double vgmWeightInKgs;</span>
+
+    @Column(name = &quot;vgm_weight_lbs&quot;, nullable = true)
+<span class="nc" id="L160">    private Double vgmWeightInLbs;</span>
+
+    @Column(name = &quot;aes_cutoff_date&quot;, nullable = true)
+<span class="nc" id="L163">    private Date aesCutoffDate;</span>
+
+    @Column(name = &quot;aes_filling_party&quot;, nullable = true, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L167">    private AesFillingParty aesFillingParty;</span>
+
+    //job transfer
+    @Column(name = &quot;nxt_toefs_id&quot;)
+<span class="nc" id="L171">    private Long nxToefsId;</span>
+
+    @Column(name = &quot;efs_jobno&quot;)
+<span class="nc" id="L174">    private String efsJobno;</span>
+
+    @Column(name = &quot;efs_segment_code&quot;)
+<span class="nc" id="L177">    private String efsSegmentCode;</span>
+
+    @Column(name = &quot;efs_job_status&quot;)
+<span class="nc" id="L180">    private String efsJobStatus;</span>
+
+    @Column(name = &quot;flag_insert_update&quot;)
+<span class="nc" id="L183">    private String InsertUpdate;</span>
+
+    //canada
+    @Column(name = &quot;ccn_no&quot;)
+<span class="nc" id="L187">    private String ccnNo;</span>
+
+    @Column(name = &quot;ccn_date&quot;)
+<span class="nc" id="L190">    private Date ccnDate;</span>
+
+    @Column(name = &quot;transhipment_ccn_no&quot;)
+<span class="nc" id="L193">    private String transhipmentCcnNo;</span>
+
+    @Column(name = &quot;trans_ccn_date&quot;)
+<span class="nc" id="L196">    private Date transCcnDate;</span>
+
+    @Column(name = &quot;forwarder_ccn_no&quot;)
+<span class="nc" id="L199">    private String forwarderCcnNo;</span>
+
+    @Column(name = &quot;forwarder_transhipment_ccn_no&quot;)
+<span class="nc" id="L202">    private String forwarderTranshipmentCcnNo;</span>
+
+    @Column(name = &quot;transhipment_warehouse_id&quot;)
+<span class="nc" id="L205">    private Long transhipmentWarehouseId;</span>
+
+    @Column(name = &quot;trans_warehouse_date&quot;)
+<span class="nc" id="L208">    private Date transWareHouseDate;</span>
+
+    @Column(name = &quot;last_free_day&quot;)
+<span class="nc" id="L211">    private Date lastFreeDay;</span>
+
+    @Column(name = &quot;shipment_completed&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L215">    private YesNo shipmentCompleted;</span>
+
+    @Column(name = &quot;master_no&quot;)
+<span class="nc" id="L218">    private String masterNo;</span>
+
+    @Column(name = &quot;mft_from_id&quot;)
+<span class="nc" id="L221">    private Long mftFromId;</span>
+
+    @Column(name = &quot;mft_to_id&quot;)
+<span class="nc" id="L224">    private Long mftToId;</span>
+
+    @Column(name = &quot;forwarder_hbl_no&quot;,length = 15)
+<span class="nc" id="L227">    private String forwarderHblNo;</span>
+
+    @Column(name = &quot;hold&quot;, nullable = true)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L231">    private YesNo hold;</span>
+
+    @Column(name = &quot;isf_number&quot;, nullable = true, length = 25)
+<span class="nc" id="L234">    private String isfNumber;</span>
+
+    @Column(name = &quot;forwarder_hbl&quot;, nullable = true, length = 15)
+<span class="nc" id="L237">    private String forwarderHbl;</span>
+
+    @Column(name = &quot;do_expiry_date&quot;, nullable = true)
+<span class="nc" id="L240">    private Date doExpiryDate;</span>
+
+    @Column(name = &quot;secondary_origin_booking_person&quot;,nullable = true)
+<span class="nc" id="L243">    private String secondaryOriginBookingPerson;</span>
+
+    @Column(name = &quot;secondary_destination_booking_person&quot;,nullable = true)
+<span class="nc" id="L246">    private String secondaryDestinationBookingPerson;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_header_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_ADDITIONAL_ID&quot;))
+<span class="nc" id="L250">    public ShipmentHeader shipmentHeader;</span>
+
+    @Column(name = &quot;cost_center_id&quot;)
+<span class="nc" id="L253">    private Long costCenterId;</span>
+
+    @Column(name = &quot;carrier_booking_no&quot;, nullable = true)
+<span class="nc" id="L256">    private String carrierBookingNo;</span>
+
+    @Column(name = &quot;carrier_booking_date&quot;, nullable = true)
+<span class="nc" id="L259">    private Date carrierBookingDate;</span>
+
+    @Column(name = &quot;manifest_hbl_no&quot;, length = 30)
+<span class="nc" id="L262">    private String manifestHblNo;</span>
+
+    @Column(name = &quot;hold_notes&quot;, length = 100)
+<span class="nc" id="L265">    private String holdNotes;</span>
+
+    @Column(name = &quot;cargo_ready_date&quot;)
+<span class="nc" id="L268">    private Date cargoReadyDate;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

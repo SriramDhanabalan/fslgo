@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>TosMaster.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">TosMaster.java</span></div><h1>TosMaster.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.Applicability;
+import com.newage.fx.finance.domain.enums.LovStatus;
+import com.newage.fx.finance.domain.enums.PrepaidCollect;
+import lombok.Getter;
+import lombok.Setter;
+import org.hibernate.annotations.Where;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+import java.util.Collection;
+
+@Entity
+@Where(clause = &quot;deleted &lt;&gt; true&quot;)
+@Getter
+<span class="nc" id="L20">@Setter</span>
+@Table(name = &quot;efs_tos_master&quot;, uniqueConstraints = {
+        @UniqueConstraint(columnNames = {&quot;code&quot;, &quot;updated_date&quot;}, name = &quot;UK_TOS_CODE&quot;),
+        @UniqueConstraint(columnNames = {&quot;name&quot;, &quot;updated_date&quot;}, name = &quot;UK_TOS_NAME&quot;)})
+<span class="nc" id="L24">public class TosMaster extends Auditable&lt;String&gt; {</span>
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L28">    Long id;</span>
+
+    @NotNull
+    @Size(min = 2, max = 3)
+    @Pattern(regexp = &quot;[a-z-A-Z ]*&quot;, message = &quot;Code has invalid characters&quot;)
+    @Column(name = &quot;code&quot;, nullable = false, length = 3)
+<span class="nc" id="L34">    String code;</span>
+
+    @NotNull
+    @Size(min = 2, max = 50)
+    @Pattern(regexp = &quot;[a-z-A-Z ]*&quot;, message = &quot;Name has invalid characters&quot;)
+    @Column(name = &quot;name&quot;, nullable = false, length = 50)
+<span class="nc" id="L40">    String name;</span>
+
+    @NotNull(message = &quot;Accepted Values (Prepaid, Collect)&quot;)
+    @Enumerated(EnumType.STRING)
+    @Column(name = &quot;freight_ppcc&quot;, nullable = false, length = 10)
+<span class="nc" id="L45">    PrepaidCollect freightPPCC;</span>
+
+    @ElementCollection(targetClass = Applicability.class)
+    @CollectionTable(name=&quot;efs_tos_master_applicability&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L50">    private Collection&lt;Applicability&gt; applicability;</span>
+
+    @Column(name = &quot;note&quot;, length = 500)
+<span class="nc" id="L53">    String note;</span>
+
+    @NotNull(message = &quot;Accepted Values (Active, Disabled, InActive)&quot;)
+    @Column(name = &quot;status&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L58">    LovStatus status;</span>
+
+<span class="nc" id="L60">    @Column(name = &quot;deleted&quot;)</span>
+<span class="nc" id="L61">    boolean deleted = false;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L65">    Long version;</span>
+
+    @Column(name = &quot;ranking&quot;)
+<span class="nc" id="L68">    Long ranking;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

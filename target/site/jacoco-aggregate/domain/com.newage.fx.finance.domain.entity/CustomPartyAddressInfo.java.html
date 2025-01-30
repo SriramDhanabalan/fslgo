@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>CustomPartyAddressInfo.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">CustomPartyAddressInfo.java</span></div><h1>CustomPartyAddressInfo.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L12">@Setter</span>
+<span class="nc" id="L13">@NoArgsConstructor</span>
+<span class="nc" id="L14">@AllArgsConstructor</span>
+@Table(name = &quot;nxt_custom_party_address_details&quot;)
+public class CustomPartyAddressInfo {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L20">    private Long id;</span>
+
+    @Column(name=&quot;address1&quot;)
+<span class="nc" id="L23">    private String address1;</span>
+
+    @Column(name=&quot;address2&quot;)
+<span class="nc" id="L26">    private String address2;</span>
+
+    @Column(name=&quot;address3&quot;)
+<span class="nc" id="L29">    private String address3;</span>
+
+    @Column(name=&quot;city_id&quot;)
+<span class="nc" id="L32">    private Long cityId;</span>
+
+    @Column(name=&quot;state_id&quot;)
+<span class="nc" id="L35">    private Long stateId;</span>
+
+    @Column(name=&quot;country_id&quot;)
+<span class="nc" id="L38">    private Long countryId;</span>
+
+    @Column(name=&quot;pin&quot;)
+<span class="nc" id="L41">    private String pin;</span>
+
+    @Column(name=&quot;type&quot;)
+<span class="nc" id="L44">    private String type;</span>
+
+    @Column(name=&quot;gst&quot;)
+<span class="nc" id="L47">    private String gst;</span>
+
+    @Column(name=&quot;iec&quot;)
+<span class="nc" id="L50">    private String iec;</span>
+
+    @Column(name=&quot;subcode&quot;)
+<span class="nc" id="L53">    private String subCode;</span>
+
+    @Column(name=&quot;pan&quot;)
+<span class="nc" id="L56">    private String pan;</span>
+
+    @Column(name=&quot;sub_name&quot;)
+<span class="nc" id="L59">    private String subName;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

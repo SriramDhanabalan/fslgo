@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QSpotQuotationChargeHistory.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QSpotQuotationChargeHistory.java</span></div><h1>QSpotQuotationChargeHistory.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QSpotQuotationChargeHistory is a Querydsl query type for SpotQuotationChargeHistory
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QSpotQuotationChargeHistory extends EntityPathBase&lt;SpotQuotationChargeHistory&gt; {
+
+    private static final long serialVersionUID = -2091639867L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QSpotQuotationChargeHistory spotQuotationChargeHistory = new QSpotQuotationChargeHistory(&quot;spotQuotationChargeHistory&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final StringPath chargeCode = createString(&quot;chargeCode&quot;);</span>
+
+<span class="nc" id="L31">    public final NumberPath&lt;Long&gt; chargeId = createNumber(&quot;chargeId&quot;, Long.class);</span>
+
+<span class="nc" id="L33">    public final StringPath chargeName = createString(&quot;chargeName&quot;);</span>
+
+<span class="nc" id="L35">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L37">    public final NumberPath&lt;Double&gt; costPerUnit = createNumber(&quot;costPerUnit&quot;, Double.class);</span>
+
+<span class="nc" id="L39">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L42">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L44">    public final NumberPath&lt;Double&gt; currencyAmount = createNumber(&quot;currencyAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L46">    public final StringPath currencyCode = createString(&quot;currencyCode&quot;);</span>
+
+<span class="nc" id="L48">    public final NumberPath&lt;Long&gt; currencyId = createNumber(&quot;currencyId&quot;, Long.class);</span>
+
+    public final QEnquiryHeader enquiryHeader;
+
+<span class="nc" id="L52">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L54">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L56">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L59">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L61">    public final NumberPath&lt;Double&gt; minAmount = createNumber(&quot;minAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L63">    public final NumberPath&lt;Double&gt; minCostAmount = createNumber(&quot;minCostAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L65">    public final NumberPath&lt;Double&gt; noOfUnit = createNumber(&quot;noOfUnit&quot;, Double.class);</span>
+
+<span class="nc" id="L67">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.QuoteProcess&gt; process = createEnum(&quot;process&quot;, com.newage.fx.finance.domain.enums.QuoteProcess.class);</span>
+
+<span class="nc" id="L69">    public final NumberPath&lt;Double&gt; roe = createNumber(&quot;roe&quot;, Double.class);</span>
+
+<span class="nc" id="L71">    public final NumberPath&lt;Double&gt; sellPerUnit = createNumber(&quot;sellPerUnit&quot;, Double.class);</span>
+
+<span class="nc" id="L73">    public final StringPath unit = createString(&quot;unit&quot;);</span>
+
+<span class="nc" id="L75">    public final StringPath unitCode = createString(&quot;unitCode&quot;);</span>
+
+<span class="nc" id="L77">    public final NumberPath&lt;Long&gt; unitId = createNumber(&quot;unitId&quot;, Long.class);</span>
+
+<span class="nc" id="L79">    public final DateTimePath&lt;java.util.Date&gt; validUpTo = createDateTime(&quot;validUpTo&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L81">    public final NumberPath&lt;Long&gt; vendorId = createNumber(&quot;vendorId&quot;, Long.class);</span>
+
+<span class="nc" id="L83">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QSpotQuotationChargeHistory(String variable) {
+<span class="nc" id="L86">        this(SpotQuotationChargeHistory.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L87">    }</span>
+
+    public QSpotQuotationChargeHistory(Path&lt;? extends SpotQuotationChargeHistory&gt; path) {
+<span class="nc" id="L90">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L91">    }</span>
+
+    public QSpotQuotationChargeHistory(PathMetadata metadata) {
+<span class="nc" id="L94">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L95">    }</span>
+
+    public QSpotQuotationChargeHistory(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L98">        this(SpotQuotationChargeHistory.class, metadata, inits);</span>
+<span class="nc" id="L99">    }</span>
+
+    public QSpotQuotationChargeHistory(Class&lt;? extends SpotQuotationChargeHistory&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L102">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L103" title="All 2 branches missed.">        this.enquiryHeader = inits.isInitialized(&quot;enquiryHeader&quot;) ? new QEnquiryHeader(forProperty(&quot;enquiryHeader&quot;), inits.get(&quot;enquiryHeader&quot;)) : null;</span>
+<span class="nc" id="L104">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

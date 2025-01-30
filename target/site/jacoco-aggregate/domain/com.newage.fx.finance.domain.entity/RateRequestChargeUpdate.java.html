@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>RateRequestChargeUpdate.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">RateRequestChargeUpdate.java</span></div><h1>RateRequestChargeUpdate.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+@Entity
+@Getter
+<span class="nc" id="L17">@Setter</span>
+<span class="nc" id="L18">@NoArgsConstructor</span>
+<span class="nc" id="L19">@AllArgsConstructor</span>
+@Table(name = &quot;efs_rate_request_charge_update&quot;)
+public class RateRequestChargeUpdate extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L26">    private Long id;</span>
+
+    @NotNull
+    @Column(name = &quot;charge_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L30">    private Long chargeId;</span>
+
+    @NotNull
+    @Column(name = &quot;unit_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L34">    private Long unitId;</span>
+
+    @NotNull
+    @Column(name = &quot;currency_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L38">    private Long currencyId;</span>
+
+    @Size(min=2,max = 14, message =&quot;BuyRate size must be between 2 and 14&quot;)
+    @Pattern(regexp = &quot;^[0-9.]*$&quot;, message = &quot;BuyRate should be Number only&quot;)
+    @Column(name = &quot;buy_rate&quot;)
+<span class="nc" id="L43">    private String buyRate;</span>
+
+    @Size(min=2,max = 14, message =&quot;MinAmount size must be between 2 and 14&quot;)
+    @Pattern(regexp = &quot;^[0-9.]*$&quot;, message = &quot;MinAmount should be Number only&quot;)
+    @Column(name = &quot;min_amount&quot;)
+<span class="nc" id="L48">    private String minAmount;</span>
+
+    @ManyToOne
+    @JoinColumn(name = &quot;rate_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CHARGE_UPDATE_RATE_REQUEST&quot;))
+<span class="nc" id="L52">    CreateRateRequest rateRequest;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L56">    private Long version;</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

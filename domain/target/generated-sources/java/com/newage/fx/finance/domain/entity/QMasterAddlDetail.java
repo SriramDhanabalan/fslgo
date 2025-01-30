@@ -1,0 +1,117 @@
+package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QMasterAddlDetail is a Querydsl query type for MasterAddlDetail
+ */
+@Generated("com.querydsl.codegen.EntitySerializer")
+public class QMasterAddlDetail extends EntityPathBase<MasterAddlDetail> {
+
+    private static final long serialVersionUID = -360460819L;
+
+    private static final PathInits INITS = PathInits.DIRECT2;
+
+    public static final QMasterAddlDetail masterAddlDetail = new QMasterAddlDetail("masterAddlDetail");
+
+    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);
+
+    public final StringPath accountingInfo = createString("accountingInfo");
+
+    public final StringPath accountNo = createString("accountNo");
+
+    public final StringPath agentIata = createString("agentIata");
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.YesNo> agreed = createEnum("agreed", com.newage.fx.finance.domain.enums.YesNo.class);
+
+    public final NumberPath<Long> branchId = createNumber("branchId", Long.class);
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.YesNo> buyerConsolidation = createEnum("buyerConsolidation", com.newage.fx.finance.domain.enums.YesNo.class);
+
+    public final StringPath commodity = createString("commodity");
+
+    public final NumberPath<Long> companyId = createNumber("companyId", Long.class);
+
+    public final StringPath createdBy = createString("createdBy");
+
+    //inherited
+    public final DateTimePath<java.util.Date> createdDate = _super.createdDate;
+
+    public final StringPath declaredValueCarrier = createString("declaredValueCarrier");
+
+    public final StringPath declaredValueCustoms = createString("declaredValueCustoms");
+
+    public final StringPath declaredValueInsurance = createString("declaredValueInsurance");
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.YesNo> emailSent = createEnum("emailSent", com.newage.fx.finance.domain.enums.YesNo.class);
+
+    public final NumberPath<Long> groupCompanyId = createNumber("groupCompanyId", Long.class);
+
+    public final StringPath handlingInfo = createString("handlingInfo");
+
+    public final NumberPath<Double> iataRate = createNumber("iataRate", Double.class);
+
+    public final NumberPath<Long> id = createNumber("id", Long.class);
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.YesNo> knownShipper = createEnum("knownShipper", com.newage.fx.finance.domain.enums.YesNo.class);
+
+    public final StringPath lastModifiedBy = createString("lastModifiedBy");
+
+    //inherited
+    public final DateTimePath<java.util.Date> lastModifiedDate = _super.lastModifiedDate;
+
+    public final StringPath lcNote = createString("lcNote");
+
+    public final StringPath marksAndNumbers = createString("marksAndNumbers");
+
+    public final EnumPath<com.newage.fx.finance.domain.enums.YesNo> masterCompleted = createEnum("masterCompleted", com.newage.fx.finance.domain.enums.YesNo.class);
+
+    public final QMasterHeader masterHeader;
+
+    public final NumberPath<Long> mftFromId = createNumber("mftFromId", Long.class);
+
+    public final NumberPath<Long> mftToId = createNumber("mftToId", Long.class);
+
+    public final StringPath previousCcn = createString("previousCcn");
+
+    public final StringPath rateClass = createString("rateClass");
+
+    public final NumberPath<Long> slNo = createNumber("slNo", Long.class);
+
+    public final StringPath tabValidation = createString("tabValidation");
+
+    public final NumberPath<Long> unstuffPlaceId = createNumber("unstuffPlaceId", Long.class);
+
+    public final NumberPath<Long> version = createNumber("version", Long.class);
+
+    public QMasterAddlDetail(String variable) {
+        this(MasterAddlDetail.class, forVariable(variable), INITS);
+    }
+
+    public QMasterAddlDetail(Path<? extends MasterAddlDetail> path) {
+        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
+    }
+
+    public QMasterAddlDetail(PathMetadata metadata) {
+        this(metadata, PathInits.getFor(metadata, INITS));
+    }
+
+    public QMasterAddlDetail(PathMetadata metadata, PathInits inits) {
+        this(MasterAddlDetail.class, metadata, inits);
+    }
+
+    public QMasterAddlDetail(Class<? extends MasterAddlDetail> type, PathMetadata metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.masterHeader = inits.isInitialized("masterHeader") ? new QMasterHeader(forProperty("masterHeader"), inits.get("masterHeader")) : null;
+    }
+
+}
+

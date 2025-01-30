@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>ShipmentServiceAddlDetail.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">ShipmentServiceAddlDetail.java</span></div><h1>ShipmentServiceAddlDetail.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.RateModificationStatus;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+@Entity
+@Getter
+<span class="nc" id="L15">@Setter</span>
+<span class="nc" id="L16">@NoArgsConstructor</span>
+@Table(name = &quot;shipment_service_addl_detail&quot;)
+public class ShipmentServiceAddlDetail extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L26">    private Long version;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L29">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long branchId;</span>
+
+    @Column(name = &quot;employee_id&quot;)
+<span class="nc" id="L38">    private Long employeeId;</span>
+
+    @Column(name = &quot;shipment_id&quot;, length = 100,nullable = false)
+<span class="nc" id="L41">    private Long shipmentId;</span>
+
+//    @Column(name = &quot;shipment_service_id&quot;, length = 100,nullable = false)
+//    private String shipmentServiceId;
+
+    @Column(name = &quot;sl_no&quot;, length = 20)
+<span class="nc" id="L47">    private Long slNo;</span>
+
+    @Column(name = &quot;rate_type&quot;, length = 20)
+<span class="nc" id="L50">    private String rateType;</span>
+
+    @Column(name = &quot;rate_id&quot;, length = 20)
+<span class="nc" id="L53">    private Long rateId;</span>
+
+    @Column(name = &quot;co_load&quot;, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L57">    private YesNo coLoad;</span>
+
+    @Column(name = &quot;co_loader_id&quot;, length = 20)
+<span class="nc" id="L60">    private Long coLoaderId;</span>
+
+    @Column(name = &quot;is_co_loader_name_edited&quot;)
+<span class="nc" id="L63">    private Boolean isCoLoaderNameEdited;</span>
+
+    @Column(name = &quot;co_loader_name&quot;)
+<span class="nc" id="L66">    private String coLoaderName;</span>
+
+    @JoinColumn(name = &quot;co_loader_address_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_BILLING_CUSTOMER_ADD&quot;))
+    @OneToOne(cascade = CascadeType.ALL)
+<span class="nc" id="L70">    private PartyAddressDetail coLoaderAddressId;</span>
+
+    @Column(name = &quot;cha_id&quot;, length = 20)
+<span class="nc" id="L73">    private Long chaId;</span>
+
+    @Column(name = &quot;cha_address_id&quot;, length = 20)
+<span class="nc" id="L76">    private Long chaAddressId;</span>
+
+    @Column(name = &quot;notes&quot;)
+//    @Lob
+<span class="nc" id="L80">    private String internalNote;</span>
+
+    @Column(name = &quot;rate_request_modification&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L84">    private YesNo rateRequestModification;</span>
+
+    @Column(name = &quot;rate_request_modification_status&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L88">    private RateModificationStatus rateRequestModificationStatus;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;shipment_service_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_SHIPMENT_SER_ADDITIONAL_ID&quot;))
+<span class="nc" id="L92">    public ShipmentServiceDetail serviceDetail;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

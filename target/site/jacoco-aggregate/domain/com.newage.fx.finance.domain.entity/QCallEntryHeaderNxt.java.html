@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QCallEntryHeaderNxt.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QCallEntryHeaderNxt.java</span></div><h1>QCallEntryHeaderNxt.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QCallEntryHeaderNxt is a Querydsl query type for CallEntryHeaderNxt
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QCallEntryHeaderNxt extends EntityPathBase&lt;CallEntryHeaderNxt&gt; {
+
+    private static final long serialVersionUID = 236997080L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = PathInits.DIRECT2;</span>
+
+<span class="nc" id="L23">    public static final QCallEntryHeaderNxt callEntryHeaderNxt = new QCallEntryHeaderNxt(&quot;callEntryHeaderNxt&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L29">    public final DateTimePath&lt;java.util.Date&gt; callCompletedDate = createDateTime(&quot;callCompletedDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L31">    public final ListPath&lt;AttachmentDetail, QAttachmentDetail&gt; callEntryAttachmentDetail = this.&lt;AttachmentDetail, QAttachmentDetail&gt;createList(&quot;callEntryAttachmentDetail&quot;, AttachmentDetail.class, QAttachmentDetail.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L33">    public final ListPath&lt;CallEntryFollowUpLogHistory, QCallEntryFollowUpLogHistory&gt; callEntryFollowUpLogHistories = this.&lt;CallEntryFollowUpLogHistory, QCallEntryFollowUpLogHistory&gt;createList(&quot;callEntryFollowUpLogHistories&quot;, CallEntryFollowUpLogHistory.class, QCallEntryFollowUpLogHistory.class, PathInits.DIRECT2);</span>
+
+    public final QCallEntryFollowUpNxt callEntryFollowUpNxt;
+
+    public final QCallEntryNxtToEfsPosting callEntryNxtToEfsPosting;
+
+<span class="nc" id="L39">    public final StringPath callEntryUid = createString(&quot;callEntryUid&quot;);</span>
+
+<span class="nc" id="L41">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CallMode&gt; callMode = createEnum(&quot;callMode&quot;, com.newage.fx.finance.domain.enums.CallMode.class);</span>
+
+<span class="nc" id="L43">    public final StringPath callNo = createString(&quot;callNo&quot;);</span>
+
+<span class="nc" id="L45">    public final StringPath callNote = createString(&quot;callNote&quot;);</span>
+
+<span class="nc" id="L47">    public final StringPath callOwnerEmail = createString(&quot;callOwnerEmail&quot;);</span>
+
+<span class="nc" id="L49">    public final NumberPath&lt;Long&gt; callOwnerId = createNumber(&quot;callOwnerId&quot;, Long.class);</span>
+
+<span class="nc" id="L51">    public final StringPath callOwnerName = createString(&quot;callOwnerName&quot;);</span>
+
+<span class="nc" id="L53">    public final DateTimePath&lt;java.util.Date&gt; callStartDate = createDateTime(&quot;callStartDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L55">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CallType&gt; callType = createEnum(&quot;callType&quot;, com.newage.fx.finance.domain.enums.CallType.class);</span>
+
+<span class="nc" id="L57">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L59">    public final ListPath&lt;CallEntryCompetitorDetailsNxt, QCallEntryCompetitorDetailsNxt&gt; competitorList = this.&lt;CallEntryCompetitorDetailsNxt, QCallEntryCompetitorDetailsNxt&gt;createList(&quot;competitorList&quot;, CallEntryCompetitorDetailsNxt.class, QCallEntryCompetitorDetailsNxt.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L61">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L64">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L66">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CallEntryCreationMode&gt; creationMode = createEnum(&quot;creationMode&quot;, com.newage.fx.finance.domain.enums.CallEntryCreationMode.class);</span>
+
+<span class="nc" id="L68">    public final StringPath creationType = createString(&quot;creationType&quot;);</span>
+
+<span class="nc" id="L70">    public final ListPath&lt;CallEntryAttendieesNxt, QCallEntryAttendieesNxt&gt; customerContactDetailList = this.&lt;CallEntryAttendieesNxt, QCallEntryAttendieesNxt&gt;createList(&quot;customerContactDetailList&quot;, CallEntryAttendieesNxt.class, QCallEntryAttendieesNxt.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L72">    public final NumberPath&lt;Long&gt; customerId = createNumber(&quot;customerId&quot;, Long.class);</span>
+
+<span class="nc" id="L74">    public final StringPath customerName = createString(&quot;customerName&quot;);</span>
+
+<span class="nc" id="L76">    public final DateTimePath&lt;java.util.Date&gt; date = createDateTime(&quot;date&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L78">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.Freight&gt; destinationId = createEnum(&quot;destinationId&quot;, com.newage.fx.finance.domain.enums.Freight.class);</span>
+
+<span class="nc" id="L80">    public final NumberPath&lt;Long&gt; divisionId = createNumber(&quot;divisionId&quot;, Long.class);</span>
+
+<span class="nc" id="L82">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CreationType&gt; freightTerm = createEnum(&quot;freightTerm&quot;, com.newage.fx.finance.domain.enums.CreationType.class);</span>
+
+<span class="nc" id="L84">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L86">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L88">    public final ListPath&lt;CallEntryFollowupJointCallNxt, QCallEntryFollowupJointCallNxt&gt; jointCallInfoList = this.&lt;CallEntryFollowupJointCallNxt, QCallEntryFollowupJointCallNxt&gt;createList(&quot;jointCallInfoList&quot;, CallEntryFollowupJointCallNxt.class, QCallEntryFollowupJointCallNxt.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L90">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L93">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L95">    public final NumberPath&lt;Double&gt; latitude = createNumber(&quot;latitude&quot;, Double.class);</span>
+
+<span class="nc" id="L97">    public final StringPath locationName = createString(&quot;locationName&quot;);</span>
+
+<span class="nc" id="L99">    public final NumberPath&lt;Double&gt; longitude = createNumber(&quot;longitude&quot;, Double.class);</span>
+
+<span class="nc" id="L101">    public final StringPath notes = createString(&quot;notes&quot;);</span>
+
+<span class="nc" id="L103">    public final NumberPath&lt;Long&gt; originId = createNumber(&quot;originId&quot;, Long.class);</span>
+
+<span class="nc" id="L105">    public final ListPath&lt;CallEntryQuestionnairesNxt, QCallEntryQuestionnairesNxt&gt; questionnaireList = this.&lt;CallEntryQuestionnairesNxt, QCallEntryQuestionnairesNxt&gt;createList(&quot;questionnaireList&quot;, CallEntryQuestionnairesNxt.class, QCallEntryQuestionnairesNxt.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L107">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CallEntryRouted&gt; routed = createEnum(&quot;routed&quot;, com.newage.fx.finance.domain.enums.CallEntryRouted.class);</span>
+
+<span class="nc" id="L109">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.RoutedService&gt; routedById = createEnum(&quot;routedById&quot;, com.newage.fx.finance.domain.enums.RoutedService.class);</span>
+
+<span class="nc" id="L111">    public final NumberPath&lt;Long&gt; salesmanId = createNumber(&quot;salesmanId&quot;, Long.class);</span>
+
+<span class="nc" id="L113">    public final DateTimePath&lt;java.util.Date&gt; scheduleFollowUpDate = createDateTime(&quot;scheduleFollowUpDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L115">    public final NumberPath&lt;Long&gt; serviceId = createNumber(&quot;serviceId&quot;, Long.class);</span>
+
+<span class="nc" id="L117">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.ShipmentTransportMode&gt; shipmentTransportId = createEnum(&quot;shipmentTransportId&quot;, com.newage.fx.finance.domain.enums.ShipmentTransportMode.class);</span>
+
+<span class="nc" id="L119">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.CallEntryStatus&gt; status = createEnum(&quot;status&quot;, com.newage.fx.finance.domain.enums.CallEntryStatus.class);</span>
+
+<span class="nc" id="L121">    public final StringPath statusReason = createString(&quot;statusReason&quot;);</span>
+
+<span class="nc" id="L123">    public final StringPath time = createString(&quot;time&quot;);</span>
+
+<span class="nc" id="L125">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.TosStatus&gt; tosId = createEnum(&quot;tosId&quot;, com.newage.fx.finance.domain.enums.TosStatus.class);</span>
+
+<span class="nc" id="L127">    public final NumberPath&lt;Long&gt; tradeId = createNumber(&quot;tradeId&quot;, Long.class);</span>
+
+<span class="nc" id="L129">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QCallEntryHeaderNxt(String variable) {
+<span class="nc" id="L132">        this(CallEntryHeaderNxt.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L133">    }</span>
+
+    public QCallEntryHeaderNxt(Path&lt;? extends CallEntryHeaderNxt&gt; path) {
+<span class="nc" id="L136">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L137">    }</span>
+
+    public QCallEntryHeaderNxt(PathMetadata metadata) {
+<span class="nc" id="L140">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L141">    }</span>
+
+    public QCallEntryHeaderNxt(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L144">        this(CallEntryHeaderNxt.class, metadata, inits);</span>
+<span class="nc" id="L145">    }</span>
+
+    public QCallEntryHeaderNxt(Class&lt;? extends CallEntryHeaderNxt&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L148">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L149" title="All 2 branches missed.">        this.callEntryFollowUpNxt = inits.isInitialized(&quot;callEntryFollowUpNxt&quot;) ? new QCallEntryFollowUpNxt(forProperty(&quot;callEntryFollowUpNxt&quot;), inits.get(&quot;callEntryFollowUpNxt&quot;)) : null;</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">        this.callEntryNxtToEfsPosting = inits.isInitialized(&quot;callEntryNxtToEfsPosting&quot;) ? new QCallEntryNxtToEfsPosting(forProperty(&quot;callEntryNxtToEfsPosting&quot;), inits.get(&quot;callEntryNxtToEfsPosting&quot;)) : null;</span>
+<span class="nc" id="L151">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

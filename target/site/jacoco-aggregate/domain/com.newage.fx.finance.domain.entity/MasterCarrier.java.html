@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>MasterCarrier.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">MasterCarrier.java</span></div><h1>MasterCarrier.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+
+import com.newage.fx.finance.domain.Validation.MasterValidation;
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.Date;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+@Table(name = &quot;master_carrier_detail&quot;)
+public class MasterCarrier extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L23">    private Long id;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L26">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;company_id&quot;, length = 20)
+<span class="nc" id="L29">    private Long companyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long branchId;</span>
+
+    @Column(name = &quot;sl_no&quot;)
+<span class="nc" id="L35">    private Long slNo;</span>
+
+    @Column(name = &quot;carrier_id&quot;)
+<span class="nc" id="L38">    private Long carrierId;</span>
+
+    @Column(name = &quot;sail_id&quot;)
+<span class="nc" id="L41">    private Long sailId;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;carrier_name&quot;)
+<span class="nc" id="L45">    private String carrierName;</span>
+
+    @Column(name = &quot;vessel_id&quot;)
+<span class="nc" id="L48">    private Long vesselId;</span>
+
+    @Column(name = &quot;vessel_name&quot;)
+<span class="nc" id="L51">    private String vesselName;</span>
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L54">    private String notes;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;route_no&quot;)
+<span class="nc" id="L58">    private String routeNo;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+
+    @Column(name = &quot;master_no&quot;)
+<span class="nc" id="L63">    private String masterNo;</span>
+
+    @NotNull(groups = {MasterValidation.class}, message = &quot;can not be null&quot;)
+    @Column(name = &quot;master_date&quot;)
+<span class="nc" id="L67">    private Date masterDate;</span>
+
+    @Column(name = &quot;master_do_no&quot;)
+<span class="nc" id="L70">    private Long masterDoNo;</span>
+
+//    @Column(name = &quot;flight_number&quot;)
+//    private String flightNumber;
+
+    @Column(name = &quot;carrier_booking_no&quot;)
+<span class="nc" id="L76">    private String carrierBookingNo;</span>
+
+    @Column(name = &quot;carrier_booking_date&quot;)
+<span class="nc" id="L79">    private Date carrierBookingDate;</span>
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = &quot;master_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_MASTER_HEADER_ID&quot;))
+<span class="nc" id="L83">    public MasterHeader masterHeader    ;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L87">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

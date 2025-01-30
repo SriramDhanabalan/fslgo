@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>EnquiryHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">EnquiryHeader.java</span></div><h1>EnquiryHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import java.util.*;
+
+@Entity
+@Getter
+<span class="nc" id="L16">@Setter</span>
+<span class="nc" id="L17">@NoArgsConstructor</span>
+<span class="nc" id="L18">@AllArgsConstructor</span>
+@Table(name = &quot;enquiry_header&quot;)
+public class EnquiryHeader extends Auditable&lt;String&gt; {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+<span class="nc" id="L25">    private Long id;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L29">    private Long version;</span>
+
+    @Column(name = &quot;company_entity_id&quot;, length = 20)
+<span class="nc" id="L32">    private Long companyId;</span>
+
+    @Column(name = &quot;group_company_id&quot;, length = 20)
+<span class="nc" id="L35">    private Long groupCompanyId;</span>
+
+    @Column(name = &quot;branch_id&quot;, length = 20)
+<span class="nc" id="L38">    private Long branchId;</span>
+
+    @Column(name = &quot;shipment_uid&quot;, nullable = false, length = 20)
+<span class="nc" id="L41">    private String shipmentUid;</span>
+
+    @Column(name = &quot;employee_id&quot;, length = 20)
+<span class="nc" id="L44">    private Long userEmployeeId;</span>
+
+    @Column(name = &quot;enquiry_uid&quot;, length = 100, nullable = true)
+<span class="nc" id="L47">    private String enquiryUid;</span>
+
+    @Column(name = &quot;enquiry_no&quot;, nullable = false)
+<span class="nc" id="L50">    private String enquiryNo;</span>
+
+    @Column(name = &quot;enquiry_date&quot;)
+<span class="nc" id="L53">    private Date enquiryDate;</span>
+
+    @Column(name = &quot;quote_by_date&quot;)
+<span class="nc" id="L56">    private Date quoteByDate;</span>
+
+    @NotNull(message = &quot;Accepted Values (Active, Block, Hide)&quot;)
+    @Column(name = &quot;status&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L61">    private EnquiryStatus status;</span>
+
+    @Column(name = &quot;customer_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L64">    private Long customerId;</span>
+
+    @Column(name = &quot;customer_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L67">    private String customerName;</span>
+
+//    @NotNull
+    @Column(name = &quot;salesman_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L71">    private Long salesmanId;</span>
+
+//    @NotNull
+    @Column(name = &quot;salesman_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L75">    private String salesmanName;</span>
+
+    @Column(name = &quot;routed&quot;, nullable = true, length = 20)
+<span class="nc" id="L78">    private Long routed;</span>
+
+    @Column(name = &quot;routed_by_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L81">    private Long routeBydId;</span>
+
+    @Column(name = &quot;creation_mode&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L85">    private CreationMode creationMode;</span>
+
+    @Column(name = &quot;creation_type&quot;, nullable = false, length = 20)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L89">    private CreationType creationType;</span>
+
+    @Column(name = &quot;division_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L92">    private Long divisionId;</span>
+
+   /* @Column(name = &quot;status&quot;, nullable = true, length = 20)
+    private String status;*/
+
+    @Column(name = &quot;notes&quot;)
+<span class="nc" id="L98">    private String notes;</span>
+
+    @Column(name = &quot;reason_id&quot;, nullable = true, length = 20)
+<span class="nc" id="L101">    private Long reasonId;</span>
+
+    @Column(name = &quot;remark&quot;, nullable = true, length = 2000)
+<span class="nc" id="L104">    private String remark;</span>
+
+    //CRT
+    @Column(name = &quot;contact_no&quot;)
+<span class="nc" id="L108">    private Long contactNo;</span>
+
+    @Column(name = &quot;enquiry_type&quot;, nullable = true, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L112">    private EnquiryType enquiryType;</span>
+
+    @Column(name = &quot;rate_request_modification&quot;)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L116">    private YesNo rateRequestModification;</span>
+
+
+
+    @Column(name = &quot;rate_request_created&quot;, nullable = true, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L122">    private YesNo rateRequestCreated;</span>
+
+    //Sailing Schedule
+    @Column(name = &quot;planned_schedule_id&quot;, length = 20)
+<span class="nc" id="L126">    private Long plannedScheduleId;</span>
+
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L130">    EnquiryAddlDetail enquiryAddlDetail;</span>
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L133">    EnquiryServiceDetail serviceDetail;</span>
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L136">    EnquiryServiceAddlDetail enquiryServiceAddlDetail;</span>
+
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+<span class="nc" id="L140">    EnquirySpotQuotationNew spotQuotation;</span>
+
+//    @OneToMany(mappedBy = &quot;enquiryDetail&quot;,cascade = CascadeType.ALL)
+//    private List&lt;TriggerDetail&gt; triggerDetail;//foreign key not added
+
+//    @OneToMany(mappedBy = &quot;enquiryDetail&quot;,cascade = CascadeType.ALL)
+//    private List&lt;EventDetail&gt; eventDetail;//foreign key not added
+
+//    @OneToMany(mappedBy = &quot;enquiryDetail&quot;,cascade = CascadeType.ALL)
+//    private List&lt;ReferenceDetail&gt; referenceDetail;//foreign key not added
+
+//    @OneToOne(mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+//    EnquiryPartyDetail enquiryPartyDetail;
+
+    //@OneToOne(mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.MERGE)
+//    EnquiryPickupDeliveryDetail pickupDeliveryDetail;xml
+
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L159">    Set&lt;EnquiryNewValueAddedServiceDetails&gt; valueAddedServiceDetail;</span>
+
+<span class="nc" id="L161">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL,orphanRemoval = true)</span>
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L163">    private Set&lt;EnquiryNewContainerDetails&gt; enquiryNewContainerDetails = new LinkedHashSet&lt;&gt;();</span>
+
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L166">    EnquiryCargoDetail cargoDetail;</span>
+
+    @OneToOne(fetch = FetchType.LAZY,mappedBy = &quot;enquiryDetail&quot;,cascade = CascadeType.ALL,orphanRemoval = true)
+<span class="nc" id="L169">    EnquirySpotRatesMapping enquirySpotRatesMapping;</span>
+
+
+<span class="nc" id="L172">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL, orphanRemoval = true)</span>
+<span class="nc" id="L173">    Set&lt;EnquiryDimensionDetail&gt; dimensionDetail = new HashSet&lt;&gt;();</span>
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L177">    private List&lt;AttachmentDetail&gt; attachmentDetail;</span>
+
+    @OneToMany(mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L180">    Set&lt;SpotQuotationRejectToResubmitLogHistory&gt; spotQuotationRejectToResubmitLogHistories;</span>
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = &quot;enquiryHeader&quot;, cascade = CascadeType.ALL)
+    @OrderBy(&quot;id DESC&quot;)
+<span class="nc" id="L184">    List&lt;SpotQuotationChargeHistory&gt; spotQuotationChargeHistories;</span>
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L188">    List&lt;EnquiryChargeDetailsNew&gt; enquiryChargeDetail;</span>
+
+<span class="nc" id="L190">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL)</span>
+    @OrderBy(&quot;id ASC&quot;)
+<span class="nc" id="L192">    List&lt;CrtTripHeaderDetails&gt; crtTripHeaderDetails = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+<span class="nc" id="L195">    public DirectRateRequestHeader directRateRequestHeader;</span>
+
+<span class="nc" id="L197">    @OneToMany(fetch = FetchType.LAZY, mappedBy = &quot;enquiryHeader&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L198">    List&lt;EnquiryRoutingDetail&gt; enquiryRoutingDetails = new ArrayList&lt;&gt;();</span>
+/*
+    @OneToMany(mappedBy = &quot;enquiryDetail&quot;, cascade = CascadeType.ALL, orphanRemoval = true)
+    List&lt;EnquiryVehicleTypeDetails&gt; enquiryVehicleTypeDetails;*/
+
+
+
+//    public void setAttachmentDetail(List&lt;AttachmentDetail&gt; attachmentDetail) {
+//        this.attachmentDetail.clear();
+//        this.attachmentDetail.addAll(attachmentDetail);
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

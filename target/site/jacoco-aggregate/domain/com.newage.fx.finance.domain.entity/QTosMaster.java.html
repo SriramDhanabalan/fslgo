@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QTosMaster.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QTosMaster.java</span></div><h1>QTosMaster.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QTosMaster is a Querydsl query type for TosMaster
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QTosMaster extends EntityPathBase&lt;TosMaster&gt; {
+
+    private static final long serialVersionUID = 394246891L;
+
+<span class="nc" id="L21">    public static final QTosMaster tosMaster = new QTosMaster(&quot;tosMaster&quot;);</span>
+
+<span class="nc" id="L23">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L25">    public final CollectionPath&lt;com.newage.fx.finance.domain.enums.Applicability, EnumPath&lt;com.newage.fx.finance.domain.enums.Applicability&gt;&gt; applicability = this.&lt;com.newage.fx.finance.domain.enums.Applicability, EnumPath&lt;com.newage.fx.finance.domain.enums.Applicability&gt;&gt;createCollection(&quot;applicability&quot;, com.newage.fx.finance.domain.enums.Applicability.class, EnumPath.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L27">    public final StringPath code = createString(&quot;code&quot;);</span>
+
+<span class="nc" id="L29">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L32">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L34">    public final BooleanPath deleted = createBoolean(&quot;deleted&quot;);</span>
+
+<span class="nc" id="L36">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.PrepaidCollect&gt; freightPPCC = createEnum(&quot;freightPPCC&quot;, com.newage.fx.finance.domain.enums.PrepaidCollect.class);</span>
+
+<span class="nc" id="L38">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L40">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L43">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L45">    public final StringPath name = createString(&quot;name&quot;);</span>
+
+<span class="nc" id="L47">    public final StringPath note = createString(&quot;note&quot;);</span>
+
+<span class="nc" id="L49">    public final NumberPath&lt;Long&gt; ranking = createNumber(&quot;ranking&quot;, Long.class);</span>
+
+<span class="nc" id="L51">    public final EnumPath&lt;com.newage.fx.finance.domain.enums.LovStatus&gt; status = createEnum(&quot;status&quot;, com.newage.fx.finance.domain.enums.LovStatus.class);</span>
+
+<span class="nc" id="L53">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+    public QTosMaster(String variable) {
+<span class="nc" id="L56">        super(TosMaster.class, forVariable(variable));</span>
+<span class="nc" id="L57">    }</span>
+
+    public QTosMaster(Path&lt;? extends TosMaster&gt; path) {
+<span class="nc" id="L60">        super(path.getType(), path.getMetadata());</span>
+<span class="nc" id="L61">    }</span>
+
+    public QTosMaster(PathMetadata metadata) {
+<span class="nc" id="L64">        super(TosMaster.class, metadata);</span>
+<span class="nc" id="L65">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

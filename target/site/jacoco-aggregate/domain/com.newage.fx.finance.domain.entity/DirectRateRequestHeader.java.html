@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DirectRateRequestHeader.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">DirectRateRequestHeader.java</span></div><h1>DirectRateRequestHeader.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import com.newage.fx.finance.domain.enums.ImportExport;
+import com.newage.fx.finance.domain.enums.JointCallStatus;
+import com.newage.fx.finance.domain.enums.RequestFor;
+import com.newage.fx.finance.domain.enums.YesNo;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import org.springframework.data.annotation.CreatedDate;
+
+import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+@Entity
+@Getter
+<span class="nc" id="L25">@Setter</span>
+<span class="nc" id="L26">@AllArgsConstructor</span>
+<span class="nc" id="L27">@NoArgsConstructor</span>
+@Table(name = &quot;efs_direct_rate_request_header&quot;)
+public class DirectRateRequestHeader extends Auditable&lt;String&gt; {
+
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L34">    private Long id;</span>
+
+    /*Rate Request No*/
+    @NotNull
+    @NotEmpty
+    @Column(name = &quot;rate_request_no&quot;, nullable = false, length = 20)
+<span class="nc" id="L40">    private String rateRequestNo;</span>
+
+    @NotNull
+    @CreatedDate
+    @Column(name = &quot;rate_request_date&quot;, nullable = false)
+<span class="nc" id="L45">    private Date rateRequestDate;</span>
+
+    @Column(name = &quot;service_code&quot;, nullable = false, length = 10)
+<span class="nc" id="L48">    private String serviceCode;</span>
+
+    @Column(name = &quot;trade_code&quot;, nullable = false, length = 10)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L52">    private ImportExport tradeCode;</span>
+
+    @NotNull
+    @Column(name = &quot;service_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L56">    private Long serviceId;</span>
+
+    @Column(name = &quot;service_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L59">    private String serviceName;</span>
+
+    @NotNull
+    @Column(name = &quot;origin_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L63">    private Long originId;</span>
+
+    @Column(name = &quot;origin_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L66">    private String originName;</span>
+
+    @NotNull
+    @Column(name = &quot;destination_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L70">    private Long destinationId;</span>
+
+    @Column(name = &quot;destination_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L73">    private String destinationName;</span>
+
+    @NotNull
+    @Column(name = &quot;tos_id&quot;, nullable = false, length = 20)
+<span class="nc" id="L77">    private Long tosId;</span>
+
+    @Column(name = &quot;tos_name&quot;, nullable = false, length = 100)
+<span class="nc" id="L80">    private String tosName;</span>
+
+    @Column(name = &quot;pickup_required&quot;, nullable = false, length = 10)
+<span class="nc" id="L83">    private boolean pickupRequired;</span>
+
+    @Column(name = &quot;delivery_required&quot;, nullable = false, length = 10)
+<span class="nc" id="L86">    private boolean deliveryRequired;</span>
+
+    @Column(name = &quot;pickup_place&quot;, nullable = true, length = 10)
+<span class="nc" id="L89">    private String pickupPlace;</span>
+
+    @Column(name = &quot;delivery_place&quot;, nullable = true, length = 10)
+<span class="nc" id="L92">    private String deliveryPlace;</span>
+
+    @Column(name = &quot;request_for&quot;, nullable = false, length = 50)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L96">    private RequestFor requestFor;</span>
+
+    // Need to Implement these columns once RBAC ready
+   /*
+   @Column(name = &quot;branch_id&quot;)
+    private Long branchId;
+    
+    @Column(name = &quot;user_id&quot;)
+    private Long userId;
+     */
+
+<span class="nc" id="L107">    @OneToMany(mappedBy = &quot;rateRequestHeader&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L108">    private List&lt;DirectRateRequestCarrierDetail&gt; carrier = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne(mappedBy = &quot;requestHeader&quot;, cascade = CascadeType.ALL)
+<span class="nc" id="L111">    DirectRateCargoDetails cargoDetails;</span>
+
+<span class="nc" id="L113">    @OneToMany(mappedBy = &quot;rateRequestHeader&quot;, cascade = CascadeType.ALL)</span>
+    @JsonManagedReference
+<span class="nc" id="L115">    private List&lt;CreateRateRequest&gt; rateRequests = new ArrayList&lt;&gt;();</span>
+
+<span class="nc" id="L117">    @OneToMany(mappedBy = &quot;rateRequestHeader&quot;, cascade = CascadeType.ALL)</span>
+<span class="nc" id="L118">    private List&lt;DirectAddRateDetails&gt; directAddRateDetails = new ArrayList&lt;&gt;();</span>
+
+    @OneToOne
+    @JoinColumn(name = &quot;enquiry_rate_request_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_ENQUIRY_TO_RATE_REQ_ID&quot;))
+<span class="nc" id="L122">    public EnquiryHeader enquiryHeader;</span>
+
+<span class="nc" id="L124">    @Column(name = &quot;enquiry_created&quot;) //check bro</span>
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L126">    private YesNo enquiryCreated = YesNo.No;</span>
+
+    @Column(name = &quot;emp_name&quot;, nullable = true, length = 100)
+<span class="nc" id="L129">    private String employeeName;</span>
+
+    @Column(name = &quot;email_id&quot;, nullable = true, length = 100)
+<span class="nc" id="L132">    private String emailId;</span>
+
+    @Column(name = &quot;phone_no&quot;, nullable = true, length = 100)
+<span class="nc" id="L135">    private String phoneNo;</span>
+
+    @Column(name = &quot;designation_name&quot;, nullable = true, length = 100)
+<span class="nc" id="L138">    private String designationName;</span>
+
+    @Column(name = &quot;status_mail&quot;, nullable = false, length = 8)
+    @Enumerated(EnumType.STRING)
+<span class="nc" id="L142">    private JointCallStatus jointCallStatus;</span>
+
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L147">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

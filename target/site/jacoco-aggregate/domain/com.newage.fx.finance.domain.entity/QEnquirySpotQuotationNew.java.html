@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>QEnquirySpotQuotationNew.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">QEnquirySpotQuotationNew.java</span></div><h1>QEnquirySpotQuotationNew.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import static com.querydsl.core.types.PathMetadataFactory.*;
+
+import com.querydsl.core.types.dsl.*;
+
+import com.querydsl.core.types.PathMetadata;
+import javax.annotation.Generated;
+import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
+
+
+/**
+ * QEnquirySpotQuotationNew is a Querydsl query type for EnquirySpotQuotationNew
+ */
+@Generated(&quot;com.querydsl.codegen.EntitySerializer&quot;)
+public class QEnquirySpotQuotationNew extends EntityPathBase&lt;EnquirySpotQuotationNew&gt; {
+
+    private static final long serialVersionUID = 14715082L;
+
+<span class="nc" id="L21">    private static final PathInits INITS = new PathInits(&quot;*&quot;, &quot;enquiryDetail.*.*&quot;);</span>
+
+<span class="nc" id="L23">    public static final QEnquirySpotQuotationNew enquirySpotQuotationNew = new QEnquirySpotQuotationNew(&quot;enquirySpotQuotationNew&quot;);</span>
+
+<span class="nc" id="L25">    public final com.newage.fx.finance.domain.entity.coa.QAuditable _super = new com.newage.fx.finance.domain.entity.coa.QAuditable(this);</span>
+
+<span class="nc" id="L27">    public final StringPath approvalName = createString(&quot;approvalName&quot;);</span>
+
+<span class="nc" id="L29">    public final DateTimePath&lt;java.util.Date&gt; approvedDate = createDateTime(&quot;approvedDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L31">    public final DateTimePath&lt;java.util.Date&gt; bookedDate = createDateTime(&quot;bookedDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L33">    public final StringPath branchAddress = createString(&quot;branchAddress&quot;);</span>
+
+<span class="nc" id="L35">    public final StringPath branchAddress2 = createString(&quot;branchAddress2&quot;);</span>
+
+<span class="nc" id="L37">    public final StringPath branchAddress3 = createString(&quot;branchAddress3&quot;);</span>
+
+<span class="nc" id="L39">    public final NumberPath&lt;Long&gt; branchId = createNumber(&quot;branchId&quot;, Long.class);</span>
+
+<span class="nc" id="L41">    public final NumberPath&lt;Double&gt; buyAmount = createNumber(&quot;buyAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L43">    public final ListPath&lt;EnquiryChargeDetailsNew, QEnquiryChargeDetailsNew&gt; chargeDetails = this.&lt;EnquiryChargeDetailsNew, QEnquiryChargeDetailsNew&gt;createList(&quot;chargeDetails&quot;, EnquiryChargeDetailsNew.class, QEnquiryChargeDetailsNew.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L45">    public final NumberPath&lt;Long&gt; companyId = createNumber(&quot;companyId&quot;, Long.class);</span>
+
+<span class="nc" id="L47">    public final StringPath createdBy = createString(&quot;createdBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L50">    public final DateTimePath&lt;java.util.Date&gt; createdDate = _super.createdDate;</span>
+
+<span class="nc" id="L52">    public final StringPath currencyCode = createString(&quot;currencyCode&quot;);</span>
+
+<span class="nc" id="L54">    public final NumberPath&lt;Long&gt; currencyId = createNumber(&quot;currencyId&quot;, Long.class);</span>
+
+<span class="nc" id="L56">    public final NumberPath&lt;Long&gt; customVersion = createNumber(&quot;customVersion&quot;, Long.class);</span>
+
+<span class="nc" id="L58">    public final StringPath empEmailId = createString(&quot;empEmailId&quot;);</span>
+
+<span class="nc" id="L60">    public final StringPath employeeName = createString(&quot;employeeName&quot;);</span>
+
+<span class="nc" id="L62">    public final StringPath empPhoneNo = createString(&quot;empPhoneNo&quot;);</span>
+
+    public final QEnquiryHeader enquiryDetail;
+
+<span class="nc" id="L66">    public final StringPath enquiryUid = createString(&quot;enquiryUid&quot;);</span>
+
+<span class="nc" id="L68">    public final NumberPath&lt;Long&gt; groupCompanyId = createNumber(&quot;groupCompanyId&quot;, Long.class);</span>
+
+<span class="nc" id="L70">    public final NumberPath&lt;Long&gt; id = createNumber(&quot;id&quot;, Long.class);</span>
+
+<span class="nc" id="L72">    public final StringPath lastModifiedBy = createString(&quot;lastModifiedBy&quot;);</span>
+
+    //inherited
+<span class="nc" id="L75">    public final DateTimePath&lt;java.util.Date&gt; lastModifiedDate = _super.lastModifiedDate;</span>
+
+<span class="nc" id="L77">    public final StringPath quotationNo = createString(&quot;quotationNo&quot;);</span>
+
+<span class="nc" id="L79">    public final ListPath&lt;QuotationTermsAndConditionsGeneralNotes, QQuotationTermsAndConditionsGeneralNotes&gt; quotationTermsAndConditionGeneralNotes = this.&lt;QuotationTermsAndConditionsGeneralNotes, QQuotationTermsAndConditionsGeneralNotes&gt;createList(&quot;quotationTermsAndConditionGeneralNotes&quot;, QuotationTermsAndConditionsGeneralNotes.class, QQuotationTermsAndConditionsGeneralNotes.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L81">    public final ListPath&lt;QuotationTermsAndConditionServiceNotes, QQuotationTermsAndConditionServiceNotes&gt; quotationTermsAndConditionServiceNotes = this.&lt;QuotationTermsAndConditionServiceNotes, QQuotationTermsAndConditionServiceNotes&gt;createList(&quot;quotationTermsAndConditionServiceNotes&quot;, QuotationTermsAndConditionServiceNotes.class, QQuotationTermsAndConditionServiceNotes.class, PathInits.DIRECT2);</span>
+
+<span class="nc" id="L83">    public final NumberPath&lt;Double&gt; quoteAmount = createNumber(&quot;quoteAmount&quot;, Double.class);</span>
+
+<span class="nc" id="L85">    public final EnumPath&lt;QuoteType&gt; quoteType = createEnum(&quot;quoteType&quot;, QuoteType.class);</span>
+
+<span class="nc" id="L87">    public final NumberPath&lt;Long&gt; reasonId = createNumber(&quot;reasonId&quot;, Long.class);</span>
+
+<span class="nc" id="L89">    public final StringPath reasonNote = createString(&quot;reasonNote&quot;);</span>
+
+<span class="nc" id="L91">    public final DateTimePath&lt;java.util.Date&gt; sentApprovalDate = createDateTime(&quot;sentApprovalDate&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L93">    public final StringPath shipmentUid = createString(&quot;shipmentUid&quot;);</span>
+
+<span class="nc" id="L95">    public final DateTimePath&lt;java.util.Date&gt; validUpTo = createDateTime(&quot;validUpTo&quot;, java.util.Date.class);</span>
+
+<span class="nc" id="L97">    public final NumberPath&lt;Long&gt; version = createNumber(&quot;version&quot;, Long.class);</span>
+
+<span class="nc" id="L99">    public final StringPath zipCode = createString(&quot;zipCode&quot;);</span>
+
+    public QEnquirySpotQuotationNew(String variable) {
+<span class="nc" id="L102">        this(EnquirySpotQuotationNew.class, forVariable(variable), INITS);</span>
+<span class="nc" id="L103">    }</span>
+
+    public QEnquirySpotQuotationNew(Path&lt;? extends EnquirySpotQuotationNew&gt; path) {
+<span class="nc" id="L106">        this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));</span>
+<span class="nc" id="L107">    }</span>
+
+    public QEnquirySpotQuotationNew(PathMetadata metadata) {
+<span class="nc" id="L110">        this(metadata, PathInits.getFor(metadata, INITS));</span>
+<span class="nc" id="L111">    }</span>
+
+    public QEnquirySpotQuotationNew(PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L114">        this(EnquirySpotQuotationNew.class, metadata, inits);</span>
+<span class="nc" id="L115">    }</span>
+
+    public QEnquirySpotQuotationNew(Class&lt;? extends EnquirySpotQuotationNew&gt; type, PathMetadata metadata, PathInits inits) {
+<span class="nc" id="L118">        super(type, metadata, inits);</span>
+<span class="nc bnc" id="L119" title="All 2 branches missed.">        this.enquiryDetail = inits.isInitialized(&quot;enquiryDetail&quot;) ? new QEnquiryHeader(forProperty(&quot;enquiryDetail&quot;), inits.get(&quot;enquiryDetail&quot;)) : null;</span>
+<span class="nc" id="L120">    }</span>
+
+}
+
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

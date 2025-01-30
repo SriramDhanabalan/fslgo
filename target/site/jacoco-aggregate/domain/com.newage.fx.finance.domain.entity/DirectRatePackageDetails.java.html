@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../../jacoco-resources/report.gif" type="image/gif"/><title>DirectRatePackageDetails.java</title><link rel="stylesheet" href="../../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../../index.html" class="el_report">service</a> &gt; <a href="../index.html" class="el_bundle">domain</a> &gt; <a href="index.source.html" class="el_package">com.newage.fx.finance.domain.entity</a> &gt; <span class="el_source">DirectRatePackageDetails.java</span></div><h1>DirectRatePackageDetails.java</h1><pre class="source lang-java linenums">package com.newage.fx.finance.domain.entity;
+
+import com.newage.fx.finance.domain.entity.coa.Auditable;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.persistence.*;
+
+
+@Entity
+@Getter
+<span class="nc" id="L14">@Setter</span>
+<span class="nc" id="L15">@NoArgsConstructor</span>
+<span class="nc" id="L16">@AllArgsConstructor</span>
+@Table(name = &quot;efs_direct_rate_package_details&quot;)
+public class DirectRatePackageDetails extends Auditable&lt;String&gt; {
+    /*Auto Generation Id*/
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+<span class="nc" id="L22">    private Long id;</span>
+
+
+
+    @Column(name = &quot;gross_weight_kg&quot;,length=14)
+<span class="nc" id="L27">    private double grossWeightKg;</span>
+
+
+
+    @Column(name = &quot;vol_weight_kg&quot;,length=14)
+<span class="nc" id="L32">    private double volWeightKg;</span>
+
+
+
+    @Column(name = &quot;chargeable_weight_kg&quot;,length=14)
+<span class="nc" id="L37">    private double chargeableWeightKg;</span>
+
+    @OneToOne()
+    @JoinColumn(name = &quot;cargo_detail_id&quot;, foreignKey = @ForeignKey(name = &quot;FK_CONTAINER_SERVICEID&quot;))
+<span class="nc" id="L41">    DirectRateCargoDetails cargoDetails;</span>
+
+    @Version
+    @Column(name = &quot;version&quot;)
+<span class="nc" id="L45">    private Long version;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>
