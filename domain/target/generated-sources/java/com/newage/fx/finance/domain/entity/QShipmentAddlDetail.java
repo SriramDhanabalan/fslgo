@@ -36,6 +36,8 @@ public class QShipmentAddlDetail extends EntityPathBase<ShipmentAddlDetail> {
 
     public final NumberPath<Long> branchId = createNumber("branchId", Long.class);
 
+    public final DateTimePath<java.util.Date> cargoReadyDate = createDateTime("cargoReadyDate", java.util.Date.class);
+
     public final DateTimePath<java.util.Date> carrierBookingDate = createDateTime("carrierBookingDate", java.util.Date.class);
 
     public final StringPath carrierBookingNo = createString("carrierBookingNo");

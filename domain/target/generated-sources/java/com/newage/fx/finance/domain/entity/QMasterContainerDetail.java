@@ -100,7 +100,7 @@ public class QMasterContainerDetail extends EntityPathBase<MasterContainerDetail
 
     public final StringPath referenceNumber = createString("referenceNumber");
 
-    public final ListPath<ShipmentContainerDetail, QShipmentContainerDetail> shipmentContainerDetails = this.<ShipmentContainerDetail, QShipmentContainerDetail>createList("shipmentContainerDetails", ShipmentContainerDetail.class, QShipmentContainerDetail.class, PathInits.DIRECT2);
+    public final QShipmentContainerDetail shipmentContainerDetail;
 
     public final NumberPath<Long> slNo = createNumber("slNo", Long.class);
 
@@ -149,6 +149,7 @@ public class QMasterContainerDetail extends EntityPathBase<MasterContainerDetail
     public QMasterContainerDetail(Class<? extends MasterContainerDetail> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.masterHeader = inits.isInitialized("masterHeader") ? new QMasterHeader(forProperty("masterHeader"), inits.get("masterHeader")) : null;
+        this.shipmentContainerDetail = inits.isInitialized("shipmentContainerDetail") ? new QShipmentContainerDetail(forProperty("shipmentContainerDetail"), inits.get("shipmentContainerDetail")) : null;
     }
 
 }

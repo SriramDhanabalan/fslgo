@@ -1,11 +1,10 @@
 package com.newage.fx.finance.service.impl;
 
 
-
 import com.google.gson.Gson;
+import com.newage.fx.finance.domain.convertor.GsonUtil;
 import com.newage.fx.finance.domain.entity.WebUserColumn;
 import com.newage.fx.finance.domain.repository.WebUserColumnRepository;
-import com.newage.fx.finance.domain.util.GsonUtil;
 import com.newage.fx.finance.service.WebUserColumnService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;

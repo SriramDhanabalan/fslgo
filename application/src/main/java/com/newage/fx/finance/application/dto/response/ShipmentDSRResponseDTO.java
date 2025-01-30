@@ -205,8 +205,6 @@ public class ShipmentDSRResponseDTO {
 
         @JsonProperty("SLA_STATUS")
         private String SLA_STATUS;
-
-
 }
 
 

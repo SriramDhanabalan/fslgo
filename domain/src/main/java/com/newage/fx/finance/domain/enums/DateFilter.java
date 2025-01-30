@@ -8,12 +8,7 @@ public enum DateFilter {
     LAST_60_DAYS(60),
     LAST_90_DAYS(90),
     LAST_180_DAYS(180),
-
     LAST_365_DAYS(365);
-
-
-
-
 
     private final int days;
 

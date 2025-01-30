@@ -6,7 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.util.List;
 
 @Getter
 @Setter
@@ -39,7 +39,7 @@ public class ShipmentsHeaderResponseDTO {
 
     private String origin_countrycode;
     private String destination_countrycode;
-    private String action;
+    private String action= "Track";
     private String actiontype;
     private String is_updated;
     private String updated_message;
@@ -48,5 +48,7 @@ public class ShipmentsHeaderResponseDTO {
     private String actual_departure;
     private String estimated_arrival;
     private String actuval_arrival;
+    private List<MilestoneDTO> milestone;
     private String booking_link="http://fslgo.com";
+
 }

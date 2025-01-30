@@ -116,13 +116,7 @@ public class ShipmentNewPostgresServiceImpl implements ShipmentNewPostgresServic
 //
             if (nxtCustomerId!=-1) {
                 predicates.add(
-                                        (shipment.partyDetail.consigneeId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.shipperId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.notifyOneId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.notifyTwoId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.forwarderId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.originAgentId.eq(nxtCustomerId))
-                                        .or(shipment.partyDetail.destinationAgentId.eq(nxtCustomerId)));
+                                        (shipment.customerId.eq(nxtCustomerId)));
 
 
             }
@@ -169,4 +163,9 @@ public class ShipmentNewPostgresServiceImpl implements ShipmentNewPostgresServic
             Predicate predicateAll = ExpressionUtils.allOf(predicates);
             return shipmentNewPostgresRepository.findAll(predicateAll, pageRequest);
         }
+
+    @Override
+    public ShipmentHeader getShipmentById(long id) {
+        return shipmentNewPostgresRepository.findById(id).orElse(null);
     }
+}

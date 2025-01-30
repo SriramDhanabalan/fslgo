@@ -27,7 +27,7 @@ public class WebUserColumn {
     @Column(name = "column_preferences", columnDefinition = "jsonb")
 
     private String columnPreferences;
-     @Transient
+@Transient
     private List< String> columnPreferencesList;
 
 }

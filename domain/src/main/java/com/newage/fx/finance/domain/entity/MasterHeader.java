@@ -155,8 +155,10 @@ public class MasterHeader extends Auditable<String> {
     private MasterPartyDetail masterPartyDetail;
 
     //vehicle details also will be also stored in same container table
-    @OneToMany(mappedBy = "masterHeader", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<MasterContainerDetail> masterContainerDetail;
+    // MasterHeader.java
+    @Valid
+    @OneToOne(mappedBy = "masterHeader", cascade = CascadeType.ALL)
+    private MasterContainerDetail masterContainerDetail;
 
 //    need to be implemented
 //    @OneToMany(mappedBy = "masterHeader", cascade = CascadeType.ALL)

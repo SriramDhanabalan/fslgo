@@ -264,4 +264,6 @@ public class ShipmentAddlDetail extends Auditable<String> {
     @Column(name = "hold_notes", length = 100)
     private String holdNotes;
 
+    @Column(name = "cargo_ready_date")
+    private Date cargoReadyDate;
 }

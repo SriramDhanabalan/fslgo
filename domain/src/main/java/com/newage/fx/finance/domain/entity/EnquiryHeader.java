@@ -1,16 +1,11 @@
 package com.newage.fx.finance.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.*;
-import com.querydsl.core.types.Predicate;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -21,7 +16,7 @@ import java.util.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name ="enquiry_header")
+@Table(name = "enquiry_header")
 public class EnquiryHeader extends Auditable<String> {
 
     @Id
@@ -57,8 +52,6 @@ public class EnquiryHeader extends Auditable<String> {
     @Column(name = "enquiry_date")
     private Date enquiryDate;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'")
-    @JsonProperty("filter_month")
     @Column(name = "quote_by_date")
     private Date quoteByDate;
 
@@ -73,11 +66,11 @@ public class EnquiryHeader extends Auditable<String> {
     @Column(name = "customer_name", nullable = false, length = 100)
     private String customerName;
 
-
+//    @NotNull
     @Column(name = "salesman_id", nullable = false, length = 20)
     private Long salesmanId;
 
-
+//    @NotNull
     @Column(name = "salesman_name", nullable = false, length = 100)
     private String salesmanName;
 
@@ -98,7 +91,8 @@ public class EnquiryHeader extends Auditable<String> {
     @Column(name = "division_id", nullable = true, length = 20)
     private Long divisionId;
 
-
+   /* @Column(name = "status", nullable = true, length = 20)
+    private String status;*/
 
     @Column(name = "notes")
     private String notes;
@@ -202,7 +196,6 @@ public class EnquiryHeader extends Auditable<String> {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "enquiryHeader", cascade = CascadeType.ALL)
     List<EnquiryRoutingDetail> enquiryRoutingDetails = new ArrayList<>();
-
 /*
     @OneToMany(mappedBy = "enquiryDetail", cascade = CascadeType.ALL, orphanRemoval = true)
     List<EnquiryVehicleTypeDetails> enquiryVehicleTypeDetails;*/

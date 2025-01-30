@@ -1,6 +1,5 @@
 package com.newage.fx.finance.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.*;
 import lombok.AllArgsConstructor;
@@ -77,7 +76,6 @@ public class EnquiryServiceDetail extends Auditable<String> {
     private String tradeLane;
 
     @Column(name = "tos_id", nullable = false, length = 20)
-    @JsonProperty("tos")
     private Long tosId;
 
     @Column(name = "enquiry_no", nullable = false, length = 20)

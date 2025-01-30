@@ -20,6 +20,7 @@ C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\controller\SailingScheduleController.java
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\dto\mapper\UserMasterMapper.java
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\dto\response\TaxMasterResponse.java
+C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\dto\response\CombinedDSRResponseDTO.java
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\dto\request\TaxEntityMappingRequestDTO.java
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\dto\request\SailingScheduleVesselRequestDTO.java
 C:\Users\Speed\Desktop\Pok3\nfx-vendor-backend-master\application\src\main\java\com\newage\fx\finance\application\configuration\HibernateEventConfiguration.java

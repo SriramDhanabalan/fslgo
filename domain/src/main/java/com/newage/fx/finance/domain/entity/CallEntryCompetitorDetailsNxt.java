@@ -1,6 +1,5 @@
 package com.newage.fx.finance.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,7 +31,6 @@ public class CallEntryCompetitorDetailsNxt extends Auditable<String> {
     Long destinationId;
 
     @Column(name = "rate", nullable = true, length = 100)
-    @JsonProperty("rate_validity")
     String rate;
 
     @Column(name = "group_company_id", length = 20)

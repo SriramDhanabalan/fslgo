@@ -1,7 +1,5 @@
 package com.newage.fx.finance.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.newage.fx.finance.domain.enums.SailingScheduleStatus;
 import lombok.AllArgsConstructor;
@@ -21,7 +19,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "nxt_schedule_details")
-public class SailingScheduleDetails extends Auditable<String> {
+public class SailingScheduleDetails  extends Auditable<String> {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,15 +37,9 @@ public class SailingScheduleDetails extends Auditable<String> {
     private Long originId;
 
     @Column(name = "origin_name", nullable = false, length = 100)
-    @JsonProperty("origin")
     private String originName;
 
-    @Column(name = "origin_code", nullable = false, length = 100)
-    @JsonProperty("origin_code")
-    private String originCode;
-
     @Column(name = "origin_cutoff_date", length = 100)
-    @JsonProperty("cutoff_date")
     private Date originCutOffDate;
 
     @Column(name = "origin_cutoff_time", length = 100)
@@ -61,17 +54,10 @@ public class SailingScheduleDetails extends Auditable<String> {
 
     @NotNull
     @Column(name = "port_of_loading", nullable = false, length = 20)
-    @JsonProperty("pol")
     private String portOfLoading;
 
     @NotNull
-    @Column(name = "port_of_name", nullable = false, length = 20)
-    @JsonProperty("pol_name")
-    private String portName;
-
-    @NotNull
     @Column(name = "etd", nullable = false, length = 100)
-    @JsonProperty("ETD")
     private Date etd;
 
     @NotNull
@@ -80,28 +66,16 @@ public class SailingScheduleDetails extends Auditable<String> {
 
     @NotNull
     @Column(name = "port_of_discharge", nullable = false, length = 20)
-    @JsonProperty("pod_name")
     private String portOfdischarge;
-
-//    @NotNull
-//    @Column(name = "port_of_discharge", nullable = false, length = 20)
-//    @JsonProperty("pod")
-//    private String pod ;
 
     @Column(name = "destination_id", nullable = false, length = 20)
     private Long destinationId;
 
     @Column(name = "destination_name", nullable = false, length = 100)
-    @JsonProperty("designation")
     private String destinationName;
-
-    @Column(name = "destination_code", nullable = false, length = 100)
-    @JsonProperty("destination_code")
-    private String destinationCode;
 
     @NotNull
     @Column(name = "eta", nullable = false, length = 100)
-    @JsonProperty("ETA")
     private Date eta;
 
     @NotNull
@@ -125,11 +99,9 @@ public class SailingScheduleDetails extends Auditable<String> {
     private String coLoaderName;
 
     @Column(name = "transit_LRD_to_port", length = 3)
-    @JsonProperty("ttlrd")
     private String transitLrdToPort;
 
     @Column(name = "transit_port_to_port", length = 3)
-    @JsonProperty("ttport")
     private String transitPortToPort;
 
     @Enumerated(EnumType.STRING)
@@ -169,7 +141,6 @@ public class SailingScheduleDetails extends Auditable<String> {
     private String vesselName;
 
     @Column(name = "voyage_number", length = 20)
-    @JsonProperty("voyage_no")
     private String voyageNumber;
 
     @Column(name = "rotation_number", length = 20)
@@ -188,10 +159,10 @@ public class SailingScheduleDetails extends Auditable<String> {
     @JoinColumn(name = "vessel_details_id", nullable = false, foreignKey = @ForeignKey(name = "FK_VESSEL_DETAILS_ID"))
     public SailingScheduleVesselDetails sailingScheduleVesselDetails;
 
-   @OneToMany(fetch = FetchType.LAZY, mappedBy = "sailingScheduleDetails", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sailingScheduleDetails", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SailingScheduleRoutings> sailingScheduleRoutings = new ArrayList();
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "sailingScheduleDetails", cascade = CascadeType.ALL, orphanRemoval = true)
+   @OneToMany(fetch = FetchType.LAZY, mappedBy = "sailingScheduleDetails", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<SailingScheduleEvents> sailingScheduleEvents = new ArrayList();
 
     @OneToOne(mappedBy = "sailingScheduleDetails", cascade = CascadeType.ALL)
@@ -200,6 +171,8 @@ public class SailingScheduleDetails extends Auditable<String> {
     @Version
     @Column(name = "version")
     private Long version;
+
+
 
 
 }

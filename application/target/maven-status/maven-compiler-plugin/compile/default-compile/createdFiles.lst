@@ -5,6 +5,7 @@ com\newage\fx\finance\application\dto\response\ShipmentResponseDTO.class
 com\newage\fx\finance\application\configuration\JwtTokenUtil.class
 com\newage\fx\finance\application\dto\request\TaxMasterRequestDTO.class
 com\newage\fx\finance\application\dto\response\WorkflowResponseDTO.class
+com\newage\fx\finance\application\dto\response\CombinedDSRResponseDTO.class
 com\newage\fx\finance\application\dto\response\CustomerCodeDTO.class
 com\newage\fx\finance\application\controller\TaxMasterController.class
 com\newage\fx\finance\application\configuration\RestAccessDeniedHandler.class
@@ -54,6 +55,7 @@ com\newage\fx\finance\application\dto\request\ShipmentDSRRequestDTO.class
 com\newage\fx\finance\application\dto\request\TaxChargeServiceMappingRequestDTO.class
 com\newage\fx\finance\application\dto\mapper\ShipmentPostgresMapper.class
 com\newage\fx\finance\application\dto\request\LoginRequest.class
+com\newage\fx\finance\application\dto\response\CombinedDSRResponseDTO$CombinedDSRResponseDTOBuilder.class
 com\newage\fx\finance\application\dto\response\DocumentDTO.class
 com\newage\fx\finance\application\dto\response\MilestoneDTO.class
 com\newage\fx\finance\application\configuration\BeanConfiguration.class

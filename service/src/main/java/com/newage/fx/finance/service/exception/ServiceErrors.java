@@ -60,8 +60,8 @@ public enum ServiceErrors {
 
     PARTY_IS_NOT_MAPPED_WITH_ACCOUNT("FINANCE-4003", "party.is.not.mapped.with.any.account"),
     SERVICE_CHARGE_NOT_MAPPED_WITH_ACCOUNT("FINANCE-4004", "service.charge.is.not.mapped.with.account"),
-    VESSEL_ID_NOT_FOUND("FINANCE-4005", "vessel.id.not.found"),
-    SAILING_SCHEDULE_ID_NOT_FOUND("FINANCE-4006","schedule.id.not.found" );
+    VESSEL_ID_NOT_FOUND("FINANCE-4005", "vessel.id.not.found");
+
 
 
     public final String CODE;

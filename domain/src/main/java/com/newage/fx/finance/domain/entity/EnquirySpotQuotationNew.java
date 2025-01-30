@@ -1,6 +1,7 @@
 package com.newage.fx.finance.domain.entity;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
+
+
+
 import com.newage.fx.finance.domain.entity.coa.Auditable;
 import com.querydsl.core.annotations.QueryInit;
 import lombok.AllArgsConstructor;

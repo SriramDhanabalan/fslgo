@@ -1,7 +1,7 @@
 package com.newage.fx.finance.domain.entity;
 
 import com.newage.fx.finance.domain.entity.coa.Auditable;
-import com.newage.fx.finance.domain.enums.SailingScheduleRoutingMode;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,15 +15,15 @@ import java.util.Date;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "sailing_schedule_routings")
+@Table(name = "nxt_sailing_schedule_routings")
 public class SailingScheduleRoutings extends Auditable<String> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "mode", length = 20)
-    private SailingScheduleRoutingMode Mode;
+//    @Enumerated(EnumType.STRING)
+//    @Column(name = "mode", length = 20)
+//    private SailingScheduleRoutingMode Mode;
 
     @Column(name = "origin_id", length = 20)
     private Long originId;
@@ -76,6 +76,5 @@ public class SailingScheduleRoutings extends Auditable<String> {
     @Version
     @Column(name = "version")
     private Long version;
-
 
 }
